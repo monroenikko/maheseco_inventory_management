@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDataBase2Project", "WindowsFormsApplication1\MyDataBase2Project.csproj", "{C573A462-AD51-4C80-8E60-515F74A9367C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRIGHTSIDE_IDEA_POS", "WindowsFormsApplication1\BRIGHTSIDE_IDEA_POS.csproj", "{C573A462-AD51-4C80-8E60-515F74A9367C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{A6618DAA-7A8F-45CB-A42B-EE7EC10F3D20}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MahesecoPOS", "Setup\Setup.vdproj", "{A6618DAA-7A8F-45CB-A42B-EE7EC10F3D20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

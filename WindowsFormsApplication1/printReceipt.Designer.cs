@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class printReceipt
     {
@@ -64,6 +66,10 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private printMe printMe1;
+        private BRIGHTSIDE_IDEA_POS.printMe printMe1;
+    }
+
+    internal class printMe : BRIGHTSIDE_IDEA_POS.printMe
+    {
     }
 }

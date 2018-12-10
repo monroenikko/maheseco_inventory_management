@@ -119,6 +119,7 @@
             this.btnprnit.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnprnit.colorActive = System.Drawing.Color.Green;
             this.btnprnit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnprnit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnprnit.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnprnit.ForeColor = System.Drawing.Color.White;
             this.btnprnit.Image = ((System.Drawing.Image)(resources.GetObject("btnprnit.Image")));
@@ -126,7 +127,7 @@
             this.btnprnit.ImageZoom = 50;
             this.btnprnit.LabelPosition = 0;
             this.btnprnit.LabelText = "";
-            this.btnprnit.Location = new System.Drawing.Point(6, 38);
+            this.btnprnit.Location = new System.Drawing.Point(153, 38);
             this.btnprnit.Margin = new System.Windows.Forms.Padding(6);
             this.btnprnit.Name = "btnprnit";
             this.btnprnit.Size = new System.Drawing.Size(40, 36);
@@ -174,6 +175,9 @@
             this.columnHeader5,
             this.columnHeader6});
             this.LVLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LVLogs.FullRowSelect = true;
+            this.LVLogs.HideSelection = false;
+            this.LVLogs.HoverSelection = true;
             this.LVLogs.Location = new System.Drawing.Point(23, 23);
             this.LVLogs.Name = "LVLogs";
             this.LVLogs.Size = new System.Drawing.Size(840, 436);
@@ -232,7 +236,7 @@
             this.MinimumSize = new System.Drawing.Size(572, 601);
             this.Name = "log_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "History log";
+            this.Text = "HISTORY LOG";
             this.Load += new System.EventHandler(this.log_form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

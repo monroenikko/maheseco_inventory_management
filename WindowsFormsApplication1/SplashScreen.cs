@@ -42,17 +42,25 @@ namespace WindowsFormsApplication1
             {
                 load.BackColor = Color.Lime;
                // bar.BackColor = Color.Yellow;
-                label1.Text = "preparing Inventory_UI...";
+                label1.Text = "preparing Inventory UI...";
             }
             else if (load.Width == 350)
             {
-                label1.Text = "preparing POS_UI...";
+                label1.Text = "preparing POS UI...";
             }
             else if (load.Width == 450)
             {
                label1.Text = "Getting Ready...";
             }
-            else if (load.Width >= 490)
+            else if (load.Width == 490)
+            {
+                label1.Text = "This is made by BRIGHTSIDE IDEA GROUP...";
+            }
+            else if (load.Width == 700)
+            {
+                label1.Text = "All Data is ready..";
+            }
+            else if (load.Width >= 800)
             {
                 timer1.Stop();
                 mform log = new mform();

@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class damageLogs
     {
@@ -63,6 +65,10 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CR_damagedHistory CR_damagedHistory1;
+        private BRIGHTSIDE_IDEA_POS.CR_damagedHistory CR_damagedHistory1;
+    }
+
+    internal class CR_damagedHistory : BRIGHTSIDE_IDEA_POS.CR_damagedHistory
+    {
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class expiredLogs
     {
@@ -63,6 +65,10 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CR_expiredLogs CR_expiredLogs1;
+        private BRIGHTSIDE_IDEA_POS.CR_expiredLogs CR_expiredLogs1;
+    }
+
+    internal class CR_expiredLogs : BRIGHTSIDE_IDEA_POS.CR_expiredLogs
+    {
     }
 }

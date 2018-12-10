@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        int totalrmed;
+        double totalrmed;
         void rMed_total()
         {
             double ColumnAvg = 0;
@@ -98,7 +98,7 @@ namespace WindowsFormsApplication1
                 ColumnAvg += double.Parse(LVLogs.Items[i].SubItems[7].Text);
             }
 
-            totalrmed = Convert.ToInt32(ColumnAvg.ToString());
+            totalrmed = Convert.ToDouble(ColumnAvg.ToString());
             //totalrmed = ColumnAvg.ToString();
 
         }
@@ -111,9 +111,9 @@ namespace WindowsFormsApplication1
 
             Cursor.Current = Cursors.WaitCursor;
 
-                ReportTodaysLog showme = new ReportTodaysLog(totalrmed);
+            ReportTodaysLog showme = new ReportTodaysLog(totalrmed);
 
-                showme.ShowDialog();
+            showme.ShowDialog();
 
 
         }

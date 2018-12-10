@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
     public partial class mform : Form
     {
-        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=maheseco; port= 3306; username=root;password=");
+        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=mahesecoinventory; port= 3306; username=root;password=");
         MySqlCommand Cmd;
         MySqlDataReader reader;
 

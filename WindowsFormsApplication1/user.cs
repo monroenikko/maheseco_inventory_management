@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApplication1
-{
-
-   
+{  
 
     public class User
     {

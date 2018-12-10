@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication1 {
+namespace BRIGHTSIDE_IDEA_POS {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1 {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApplication1.returnedMedicine.rpt";
+                return "BRIGHTSIDE_IDEA_POS.returnedMedicine.rpt";
             }
             set {
                 // Do nothing

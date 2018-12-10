@@ -20,10 +20,10 @@ namespace WindowsFormsApplication1
         DataTable dt = new DataTable();
         MySqlDataReader reader;
         MySqlCommand Cmd;
-        
+        private DataSet ds = new DataSet();
 
 
-        
+
         public POS(string user, string num1)
         {
             InitializeComponent();
@@ -31,11 +31,15 @@ namespace WindowsFormsApplication1
             timein.Text = num1;
             this.KeyPreview = true;
             postId();
+            lbl_notif.Visible = false;
+
+            tbchange2.ForeColor = Color.Black;
+            postId();
         }
 
         private void POS_Load(object sender, EventArgs e)
         {
-            
+
             //star to display the clock
             clock.Start();
 
@@ -44,17 +48,19 @@ namespace WindowsFormsApplication1
             LVPOS.FullRowSelect = true;
 
             LVPOS.Columns.Add("ID#", 60);
-            LVPOS.Columns.Add("ITEM NAME", 120);
-            LVPOS.Columns.Add("UNIT", 120);
+            LVPOS.Columns.Add("ITEM NAME", 150);
+            LVPOS.Columns.Add("UNIT", 150);
             LVPOS.Columns.Add("COST", 170);
             LVPOS.Columns.Add("ITEM qty", 90);
-     //       LVPOS.Columns.Add("SUBTOTAL", 90);
-     //       LVPOS.Columns.Add("DISC %", 90);
-     //       LVPOS.Columns.Add("NETTOTAL", 90);
-     //       LVPOS.Columns.Add("DISC AMT", 90);
+            //       LVPOS.Columns.Add("SUBTOTAL", 90);
+            //       LVPOS.Columns.Add("DISC %", 90);
+            //       LVPOS.Columns.Add("NETTOTAL", 90);
+            //       LVPOS.Columns.Add("DISC AMT", 90);
+
 
             //grit for users
             welcome();
+
 
             titems.Enabled = false;
             bottompanel.Enabled = false;
@@ -69,9 +75,9 @@ namespace WindowsFormsApplication1
             uptotal.Visible = false;
             tdiscount.Enabled = false;
             upqty.Enabled = false;
-           // pinpanel.Visible = false;
+            // pinpanel.Visible = false;
 
-            
+
             dpanel.Visible = false;
             textStock.Enabled = false;
 
@@ -83,7 +89,7 @@ namespace WindowsFormsApplication1
             itemlist.View = View.Details;
             itemlist.FullRowSelect = true;
 
-            
+
             itemlist.Columns.Add("ITEM ID", 125);
             itemlist.Columns.Add("ITEM NAME", 125);
             itemlist.Columns.Add("BRAND", 125);
@@ -94,23 +100,22 @@ namespace WindowsFormsApplication1
 
 
 
+              retrive();
 
-
-            retrive();
-
-           // tdis.Enabled = false;
-           // pdiscount.Visible = false;
+            // tdis.Enabled = false;
+            // pdiscount.Visible = false;
             pid.Enabled = false;
+
             pcharge.Visible = false;
             pcharge.Width = 0;
 
 
             //discount
             textdisc.Enabled = false;
-          //  pupdate1.Visible = false;
+            //  pupdate1.Visible = false;
 
             //pinpanel.Visible = false;
-           // pupdate1.Visible = false;
+            // pupdate1.Visible = false;
             //dpanel.Visible = false;
 
             titemname.Enabled = false;
@@ -125,28 +130,146 @@ namespace WindowsFormsApplication1
             ControlExtension.Draggable(gbCharge, true);
             ControlExtension.Draggable(pdone, true);
             ControlExtension.Draggable(backpinpanel, true);
-                       
+
 
             finalamt.Enabled = false;
             invoice_no.Enabled = false;
 
             tbchange2.Enabled = false;
             tbchange2.Text = tchange.Text;
+            MessageBoxNotif();
+            fillNotification();
+        }
+
+        void MessageBoxNotif()
+        {
+            connection.Open();
+            Cmd = new MySqlCommand("SELECT * from drug_product where beforeExp ='" + timenow + "' ", connection);
+
+            string sid;
+            try
+            {
+
+                reader = Cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    sid = reader.GetString("ItemName");
+                    //cb_batchno.Items.Add(sid);
+                    //MessageBox.Show("The medicine " + sid + " is expired!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    notifyIcon1.Visible = true;
+                    notifyIcon1.BalloonTipText = "There is an expired medicine";
+                    notifyIcon1.ShowBalloonTip(1000);
+                    notifyIcon1.BalloonTipTitle = "EXPIRED";
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        string timenow;
+
+        void fillNotification()
+        {
+
+            DateTime date = DateTime.Now;
+            string MySQLFormatDate = date.ToString("yyyy-MM-dd");
+            timenow = MySQLFormatDate.ToString();
+
+            try
+            {
+                connection.Close();
+
+                Adapter = new MySqlDataAdapter("SELECT * from drug_product where beforeExp ='" + timenow + "' ", connection);
+                ds.Reset();
+                Adapter.Fill(ds);
+
+                LvNotif.Items.Clear();
+                // LVEXP.Items.Clear();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        LvNotif.Items.Add(ds.Tables[0].Rows[i]["ItemName"].ToString());
+                        LvNotif.Items[LvNotif.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["unit"].ToString());
+                        LvNotif.Items[LvNotif.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["batchNo"].ToString());
+
+                    }
+
+
+                    connection.Close();
+
+
+
+                    //int cnt = 0;
+
+                    for (int x = 0; x < ds.Tables[0].Rows.Count; x++)
+                    {
+                        int y;
+
+
+                        if (x < 0)
+                        {
+
+                        }
+                        else
+                        {
+                            y = x + 1;
+                            lbl_notif.Text = Convert.ToString(y);
+                            lbl_notif.Visible = true;
+                        }
+
+
+                        //cnt++;
+
+                    }
+
+
+
+                }
+
+                //Inventorymed_total();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            Adapter.Dispose();
+
+            connection.Close();
         }
 
 
         void postId()
         {
-            connection.Open();
-            try
+
+            if (pid.Text == "")
             {
-                Cmd = new MySqlCommand("SELECT max(PO_id)+1 FROM transaction", connection);
-                pid.Text = Cmd.ExecuteScalar().ToString();
+                pid.Text = "001";
             }
-            finally
+            else
             {
-                connection.Close();
+                connection.Open();
+                try
+                {
+                    Cmd = new MySqlCommand("SELECT max(PO_id)+1 FROM transaction", connection);
+                    pid.Text = Cmd.ExecuteScalar().ToString();
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
+            
         }
 
         void scape()
@@ -156,6 +279,7 @@ namespace WindowsFormsApplication1
                 this.Hide();
                 mform frm = new mform();
                 frm.Show();
+                connection.Close();
             }
         }
 
@@ -166,11 +290,11 @@ namespace WindowsFormsApplication1
         }
 
 
- 
+
 
         private void clock_Tick(object sender, EventArgs e)
         {
-            DateTime date  = DateTime.Now;
+            DateTime date = DateTime.Now;
             string MySQLFormatDate = date.ToString("yyyy-MM-dd HH:mm:ss");
             atime.Text = MySQLFormatDate.ToString();
 
@@ -180,36 +304,36 @@ namespace WindowsFormsApplication1
 
         }
 
-      
 
-        private void populateLV(String id, String name, String brand, String unit, String ucost,  String stock, String batchNO)
+
+        private void populateLV(String id, String name, String brand, String unit, String ucost, String stock, String batchNO)
         {
-            String[] row = { id, name, brand, unit, ucost, stock, batchNO};
+            String[] row = { id, name, brand, unit, ucost, stock, batchNO };
 
             ListViewItem item = new ListViewItem(row);
 
             itemlist.Items.Add(item);
 
         }
-//this is line for query of reorder level.
-        private void add(String id, String name,  String unit, String cost, String qty, String total, String disc, String subtotal, String discamt)
+        //this is line for query of reorder level.
+        private void add(String id, String name, String unit, String cost, String qty, String total, String disc, String subtotal, String discamt)
         {
-            String[] row = { id, name,  unit, cost, qty, total, disc, subtotal , discamt };
+            String[] row = { id, name, unit, cost, qty, total, disc, subtotal, discamt };
             ListViewItem item = new ListViewItem(row);
 
             LVPOS.FullRowSelect = true;
-           
+
 
             //ListViewItem item = new ListViewItem(OnMouseHover);
             LVPOS.Items.Add(item);
-            
+
         }
 
-        
+
         private void retrive()
         {
             //  string sql = "SELECT product.prod_id ,prod_cat.item,  prod_cat.brand, prod_brand.unit, product.U_Cost, prod_brand.qty FROM product join prod_brand on prod_brand.brand_id = prod_id join prod_cat on prod_cat.cat_id = prod_id";
-            string sql = "SELECT ItemID, ItemName,  brand, unit, price, stockQty, batchNo FROM drug";
+            string sql = "SELECT ItemID, ItemName,  brand, unit, price, stockQty, batchNo FROM drug where stockQty !=0 ";
             //string sql = "SELECT ItemID, ItemName, brand, unit, TRUNCATE(price, 2) as price ,stockQty, bathNo FROM drug";
             Cmd = new MySqlCommand(sql, connection);
 
@@ -222,7 +346,7 @@ namespace WindowsFormsApplication1
                 foreach (DataRow row in dt.Rows)
                 {
                     populateLV(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
-                    
+
                 }
                 connection.Close();
 
@@ -237,13 +361,13 @@ namespace WindowsFormsApplication1
         }
         //dsfadaf
 
-        int sampleID = 0;
+        string sampleID;
         int rstock = 0;
         int reordered_num = 0;
         void reOrdered_level()
         {
-         
-            string sql = "SELECT * FROM drug WHERE ItemID =" + sampleID + " ";
+
+            string sql = "SELECT * FROM drug WHERE ItemID ='" + sampleID + "' ";
             Cmd = new MySqlCommand(sql, connection);
 
             connection.Open();
@@ -260,13 +384,13 @@ namespace WindowsFormsApplication1
                 //condition for reOrdered vs. stock
                 if (reordered_num < rstock)
                 {
-                   // MessageBox.Show("your stock is Good", "INFORMATION", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    // MessageBox.Show("your stock is Good", "INFORMATION", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("your stock is "  + rstock + " and it's running out!", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("your stock is " + rstock + " and it's running out!", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
-                
+
             }
             else
             {
@@ -282,7 +406,7 @@ namespace WindowsFormsApplication1
         void totalConsumeItem()
         {
             connection.Open();
-            string sql = "SELECT * FROM drug_consume WHERE ItemID =" + sampleID + " ";
+            string sql = "SELECT * FROM drug_consume WHERE ItemID ='" + sampleID + "' ";
             Cmd = new MySqlCommand(sql, connection);
             //execute reader
             reader = Cmd.ExecuteReader();
@@ -290,7 +414,7 @@ namespace WindowsFormsApplication1
             if (reader.Read())
             {
                 stockfortotalConsume = reader.GetInt32("stockQty2");
-            }        
+            }
             else
             {
                 MessageBox.Show("NO DATA FILL");
@@ -305,7 +429,7 @@ namespace WindowsFormsApplication1
         void ConsumeItem()
         {
             connection.Open();
-            string sql = "SELECT * FROM drug_consume WHERE ItemID =" + sampleID + " "; 
+            string sql = "SELECT * FROM drug_consume WHERE ItemID ='" + sampleID + "' ";
             Cmd = new MySqlCommand(sql, connection);
             //execute reader
             reader = Cmd.ExecuteReader();
@@ -314,7 +438,7 @@ namespace WindowsFormsApplication1
             {
                 int batch1 = reader.GetInt32("batchNo");
 
-              //  int batch = Convert.ToInt32(batchh.Text);
+                //  int batch = Convert.ToInt32(batchh.Text);
 
                 if (batch == batch1)
                 {
@@ -323,7 +447,7 @@ namespace WindowsFormsApplication1
                     //computation for totalConsumeqty
                     totalQty = stockfortotalConsume + int.Parse(nqty.Text);
                     //condition for add qty of item
-                    string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID=" + sampleID + " && batchNo=" + batch + " ";
+                    string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID='" + sampleID + "' && batchNo=" + batch + " ";
 
                     // connection.Open();
 
@@ -360,7 +484,7 @@ namespace WindowsFormsApplication1
 
             connection.Close();
         }
-        
+
 
 
 
@@ -376,7 +500,7 @@ namespace WindowsFormsApplication1
 
         private void btnsearch_Click_1(object sender, EventArgs e)
         {
-            
+
             viewpanel.Enabled = true;
             viewpanel.BringToFront();
             disableBtn();
@@ -389,7 +513,7 @@ namespace WindowsFormsApplication1
         }
 
         int batch;
-//this part need to path for reorder level query
+        //this part need to path for reorder level query
         private void itemlist_MouseClick(object sender, MouseEventArgs e)
         {
             //itemlist.HoverSelection = true;
@@ -400,19 +524,19 @@ namespace WindowsFormsApplication1
             textUnit.Text = itemlist.SelectedItems[0].SubItems[3].Text;
             textCost.Text = itemlist.SelectedItems[0].SubItems[4].Text;
             textStock.Text = itemlist.SelectedItems[0].SubItems[5].Text;
-           // batchh.Text = itemlist.SelectedItems[0].SubItems[6].Text;
+            // batchh.Text = itemlist.SelectedItems[0].SubItems[6].Text;
 
             //for reorder level
             //sampleid.Text = itemlist.SelectedItems[0].SubItems[0].Text;
-            sampleID = int.Parse(itemlist.SelectedItems[0].SubItems[0].Text);
+            sampleID = itemlist.SelectedItems[0].SubItems[0].Text;
             rstock = int.Parse(itemlist.SelectedItems[0].SubItems[5].Text);
             batch = int.Parse(itemlist.SelectedItems[0].SubItems[6].Text);
 
-            
+
 
             nqty.Value = 0;
 
-          //  string sql = "SELECT ItemID, ItemName,  brand, unit, price, stockQty FROM drug";
+            //  string sql = "SELECT ItemID, ItemName,  brand, unit, price, stockQty FROM drug";
 
         }
 
@@ -421,11 +545,10 @@ namespace WindowsFormsApplication1
             totalConsumeItem();
             ConsumeItem();
             reOrdered_level();
+
             
 
-
-
-           try
+            try
             {
                 int zero = int.Parse(nqty.Text);
                 double cost = double.Parse(textCost.Text);
@@ -485,7 +608,7 @@ namespace WindowsFormsApplication1
                             //discount
                             tdiscount.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) * Convert.ToDouble(ndisc.Text)));
                             subtotal.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) - Convert.ToDouble(tdiscount.Text)));
-                            
+
 
                             //add to LVPOS_listview
                             add(textID.Text, textName.Text, textUnit.Text, textCost.Text, nqty.Text, uptotal.Text, ndisc.Text, subtotal.Text, tdiscount.Text);
@@ -495,6 +618,7 @@ namespace WindowsFormsApplication1
                             up_qty();
 
                             search_tb.Text = "search";
+                            //automaticaly refresh every qty of the item
                             itemlist.Items.Clear();
                             retrive();
 
@@ -511,55 +635,55 @@ namespace WindowsFormsApplication1
 
 
                 }
-               
+
                 cal();
             }
             catch (Exception)
             {
                 MessageBox.Show("Please select the item", "INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-                
-               
-                        
+
+
+
 
         }
 
-//=====================updating stock function
+        //=====================updating stock function
         private void up_qty()
         {
-            
-              string sql1 = "UPDATE drug SET stockQty='" + textStock.Text + "'  WHERE ItemID=" + textID.Text + " ";
-             
-                connection.Open();
 
-                  Cmd = new MySqlCommand(sql1, connection);
+            string sql1 = "UPDATE drug SET stockQty='" + textStock.Text + "'  WHERE ItemID='" + textID.Text + "' ";
 
+            connection.Open();
 
-                   try
-                   {
-                        if (Cmd.ExecuteNonQuery() == 1)
-                        {
-                                 //  MessageBox.Show("data is now updated");
-                            
-                        }
-                        else
-                        {
-                                 //  MessageBox.Show("data is not updated");
-                        }
-                   }
-                   catch (Exception ex)
-                   {
-                       MessageBox.Show(ex.Message);
-                   }
+            Cmd = new MySqlCommand(sql1, connection);
 
 
-                     connection.Close();
+            try
+            {
+                if (Cmd.ExecuteNonQuery() == 1)
+                {
+                    //  MessageBox.Show("data is now updated");
 
-    
+                }
+                else
+                {
+                    //  MessageBox.Show("data is not updated");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            connection.Close();
+
+
         }
 
 
-      
+
 
         private double discamt = 0.00;
         //========function for calculation
@@ -569,18 +693,18 @@ namespace WindowsFormsApplication1
             double ColumnAvg = 0.00;
             double disctotal = 0.00;
             double displaydisc = 0.00;
-            
+
 
 
             for (int i = 0; i < LVPOS.Items.Count; i++)
-            {   
+            {
                 ColumnAvg += double.Parse(LVPOS.Items[i].SubItems[5].Text);
                 displaydisc += double.Parse(LVPOS.Items[i].SubItems[8].Text);
                 disctotal += double.Parse(LVPOS.Items[i].SubItems[7].Text);
                 discamt += double.Parse(LVPOS.Items[i].SubItems[7].Text);
             }
 
-
+           
             bottompanel.Text = ColumnAvg.ToString();
             tbigtotal.Text = disctotal.ToString();
             tdiscount.Text = displaydisc.ToString();
@@ -594,7 +718,7 @@ namespace WindowsFormsApplication1
             tbigtotal.Text = y.ToString(".00");
 
             Double z;
-            Double.TryParse(bottompanel.Text, out z);
+            Double.TryParse(tdiscount.Text, out z);
             tdiscount.Text = z.ToString(".00");
 
         }
@@ -604,7 +728,7 @@ namespace WindowsFormsApplication1
             if (titemname.Text == "Item name")
             {
                 MessageBox.Show("Select atleast 1 item", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                             
+
             }
             else
             {
@@ -615,22 +739,22 @@ namespace WindowsFormsApplication1
                 LVPOS.SendToBack();
                 pinpanel.Visible = false;
                 pupdate1.Visible = false;
-             //   tablePOS.SendToBack();
+                //   tablePOS.SendToBack();
                 gbCharge.Visible = false;
 
                 dpanel.Visible = true;
                 dpanel.BringToFront();
-               // panel2.Visible = false;
+                // panel2.Visible = false;
             }
         }
 
-        
+
         private void btnremove_Click(object sender, EventArgs e)
         {
             remove();
         }
 
-      
+
         void ConsumeItemDelete()
         {
             connection.Open();
@@ -642,37 +766,37 @@ namespace WindowsFormsApplication1
             if (reader.Read())
             {
                 int batch1 = reader.GetInt32("batchNo");
-                
+
                 reader.Close();
                 //condition for add qty of item
-                   int totalQty1 = stockfortotalConsume1 - selectedQty;
-                     
-                    string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty1 + "'  WHERE ItemID=" + qty_del.Text + " && batchNo=" + batch1 + " ";
+                int totalQty1 = stockfortotalConsume1 - selectedQty;
 
-                    // connection.Open();
+                string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty1 + "'  WHERE ItemID=" + qty_del.Text + " && batchNo=" + batch1 + " ";
 
-                    Cmd = new MySqlCommand(sql1, connection);
+                // connection.Open();
 
-                    try
+                Cmd = new MySqlCommand(sql1, connection);
+
+                try
+                {
+                    if (Cmd.ExecuteNonQuery() == 1)
                     {
-                        if (Cmd.ExecuteNonQuery() == 1)
-                        {
-                            //  MessageBox.Show("data is now updated");
-                        }
-                        else
-                        {
-                            //  MessageBox.Show("data is not updated");
-                        }
+                        //  MessageBox.Show("data is now updated");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message);
+                        //  MessageBox.Show("data is not updated");
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
-                    connection.Close();
+                connection.Close();
 
-               // }
+                // }
 
             }
             else
@@ -688,35 +812,35 @@ namespace WindowsFormsApplication1
         //===========function for delete
         private void delete()
         {
-           // try
-           // {
-               
-                //qty_del.Text = LVPOS.SelectedItems[0].SubItems[0].Text;
-                upqty.Text = LVPOS.SelectedItems[0].SubItems[4].Text;
-                unitcost.Text = LVPOS.SelectedItems[0].SubItems[5].Text;
-                textdisc.Text = LVPOS.SelectedItems[0].SubItems[6].Text;
-                subtext.Text = LVPOS.SelectedItems[0].SubItems[7].Text;
+            // try
+            // {
+
+            //qty_del.Text = LVPOS.SelectedItems[0].SubItems[0].Text;
+            upqty.Text = LVPOS.SelectedItems[0].SubItems[4].Text;
+            unitcost.Text = LVPOS.SelectedItems[0].SubItems[5].Text;
+            textdisc.Text = LVPOS.SelectedItems[0].SubItems[6].Text;
+            subtext.Text = LVPOS.SelectedItems[0].SubItems[7].Text;
 
             if (MessageBox.Show("Do you want to delete the selected item?", "WARNING", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+
+                for (int i = 0; i < LVPOS.Items.Count; i++)
                 {
-
-                    for (int i = 0; i < LVPOS.Items.Count; i++)
+                    if (LVPOS.Items[i].Selected)
                     {
-                        if (LVPOS.Items[i].Selected)
-                        {
-                            
-                            //compute the deleted item and subtract to the total amount and qty
-                            bottompanel.Text = Convert.ToString((Convert.ToDouble(bottompanel.Text) - Convert.ToDouble(unitcost.Text)));
 
-                            //tbigtotal.Text = bottompanel.Text;
+                        //compute the deleted item and subtract to the total amount and qty
+                        bottompanel.Text = Convert.ToString((Convert.ToDouble(bottompanel.Text) - Convert.ToDouble(unitcost.Text)));
 
-                            titems.Text = Convert.ToString((Convert.ToInt32(titems.Text) - Convert.ToInt32(upqty.Text)));
+                        //tbigtotal.Text = bottompanel.Text;
 
-                            //add the stock to the database
-                            sqty.Text = Convert.ToString((Convert.ToInt32(sqty.Text) + Convert.ToInt32(upqty.Text)));
+                        titems.Text = Convert.ToString((Convert.ToInt32(titems.Text) - Convert.ToInt32(upqty.Text)));
 
-                            //tdiscount.Text = tdiscount
-                            //subtotal.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) + Convert.ToDouble(subtext.Text)));
+                        //add the stock to the database
+                        sqty.Text = Convert.ToString((Convert.ToInt32(sqty.Text) + Convert.ToInt32(upqty.Text)));
+
+                        //tdiscount.Text = tdiscount
+                        //subtotal.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) + Convert.ToDouble(subtext.Text)));
 
                         double dc = double.Parse(textdisc.Text);
 
@@ -736,59 +860,59 @@ namespace WindowsFormsApplication1
 
 
 
-                            up_qtyforup();
-                            itemlist.Items.Clear();
-                            retrive();
+                        up_qtyforup();
+                        itemlist.Items.Clear();
+                        retrive();
 
-                            sqty.Text = "";
-                            //get the value of sqty and update it
-                            LVPOS.Items[i].Remove();
-                            i--;
+                        sqty.Text = "";
+                        //get the value of sqty and update it
+                        LVPOS.Items[i].Remove();
+                        i--;
 
-                           
-                        }
-                        
+
                     }
+
+                }
 
                 clr();
 
             }
             else
             {
-                MessageBox.Show("Item is still not deleted,","INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Item is still not deleted,", "INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-                 
 
-           // }
-          //  catch (Exception )
-          //  {
-          //      MessageBox.Show("Choose item to Delete!", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-         //   }
+
+            // }
+            //  catch (Exception )
+            //  {
+            //      MessageBox.Show("Choose item to Delete!", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //   }
 
         }
-/// 
+        /// 
         private void retrieveStock()
         {
             string query = "SELECT * FROM drug WHERE  ItemID=" + int.Parse(qty_del.Text) + " ";
-            
+
 
             Cmd = new MySqlCommand(query, connection);
 
-                connection.Open();
+            connection.Open();
 
-                //execute reader
-                reader = Cmd.ExecuteReader();
+            //execute reader
+            reader = Cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                     sqty.Text = reader.GetInt32("stockQty").ToString();
-                }
-                else
-                {
-                    textStock.Text = "";
-                    MessageBox.Show("NO DATA FILL");
-                }
-                reader.Close();
+            if (reader.Read())
+            {
+                sqty.Text = reader.GetInt32("stockQty").ToString();
+            }
+            else
+            {
+                textStock.Text = "";
+                MessageBox.Show("NO DATA FILL");
+            }
+            reader.Close();
 
             connection.Close();
 
@@ -797,7 +921,7 @@ namespace WindowsFormsApplication1
         int stockfortotalConsume1;
         void totalConsumeItem1()
         {
-            
+
             try
             {
                 connection.Open();
@@ -841,7 +965,7 @@ namespace WindowsFormsApplication1
 
         }
 
-      
+
 
         void ConsumeItemUpdate()
         {
@@ -855,76 +979,76 @@ namespace WindowsFormsApplication1
             {
                 int batch1 = reader.GetInt32("batchNo");
 
-              //  if (batch == batch1)
-               // {
-                    reader.Close();
+                //  if (batch == batch1)
+                // {
+                reader.Close();
 
-                   // LVPOS.SelectedItems[0].SubItems[4].Text = upqty2.Text;
+                // LVPOS.SelectedItems[0].SubItems[4].Text = upqty2.Text;
 
-                    int qty = int.Parse(upqty.Text);
-                    int qty2 = int.Parse(upqty2.Value.ToString());
+                int qty = int.Parse(upqty.Text);
+                int qty2 = int.Parse(upqty2.Value.ToString());
 
-                    if(qty > qty2)
+                if (qty > qty2)
+                {
+
+                    totalQty = stockfortotalConsume1 - int.Parse(totalqty.Text);
+                    //condition for add qty of item
+                    string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID=" + qty_del.Text + " && batchNo=" + batch1 + " ";
+
+                    // connection.Open();
+
+                    Cmd = new MySqlCommand(sql1, connection);
+
+                    try
                     {
-                        
-                        totalQty = stockfortotalConsume1 - int.Parse(totalqty.Text);
-                        //condition for add qty of item
-                        string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID=" + qty_del.Text + " && batchNo=" + batch1 + " ";
-
-                        // connection.Open();
-
-                        Cmd = new MySqlCommand(sql1, connection);
-
-                        try
+                        if (Cmd.ExecuteNonQuery() == 1)
                         {
-                            if (Cmd.ExecuteNonQuery() == 1)
-                            {
-                                //  MessageBox.Show("data is now updated");
-                            }
-                            else
-                            {
-                                //  MessageBox.Show("data is not updated");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        }
-                        else if(qty < qty2)
-                        {
-                       
-                            totalQty = stockfortotalConsume1 + int.Parse(totalqty.Text);
-                            //condition for add qty of item
-                            string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID=" + qty_del.Text + "  && batchNo=" + batch1 + " ";
-
-                            // connection.Open();
-
-                            Cmd = new MySqlCommand(sql1, connection);
-
-                            try
-                            {
-                                if (Cmd.ExecuteNonQuery() == 1)
-                                {
-                                    //  MessageBox.Show("data is now updated");
-                                }
-                                else
-                                {
-                                    //  MessageBox.Show("data is not updated");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
+                            //  MessageBox.Show("data is now updated");
                         }
                         else
                         {
-                            MessageBox.Show("error");
+                            //  MessageBox.Show("data is not updated");
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else if (qty < qty2)
+                {
 
-                    
-                        connection.Close();
+                    totalQty = stockfortotalConsume1 + int.Parse(totalqty.Text);
+                    //condition for add qty of item
+                    string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty + "'  WHERE ItemID=" + qty_del.Text + "  && batchNo=" + batch1 + " ";
+
+                    // connection.Open();
+
+                    Cmd = new MySqlCommand(sql1, connection);
+
+                    try
+                    {
+                        if (Cmd.ExecuteNonQuery() == 1)
+                        {
+                            //  MessageBox.Show("data is now updated");
+                        }
+                        else
+                        {
+                            //  MessageBox.Show("data is not updated");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+
+
+                connection.Close();
 
                 //}
 
@@ -944,29 +1068,29 @@ namespace WindowsFormsApplication1
         //======function for update
         private void update()
         {
-             try
-             {
+            try
+            {
 
                 LVPOS.SelectedItems[0].SubItems[4].Text = upqty2.Text;
                 LVPOS.SelectedItems[0].SubItems[6].Text = UDiscount.Text;
 
-               
+
                 unitcost.Text = LVPOS.SelectedItems[0].SubItems[3].Text;
                 textdisc.Text = LVPOS.SelectedItems[0].SubItems[6].Text;
-                
-            
+
+
                 int qty = int.Parse(upqty.Text);
                 int qty2 = int.Parse(upqty2.Value.ToString());
-             
+
 
                 double uncost = double.Parse(unitcost.Text);
 
 
-            discount();
+                discount();
 
-            if (qty > qty2)//kapag maliit yung unang input qty2 or nagbabawas
+                if (qty > qty2)//kapag maliit yung unang input qty2 or nagbabawas
                 {
-                   
+
 
                     totalqty.Text = Convert.ToString((Convert.ToInt32(upqty.Text) - Convert.ToInt32(upqty2.Text)));
 
@@ -981,32 +1105,32 @@ namespace WindowsFormsApplication1
 
                     LVPOS.SelectedItems[0].SubItems[6].Text = UDiscount.Value.ToString();
 
-                    subtext.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) * Convert.ToDouble(UDiscount.Value.ToString() )));
+                    subtext.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) * Convert.ToDouble(UDiscount.Value.ToString())));
                     LVPOS.SelectedItems[0].SubItems[8].Text = subtext.Text;
 
                     totaldiscount.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) - Convert.ToDouble(subtext.Text)));
                     LVPOS.SelectedItems[0].SubItems[7].Text = totaldiscount.Text;
-                
 
 
-                     // LVPOS.SelectedItems[0].SubItems[7].Text = uptotal.Text;
-               
+
+                    // LVPOS.SelectedItems[0].SubItems[7].Text = uptotal.Text;
+
 
                     textStock.Text = Convert.ToString((Convert.ToInt32(textStock.Text) + Convert.ToInt32(t_ans.Text)));
 
                     sqty.Text = Convert.ToString((Convert.ToInt32(sqty.Text) + Convert.ToInt32(t_ans.Text)));
                     up_qtyforup();
-               
+
                     //refresh
                     itemlist.Items.Clear();
                     retrive();
-                
 
-            }
+
+                }
                 else if (qty < qty2)//kapag malaki yung unang input mag a-add qty2 nagdadagdag
                 {
 
-                    
+
 
                     totalqty.Text = Convert.ToString((Convert.ToInt32(upqty2.Text) - Convert.ToInt32(upqty.Text)));
 
@@ -1018,38 +1142,38 @@ namespace WindowsFormsApplication1
 
                     LVPOS.SelectedItems[0].SubItems[6].Text = UDiscount.Value.ToString();
 
-                    subtext.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) * Convert.ToDouble(UDiscount.Value.ToString() )));
+                    subtext.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) * Convert.ToDouble(UDiscount.Value.ToString())));
                     LVPOS.SelectedItems[0].SubItems[8].Text = subtext.Text;
 
                     totaldiscount.Text = Convert.ToString((Convert.ToDouble(uptotal.Text) - Convert.ToDouble(subtext.Text)));
                     LVPOS.SelectedItems[0].SubItems[7].Text = totaldiscount.Text;
-               
+
 
                     //  LVPOS.SelectedItems[0].SubItems[7].Text = uptotal.Text;
-                    LVPOS.SelectedItems[0].SubItems[5].Text = uptotal.Text;                    
+                    LVPOS.SelectedItems[0].SubItems[5].Text = uptotal.Text;
 
                     textStock.Text = Convert.ToString((Convert.ToInt32(textStock.Text) - Convert.ToInt32(t_ans.Text)));
 
                     sqty.Text = Convert.ToString((Convert.ToInt32(sqty.Text) - Convert.ToInt32(t_ans.Text)));
                     up_qtyforup();
-                
+
                     //refresh
                     itemlist.Items.Clear();
                     retrive();
-               
 
-            }
-            else if(qty2 == 0)
-            {
-                MessageBox.Show("Select 1 item to update! in Item list", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
- 
+
+                }
+                else if (qty2 == 0)
+                {
+                    MessageBox.Show("Select 1 item to update! in Item list", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 cal();
-           }
-            catch (Exception )
-           {
-               MessageBox.Show("Choose item to update!", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-           }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Choose item to update!", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -1062,16 +1186,16 @@ namespace WindowsFormsApplication1
             //discount
 
             if (ddisc1 > ddisc2)
-            {                
+            {
 
                 LVPOS.SelectedItems[0].SubItems[6].Text = UDiscount.Value.ToString();
-                
+
                 subtext.Text = Convert.ToString((Convert.ToDouble(t_ans.Text) * Convert.ToDouble(UDiscount.Value.ToString())));
                 totaldiscount.Text = Convert.ToString((Convert.ToDouble(t_ans.Text) - Convert.ToDouble(subtext.Text)));
 
                 LVPOS.SelectedItems[0].SubItems[7].Text = totaldiscount.Text;
                 LVPOS.SelectedItems[0].SubItems[8].Text = subtext.Text;
-               // subtext.Text = LVPOS.SelectedItems[0].SubItems[7].Text;
+                // subtext.Text = LVPOS.SelectedItems[0].SubItems[7].Text;
             }
             else if (ddisc1 < ddisc2)
             {
@@ -1083,10 +1207,10 @@ namespace WindowsFormsApplication1
                 LVPOS.SelectedItems[0].SubItems[7].Text = totaldiscount.Text;
                 LVPOS.SelectedItems[0].SubItems[8].Text = subtext.Text;
             }
-            else if(ddisc1 == 0)
+            else if (ddisc1 == 0)
             {
                 subtext.Text = uptotal.Text;
-                
+
                 LVPOS.SelectedItems[0].SubItems[7].Text = subtext.Text;
                 LVPOS.SelectedItems[0].SubItems[8].Text = UDiscount.Value.ToString();
             }
@@ -1096,7 +1220,7 @@ namespace WindowsFormsApplication1
         {
 
             string sql1 = "UPDATE drug SET  stockQty='" + sqty.Text + "'  WHERE ItemID=" + qty_del.Text + " ";
-            
+
             connection.Open();
 
             Cmd = new MySqlCommand(sql1, connection);
@@ -1141,7 +1265,7 @@ namespace WindowsFormsApplication1
 
                 pupdate1.Visible = true;
                 pupdate1.BringToFront();
-                
+
             }
 
         }
@@ -1155,11 +1279,11 @@ namespace WindowsFormsApplication1
         //dfasdfas
 
         int selectedQty;
-        
+
         private void LVPOS_MouseClick(object sender, MouseEventArgs e)
         {
             qty_del.Text = LVPOS.SelectedItems[0].SubItems[0].Text;
-           
+
             ditem.Text = LVPOS.SelectedItems[0].SubItems[1].Text;
             titemname.Text = LVPOS.SelectedItems[0].SubItems[1].Text;
 
@@ -1206,87 +1330,73 @@ namespace WindowsFormsApplication1
 
         }
 
-        
+
 
         private void tAmt_KeyDown(object sender, KeyEventArgs e)
         {
-            if (tAmt.Text == null)
-            {
-                tAmt.Text = "Password";
-                tAmt.ForeColor = Color.Silver;
-            }
-
-            if (e.KeyCode == Keys.Enter)
-            {
-                tchange.Text = Convert.ToString((Convert.ToDouble(tAmt.Text) - Convert.ToDouble(tbigtotal.Text)));
-
-                tbchange2.Text = tchange.Text;
-                Double change;
-                Double.TryParse(tchange.Text, out change);
-                tchange.Text = change.ToString(".00");
-            }
+           
         }
 
         private void search_tb_TextChanged(object sender, EventArgs e)
         {
             try
             {
-               
-               // MySqlCommand command = new MySqlCommand();
+
+                connection.Close();
                 connection.Open();
-                 
+
                 Cmd = new MySqlCommand();
 
                 Cmd.Connection = connection;
 
 
                 Cmd.CommandText = "SELECT ItemID, ItemName,  brand, unit, price, stockQty, batchNo FROM drug WHERE ItemName LIKE '%" + search_tb.Text + "%' ";
-                
+
                 Adapter = new MySqlDataAdapter();
-                
+
                 Adapter.SelectCommand = Cmd;
-                 
+
                 dt = new DataTable();
-               
+
                 Adapter.Fill(dt);
-                 
+
                 itemlist.Items.Clear();
                 foreach (DataRow r in dt.Rows)
                 {
-                     
-                        ListViewItem list = itemlist.Items.Add(r["ItemID"].ToString());
-                        list.SubItems.Add(r["ItemName"].ToString());
-                        list.SubItems.Add(r["brand"].ToString());
-                        list.SubItems.Add(r["unit"].ToString());
-                        list.SubItems.Add(r["price"].ToString());
-                        list.SubItems.Add(r["stockQty"].ToString());
-                        list.SubItems.Add(r["batchNo"].ToString());
+
+                    ListViewItem list = itemlist.Items.Add(r["ItemID"].ToString());
+                    list.SubItems.Add(r["ItemName"].ToString());
+                    list.SubItems.Add(r["brand"].ToString());
+                    list.SubItems.Add(r["unit"].ToString());
+                    list.SubItems.Add(r["price"].ToString());
+                    list.SubItems.Add(r["stockQty"].ToString());
+                    list.SubItems.Add(r["batchNo"].ToString());
 
                 }
             }
             catch (Exception ex)
             {
-                 
+
                 MessageBox.Show(ex.Message);
             }
-             
+
             Adapter.Dispose();
-             
+
             connection.Close();
 
         }
 
-        
+
 
         private void update_enter_Click(object sender, EventArgs e)
         {
-           // update();
+            // update();
             upqty.Text = "0";
             upqty2.Text = "0";
         }
 
-        
-       
+
+
 
         private void upqty2_Enter_1(object sender, EventArgs e)
         {
@@ -1306,17 +1416,17 @@ namespace WindowsFormsApplication1
             }
         }
 
-       
+
         private void upqty2_KeyDown(object sender, KeyEventArgs e)
         {
-                      
+
 
             if (e.KeyCode == Keys.Enter)
             {
                 t_pincode.Focus();
                 t_pincode.Text = "";
 
-                
+
 
                 t_pincode.isPassword = true;
                 t_pincode.Focus();
@@ -1354,8 +1464,8 @@ namespace WindowsFormsApplication1
             }
         }
 
-//============update_click
-    
+        //============update_click
+
         private void update_enter_Click_1(object sender, EventArgs e)
         {
             string Password = t_pincode.Text.Trim();
@@ -1385,8 +1495,8 @@ namespace WindowsFormsApplication1
                     pinpanel.SendToBack();
 
 
-                     LVPOS.BringToFront();
-                     
+                    LVPOS.BringToFront();
+
 
                     //clear
                     upqty.Text = "0";
@@ -1420,10 +1530,10 @@ namespace WindowsFormsApplication1
                 tpincode2.isPassword = true;
             }
         }
-//========del_click
+        //========del_click
         private void btndel_Click(object sender, EventArgs e)
         {
-           string Password = tpincode2.Text.Trim();
+            string Password = tpincode2.Text.Trim();
 
             var pincode = Pin.login(Password);
 
@@ -1440,7 +1550,7 @@ namespace WindowsFormsApplication1
 
                     //function for delete consumed
                     ConsumeItemDelete();
-                    
+
 
                     //MessageBox.Show("Item Deleted!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //cpanel.Visible = true;
@@ -1458,7 +1568,7 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-//==========deleted_enter
+        //==========deleted_enter
         private void tpincode2_KeyDown(object sender, KeyEventArgs e)
         {
             if (tpincode2.Text == null)
@@ -1487,7 +1597,7 @@ namespace WindowsFormsApplication1
 
                         //function for delete consumed
                         ConsumeItemDelete();
-                        
+
 
                         tpincode2.Text = "Pincode";
                         tpincode2.isPassword = false;
@@ -1507,7 +1617,7 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-//===========update_enter
+        //===========update_enter
         private void t_pincode_KeyDown(object sender, KeyEventArgs e)
         {
             if (t_pincode.Text == null)
@@ -1541,7 +1651,7 @@ namespace WindowsFormsApplication1
                         upqty.Text = "0";
                         upqty2.Text = "0";
 
-                        
+
                         pupdate1.SendToBack();
                         pinpanel.SendToBack();
 
@@ -1573,7 +1683,7 @@ namespace WindowsFormsApplication1
             if (tAmt.Text == "0.00")
             {
                 tAmt.Text = "";
-               
+
             }
         }
 
@@ -1591,14 +1701,14 @@ namespace WindowsFormsApplication1
             if (search_tb.Text == "")
             {
                 search_tb.Text = "search";
-                 
+
                 itemlist.Items.Clear();
                 retrive();
             }
-            
+
         }
 
-     
+
 
 
         private void upqty2_KeyDown_1(object sender, KeyEventArgs e)
@@ -1608,7 +1718,7 @@ namespace WindowsFormsApplication1
             int qty2 = int.Parse(upqty2.Text);
 
 
-           
+
             if (e.KeyCode == Keys.Enter)
             {
                 if (upqty.Text == "0" || upqty2.Value == 0)
@@ -1631,12 +1741,12 @@ namespace WindowsFormsApplication1
             }
         }
 
-        
-
-  //writetoCodelater
 
 
-        int iid = 0;
+        //writetoCodelater
+
+
+        string iid;
         double ucost = 0;
         int qty = 0;
         string iname;
@@ -1645,55 +1755,87 @@ namespace WindowsFormsApplication1
         double totaldb;
         double stotaldb;
 
+
+
+
         private void btn_print_Click(object sender, EventArgs e)
         {
-            if(tbigtotal.Text == "Total")
+            if (tbigtotal.Text == "Total")
             {
                 MessageBox.Show("There is no selected Items", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             {
-            
-       
+
+
                 if (MessageBox.Show("Save the current transaction?", "INFORMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if(tAmt.Text == "0.00")
-                    {
-                        MessageBox.Show("Fill the tendered given field", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < LVPOS.Items.Count; i++)
+                    double moretotal = Convert.ToDouble(tbigtotal.Text);
+                    double lesstotal = Convert.ToDouble(tAmt.Text);
+
+                  
+                        if (tchange.Text == "0.00")
                         {
-                            // ConsumeItem();
+                            MessageBox.Show("Fill the tendered given field", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < LVPOS.Items.Count; i++)
+                            {
+                                // ConsumeItem();
 
 
-                            iid = Convert.ToInt32(LVPOS.Items[i].SubItems[0].Text);//ok
-                            iname = Convert.ToString(LVPOS.Items[i].SubItems[1].Text);//ok
-                            ucost = Convert.ToDouble(LVPOS.Items[i].SubItems[3].Text);//ok
-                            qty = Convert.ToInt32(LVPOS.Items[i].SubItems[4].Text);//ok
-                            sdisc = Convert.ToDouble(LVPOS.Items[i].SubItems[8].Text);
-                            sdiscp = Convert.ToDouble(LVPOS.Items[i].SubItems[6].Text);
-                            totaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[5].Text);
-                            stotaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[7].Text);//ok
+                                iid = LVPOS.Items[i].SubItems[0].Text;//ok
+                                iname = Convert.ToString(LVPOS.Items[i].SubItems[1].Text);//ok
+                                ucost = Convert.ToDouble(LVPOS.Items[i].SubItems[3].Text);//ok
+                                qty = Convert.ToInt32(LVPOS.Items[i].SubItems[4].Text);//ok
+                                sdisc = Convert.ToDouble(LVPOS.Items[i].SubItems[8].Text);
+                                sdiscp = Convert.ToDouble(LVPOS.Items[i].SubItems[6].Text);
+                                totaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[5].Text);
+                                stotaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[7].Text);//ok
 
+
+                                connection.Open();
+
+                                Cmd = new MySqlCommand("INSERT into transaction (cashier_name, PO_id, pro_id, item, cost, qty,discount_amt, transaction_date, dispercent, total, subtotal)"
+                                    + "values('" + lUsername.Text + "','" + pid.Text + "','" + iid + "','" + iname + "','" + ucost + "','" + qty + "' , '" + sdisc + "', '" + atime.Text + "', '" + sdiscp + "', '" + totaldb + "', '" + stotaldb + "'  )", connection);
+
+                                MySqlCommand Cmd1 = new MySqlCommand("INSERT into order_line (POnum, ItemID, Orderqty, UnitCost, Discount)"
+                                   + "values('" + pid.Text + "','" + iid + "','" + qty + "','" + ucost + "','" + sdisc + "' )", connection);
+
+
+                                // MySqlDataReader myReader;
+                                try
+                                {
+                                    if (Cmd.ExecuteNonQuery() == 1 && Cmd1.ExecuteNonQuery() == 1)
+                                    {
+                                        //MessageBox.Show("data is Saved");
+
+                                    }
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+
+                                connection.Close();
+                            }
 
                             connection.Open();
 
-                            Cmd = new MySqlCommand("INSERT into transaction (cashier_name, PO_id, pro_id, item, cost, qty,discount_amt, transaction_date, dispercent, total, subtotal)"
-                                + "values('" + lUsername.Text + "','" + pid.Text + "','" + iid + "','" + iname + "','" + ucost + "','" + qty + "' , '" + sdisc + "', '" + atime.Text + "', '" + sdiscp + "', '" + totaldb + "', '" + stotaldb + "'  )", connection);
+                            Cmd = new MySqlCommand("INSERT into sales_report (transactionNum, totalqty, total, subtotal, discpercent,  discount_amount, Date, time,  cashier)"
+                            + "values('" + pid.Text + "','" + titems.Text + "','" + tbigtotal.Text + "','" + bottompanel.Text + "','" + tdiscount.Text + "' , '" + discamt + "', '" + atime.Text + "', '" + ldate.Text + "', '" + lUsername.Text + "')", connection);
 
-                            MySqlCommand Cmd1 = new MySqlCommand("INSERT into order_line (POnum, ItemID, Orderqty, UnitCost, Discount)"
-                               + "values('" + pid.Text + "','" + iid + "','" + qty + "','" + ucost + "','" + sdisc + "' )", connection);
-
+                            MySqlCommand Cmd2 = new MySqlCommand("INSERT into porder (POnum, ItemID, ChargeRef, OrderDate)"
+                            + "values('" + pid.Text + "','" + iid + "','" + lUsername.Text + "','" + atime.Text + "')", connection);
 
                             // MySqlDataReader myReader;
                             try
                             {
-                                if (Cmd.ExecuteNonQuery() == 1 && Cmd1.ExecuteNonQuery() == 1)
+                                if (Cmd.ExecuteNonQuery() == 1 && Cmd2.ExecuteNonQuery() == 1)
                                 {
                                     //MessageBox.Show("data is Saved");
-
                                 }
 
                             }
@@ -1702,80 +1844,61 @@ namespace WindowsFormsApplication1
                                 MessageBox.Show(ex.Message);
                             }
 
+
+
                             connection.Close();
+
+                            postId();
+                            titems.Text = "0";
+                            bottompanel.Text = "0";
+                            tdiscount.Text = "0";
+                            tAmt.Text = "0";
+                            tchange.Text = "0";
+                            tbigtotal.Text = "Total";
+                            ndisc.Text = "0.00";
+                            LVPOS.Items.Clear();
+
+
+
+                            Cursor.Current = Cursors.WaitCursor;
+
+                            //new printReceipt(lUsername.Text, timein.Text, pid.Text).ShowDialog();
+                            pdone.SendToBack();
+                            pdone.Visible = false;
+
+                            this.KeyPreview = true;
+                            btnsearch.Enabled = true;
+                            btnremove.Enabled = true;
+                            btnUpdate.Enabled = true;
+                            btn_return.Enabled = true;
+                            btndone.Enabled = true;
+                            btndone.Enabled = true;
+                            btn_log.Enabled = true;
+                            logout.Enabled = true;
+                            btn_charge.Enabled = true;
                         }
 
-                        connection.Open();
+                        
+                   
 
-                        Cmd = new MySqlCommand("INSERT into sales_report (transactionNum, totalqty, total, subtotal, discpercent,  discount_amount, Date, time,  cashier)"
-                        + "values('" + pid.Text + "','" + titems.Text + "','" + tbigtotal.Text + "','" + bottompanel.Text + "','" + tdiscount.Text + "' , '" + discamt + "', '" + atime.Text + "', '" + ldate.Text + "', '" + lUsername.Text + "')", connection);
-
-                        MySqlCommand Cmd2 = new MySqlCommand("INSERT into porder (POnum, ItemID, ChargeRef, OrderDate)"
-                        + "values('" + pid.Text + "','" + iid + "','" + lUsername.Text + "','" + atime.Text + "')", connection);
-
-                        // MySqlDataReader myReader;
-                        try
-                        {
-                            if (Cmd.ExecuteNonQuery() == 1 && Cmd2.ExecuteNonQuery() == 1)
-                            {
-                                //MessageBox.Show("data is Saved");
-                            }
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-
-
-
-                        connection.Close();
-
-                        postId();
-                        titems.Text = "0";
-                        bottompanel.Text = "0";
-                        tdiscount.Text = "0";
-                        tAmt.Text = "0";
-                        tchange.Text = "0";
-                        tbigtotal.Text = "Total";
-                        ndisc.Text = "0.00";
-                        LVPOS.Items.Clear();
-
-
-
-                        Cursor.Current = Cursors.WaitCursor;
-                        //new printReceipt(lUsername.Text, timein.Text, pid.Text).ShowDialog();
-                        pdone.SendToBack();
-                        pdone.Visible = false;
-
-                        this.KeyPreview = true;
-                        btnsearch.Enabled = true;
-                        btnremove.Enabled = true;
-                        btnUpdate.Enabled = true;
-                        btn_return.Enabled = true;
-                        btndone.Enabled = true;
-                        btndone.Enabled = true;
-                        btn_log.Enabled = true;
-                        logout.Enabled = true;
-                        btn_charge.Enabled = true;
-                    }
                     
+
                     //save the transaction line
-                
-            }
-            else
-            {
+
+                }
+                else
+                {
                     MessageBox.Show("Transaction not save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+
             }
-
-
-             }
 
 
         }
 
 
-        
+
 
 
         private void nqty_Enter(object sender, EventArgs e)
@@ -1796,15 +1919,15 @@ namespace WindowsFormsApplication1
             }
         }
 
-     
+
 
         private void btn_charge_Click(object sender, EventArgs e)
         {
-            
+
 
             if (tbigtotal.Text == "Total")
             {
-                MessageBox.Show("You have to select Atleast 1 Item from Search button","INFORMATION",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                MessageBox.Show("You have to select Atleast 1 Item from Search button", "INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             {
@@ -1828,7 +1951,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        
+
 
         private void POS_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1843,20 +1966,20 @@ namespace WindowsFormsApplication1
                 disableBtn();
                 btndone.Enabled = false;
             }
-            else if(e.KeyCode == Keys.F2)
+            else if (e.KeyCode == Keys.F2)
             {
                 remove();
-                
+
             }
             else if (e.KeyCode == Keys.F3)
             {
                 clickmeupdate();
-                
+
             }
             else if (e.KeyCode == Keys.F4)
             {
                 rturn();
-               
+
             }
         }
 
@@ -1867,7 +1990,7 @@ namespace WindowsFormsApplication1
             btnremove.Enabled = true;
             btnUpdate.Enabled = true;
             btn_print.Enabled = true;
-          //  btn_discount.Enabled = true;
+            //  btn_discount.Enabled = true;
             btn_charge.Enabled = true;
 
             pcharge.Visible = false;
@@ -1875,10 +1998,10 @@ namespace WindowsFormsApplication1
 
         void rturn()
         {
-           // disableBtn();
+            // disableBtn();
 
-            returnMedicine rM = new returnMedicine();
-            rM.Show();
+            returnMedicine rM = new returnMedicine(lUsername);
+            rM.ShowDialog();
 
         }
 
@@ -1899,7 +2022,7 @@ namespace WindowsFormsApplication1
 
         private void UDiscount_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
 
             if (e.KeyCode == Keys.Enter)
             {
@@ -1925,7 +2048,7 @@ namespace WindowsFormsApplication1
 
         private void update_enter_KeyDown(object sender, KeyEventArgs e)
         {
-           // pinpanel.SendToBack();
+            // pinpanel.SendToBack();
             pinpanel.Visible = true;
         }
 
@@ -1972,7 +2095,7 @@ namespace WindowsFormsApplication1
             viewpanel.Visible = true;
         }
 
-    
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1996,7 +2119,7 @@ namespace WindowsFormsApplication1
             btn_print.Enabled = false;
             btn_charge.Enabled = false;
             btn_log.Enabled = false;
-            
+
         }
 
         void enableBtn()
@@ -2012,7 +2135,7 @@ namespace WindowsFormsApplication1
 
         void welcome()
         {
-            MessageBox.Show("Welcome Cashier: " +lUsername.Text+ " ", "GREETINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Welcome Cashier: " + lUsername.Text + " ", "GREETINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_reprice_Click(object sender, EventArgs e)
@@ -2030,7 +2153,7 @@ namespace WindowsFormsApplication1
 
         }
 
-      
+
 
         private void close_Click(object sender, EventArgs e)
         {
@@ -2074,7 +2197,7 @@ namespace WindowsFormsApplication1
 
         private void btndone_Click(object sender, EventArgs e)
         {
-           
+
 
             if (tbigtotal.Text == "Total")
             {
@@ -2084,7 +2207,7 @@ namespace WindowsFormsApplication1
             {
                 if (MessageBox.Show("Are you sure??", "DONE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    
+
                     pdone.BringToFront();
 
                     this.KeyPreview = false;
@@ -2095,7 +2218,7 @@ namespace WindowsFormsApplication1
                     btndone.Enabled = false;
                     btn_charge.Enabled = false;
                     btn_log.Enabled = false;
-                    
+
                     logout.Enabled = false;
 
                 }
@@ -2105,7 +2228,7 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            
+
         }
 
 
@@ -2113,7 +2236,7 @@ namespace WindowsFormsApplication1
         {
 
             gbCharge.Visible = false;
-           
+
             viewpanel.SendToBack();
             pinpanel.SendToBack();
             pupdate1.SendToBack();
@@ -2124,7 +2247,7 @@ namespace WindowsFormsApplication1
             pdone.BringToFront();
             backpinpanel.BringToFront();
             backpinpanel.Visible = true;
-            
+
         }
 
         private void tbbackpin_KeyDown(object sender, KeyEventArgs e)
@@ -2149,7 +2272,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Password == pincode.password)
                     {
-                        
+
                         // MessageBox.Show("Item Deleted!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                         tbbackpin.Text = "Pincode";
@@ -2167,7 +2290,7 @@ namespace WindowsFormsApplication1
                         btndone.Enabled = true;
                         btn_charge.Enabled = true;
                         btn_log.Enabled = true;
-                        
+
                         logout.Enabled = true;
 
                     }
@@ -2187,47 +2310,47 @@ namespace WindowsFormsApplication1
                 tbbackpin.ForeColor = Color.Silver;
             }
 
-            
-                string Password = tbbackpin.Text.Trim();
 
-                var pincode = Pin.login(Password);
+            string Password = tbbackpin.Text.Trim();
 
-                if (String.IsNullOrEmpty(Password))
+            var pincode = Pin.login(Password);
+
+            if (String.IsNullOrEmpty(Password))
+            {
+                MessageBox.Show("Please fill all given fields!");
+            }
+            else
+            {
+                if (Password == pincode.password)
                 {
-                    MessageBox.Show("Please fill all given fields!");
+
+                    // MessageBox.Show("Item Deleted!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    tbbackpin.Text = "Pincode";
+                    tbbackpin.isPassword = false;
+                    //enable all buttons
+
+                    backpinpanel.SendToBack();
+                    pdone.SendToBack();
+
+                    this.KeyPreview = true;
+                    btnsearch.Enabled = true;
+                    btnremove.Enabled = true;
+                    btnUpdate.Enabled = true;
+                    btn_return.Enabled = true;
+                    btndone.Enabled = true;
+                    btn_charge.Enabled = true;
+                    btn_log.Enabled = true;
+
+                    logout.Enabled = true;
+
                 }
                 else
                 {
-                    if (Password == pincode.password)
-                    {
-
-                        // MessageBox.Show("Item Deleted!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        tbbackpin.Text = "Pincode";
-                        tbbackpin.isPassword = false;
-                        //enable all buttons
-
-                        backpinpanel.SendToBack();
-                        pdone.SendToBack();
-
-                        this.KeyPreview = true;
-                        btnsearch.Enabled = true;
-                        btnremove.Enabled = true;
-                        btnUpdate.Enabled = true;
-                        btn_return.Enabled = true;
-                        btndone.Enabled = true;
-                        btn_charge.Enabled = true;
-                        btn_log.Enabled = true;
-                        
-                        logout.Enabled = true;
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Oops! Wrong Password .", "Hint", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Oops! Wrong Password .", "Hint", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
-            
+            }
+
         }
 
         private void tbbackpin_Enter(object sender, EventArgs e)
@@ -2250,92 +2373,63 @@ namespace WindowsFormsApplication1
             }
         }
 
-        
+
 
         private void btn_done_Click_1(object sender, EventArgs e)
         {
 
             //if (titems.Text != "0")
             //{
-                if (tbigtotal.Text == "Total")
+            if (tbigtotal.Text == "Total")
+            {
+                MessageBox.Show("There is no selected Items", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                //    try
+                //  {
+                if (pname.Text == "" && nurse.Text == "" && nup_roomnum.Value == 0)
                 {
-                    MessageBox.Show("There is no selected Items", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("The Patient name, Room no. and Nurse name fields are all required to fill in", "REQUIRED!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    //    try
-                    //  {
-                    if(pname.Text == "" && nurse.Text == "" && nup_roomnum.Value == 0)
+                    if (MessageBox.Show("All items will save in In patient logs, Continue?", "INFORMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        MessageBox.Show("The Patient name, Room no. and Nurse name fields are all required to fill in", "REQUIRED!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("All items will save in In patient logs, Continue?", "INFORMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+
+
+                        //save the transaction line
+                        for (int i = 0; i < LVPOS.Items.Count; i++)
                         {
+                            // ConsumeItem();
 
 
-                            //save the transaction line
-                            for (int i = 0; i < LVPOS.Items.Count; i++)
-                            {
-                                // ConsumeItem();
+                            iid =LVPOS.Items[i].SubItems[0].Text;//ok
+                            iname = Convert.ToString(LVPOS.Items[i].SubItems[1].Text);//ok
+                            ucost = Convert.ToDouble(LVPOS.Items[i].SubItems[3].Text);//ok
+                            qty = Convert.ToInt32(LVPOS.Items[i].SubItems[4].Text);//ok
+                            sdisc = Convert.ToDouble(LVPOS.Items[i].SubItems[8].Text);
+                            sdiscp = Convert.ToDouble(LVPOS.Items[i].SubItems[6].Text);
+                            totaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[5].Text);
+                            stotaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[7].Text);//ok
 
-
-                                iid = Convert.ToInt32(LVPOS.Items[i].SubItems[0].Text);//ok
-                                iname = Convert.ToString(LVPOS.Items[i].SubItems[1].Text);//ok
-                                ucost = Convert.ToDouble(LVPOS.Items[i].SubItems[3].Text);//ok
-                                qty = Convert.ToInt32(LVPOS.Items[i].SubItems[4].Text);//ok
-                                sdisc = Convert.ToDouble(LVPOS.Items[i].SubItems[8].Text);
-                                sdiscp = Convert.ToDouble(LVPOS.Items[i].SubItems[6].Text);
-                                totaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[5].Text);
-                                stotaldb = Convert.ToDouble(LVPOS.Items[i].SubItems[7].Text);//ok
-
-
-                                connection.Open();
-
-                                Cmd = new MySqlCommand("INSERT into transaction (cashier_name, PO_id, pro_id, item, cost, qty,discount_amt, transaction_date, dispercent, total, subtotal)"
-                                    + "values('" + lUsername.Text + "','" + pid.Text + "','" + iid + "','" + iname + "','" + ucost + "','" + qty + "' , '" + sdisc + "', '" + atime.Text + "', '" + sdiscp + "', '" + totaldb + "', '" + stotaldb + "'  )", connection);
-
-                                MySqlCommand Cmd1 = new MySqlCommand("INSERT into order_line (POnum, ItemID, Orderqty, UnitCost, Discount)"
-                                   + "values('" + pid.Text + "','" + iid + "','" + qty + "','" + ucost + "','" + sdisc + "' )", connection);
-
-
-                                // MySqlDataReader myReader;
-                                try
-                                {
-                                    if (Cmd.ExecuteNonQuery() == 1 && Cmd1.ExecuteNonQuery() == 1)
-                                    {
-                                        //MessageBox.Show("data is Saved");
-
-                                    }
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.Message);
-                                }
-
-                                connection.Close();
-                            }
 
                             connection.Open();
 
-                            Cmd = new MySqlCommand("INSERT into sales_report (transactionNum, totalqty, total, subtotal, discpercent,  discount_amount, Date, time,  cashier)"
-                           + "values('" + pid.Text + "','" + titems.Text + "','" + tbigtotal.Text + "','" + bottompanel.Text + "','" + tdiscount.Text + "' , '" + discamt + "', '" + atime.Text + "', '" + ldate.Text + "', '" + lUsername.Text + "')", connection);
+                            Cmd = new MySqlCommand("INSERT into transaction (cashier_name, PO_id, pro_id, item, cost, qty,discount_amt, transaction_date, dispercent, total, subtotal)"
+                                + "values('" + lUsername.Text + "','" + pid.Text + "','" + iid + "','" + iname + "','" + ucost + "','" + qty + "' , '" + sdisc + "', '" + atime.Text + "', '" + sdiscp + "', '" + totaldb + "', '" + stotaldb + "'  )", connection);
 
-                            MySqlCommand Cmd2 = new MySqlCommand("INSERT into porder (POnum, ItemID, ChargeRef, OrderDate)"
-                           + "values('" + pid.Text + "','" + iid + "','" + lUsername.Text + "','" + atime.Text + "')", connection);
+                            MySqlCommand Cmd1 = new MySqlCommand("INSERT into order_line (POnum, ItemID, Orderqty, UnitCost, Discount)"
+                               + "values('" + pid.Text + "','" + iid + "','" + qty + "','" + ucost + "','" + sdisc + "' )", connection);
 
-                            MySqlCommand Cmd3 = new MySqlCommand("INSERT into charge (invoice_no, patientName, RoomNo, Bill, nurse)"
-                           + "values('" + pid.Text + "','" + pname.Text + "','" + nup_roomnum.Text + "','" + tbigtotal.Text + "', '" + nurse.Text + "')", connection);
 
                             // MySqlDataReader myReader;
                             try
                             {
-                                if (Cmd.ExecuteNonQuery() == 1 && Cmd2.ExecuteNonQuery() == 1 && Cmd3.ExecuteNonQuery() == 1)
+                                if (Cmd.ExecuteNonQuery() == 1 && Cmd1.ExecuteNonQuery() == 1)
                                 {
                                     //MessageBox.Show("data is Saved");
-                                    
+
                                 }
 
                             }
@@ -2344,57 +2438,86 @@ namespace WindowsFormsApplication1
                                 MessageBox.Show(ex.Message);
                             }
 
-
-
                             connection.Close();
-
-                            postId();
-                            titems.Text = "0";
-                            bottompanel.Text = "0";
-                            tdiscount.Text = "0";
-                            tAmt.Text = "0";
-                            tchange.Text = "0";
-                            tbigtotal.Text = "Total";
-                            ndisc.Text = "0.00";
-                            LVPOS.Items.Clear();
-
-
-
-                            Cursor.Current = Cursors.WaitCursor;
-                            //new printReceipt(lUsername.Text, timein.Text, pid.Text).ShowDialog();
-
-                            this.KeyPreview = true;
-                            btnsearch.Enabled = true;
-                            btnremove.Enabled = true;
-                            btnUpdate.Enabled = true;
-                            btn_return.Enabled = true;
-                            btndone.Enabled = true;
-                            btndone.Enabled = true;
-                            btn_log.Enabled = true;
-                            logout.Enabled = true;
-                            btn_charge.Enabled = true;
-
-
                         }
-                        else
+
+                        connection.Open();
+
+                        Cmd = new MySqlCommand("INSERT into sales_report (transactionNum, totalqty, total, subtotal, discpercent,  discount_amount, Date, time,  cashier)"
+                       + "values('" + pid.Text + "','" + titems.Text + "','" + tbigtotal.Text + "','" + bottompanel.Text + "','" + tdiscount.Text + "' , '" + discamt + "', '" + atime.Text + "', '" + ldate.Text + "', '" + lUsername.Text + "')", connection);
+
+                        MySqlCommand Cmd2 = new MySqlCommand("INSERT into porder (POnum, ItemID, ChargeRef, OrderDate)"
+                       + "values('" + pid.Text + "','" + iid + "','" + lUsername.Text + "','" + atime.Text + "')", connection);
+
+                        MySqlCommand Cmd3 = new MySqlCommand("INSERT into charge (invoice_no, patientName, RoomNo, Bill, nurse)"
+                       + "values('" + pid.Text + "','" + pname.Text + "','" + nup_roomnum.Text + "','" + tbigtotal.Text + "', '" + nurse.Text + "')", connection);
+
+                        // MySqlDataReader myReader;
+                        try
                         {
-                            MessageBox.Show("Transaction not save! All transactions need to be save", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    }
+                            if (Cmd.ExecuteNonQuery() == 1 && Cmd2.ExecuteNonQuery() == 1 && Cmd3.ExecuteNonQuery() == 1)
+                            {
+                                //MessageBox.Show("data is Saved");
 
-                 //     }
-                    //     catch(Exception)
-                    //     {
-                    //         MessageBox.Show("Click me again, When you are sure!");
-                    
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+
+
+                        connection.Close();
+
+                        postId();
+                        titems.Text = "0";
+                        bottompanel.Text = "0";
+                        tdiscount.Text = "0";
+                        tAmt.Text = "0";
+                        tchange.Text = "0";
+                        tbigtotal.Text = "Total";
+                        ndisc.Text = "0.00";
+                        LVPOS.Items.Clear();
+
+
+
+                        Cursor.Current = Cursors.WaitCursor;
+                        //new printReceipt(lUsername.Text, timein.Text, pid.Text).ShowDialog();
+
+                        this.KeyPreview = true;
+                        btnsearch.Enabled = true;
+                        btnremove.Enabled = true;
+                        btnUpdate.Enabled = true;
+                        btn_return.Enabled = true;
+                        btndone.Enabled = true;
+                        btndone.Enabled = true;
+                        btn_log.Enabled = true;
+                        logout.Enabled = true;
+                        btn_charge.Enabled = true;
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Transaction not save! All transactions need to be save", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
+
+                //     }
+                //     catch(Exception)
+                //     {
+                //         MessageBox.Show("Click me again, When you are sure!");
+
+            }
             //}
             //else
             //{
             //    MessageBox.Show("There is no selected Items", "STOP", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             //}
 
-            
+
         }
 
         private void nup_roomnum_Enter(object sender, EventArgs e)
@@ -2411,5 +2534,102 @@ namespace WindowsFormsApplication1
         {
             backpinpanel.SendToBack();
         }
+
+        private void btn_notif_Click(object sender, EventArgs e)
+        {
+            p_notification.BringToFront();
+        }
+
+        private void bunifuImageButton4_Click(object sender, EventArgs e)
+        {
+            p_notification.SendToBack();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            ShowInTaskbar = true;
+            notifyIcon1.Visible = true;
+            this.Show();
+        }
+
+
+      
+
+        private void tAmt_TextChanged_1(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tAmt.Text, "  ^ [0-9]"))
+            {
+                tAmt.Text = "";
+            }
+        }
+
+        private void tAmt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tAmt_Enter_1(object sender, EventArgs e)
+        {
+            if (tAmt.Text == "0.00")
+            {
+                tAmt.Text = "";
+
+            }
+        }
+
+        private void tAmt_Leave_1(object sender, EventArgs e)
+        {
+            if (tAmt.Text == "")
+            {
+                tAmt.Text = "0.00";
+            }
+        }
+
+        private void tAmt_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (tAmt.Text == null)
+            {
+                tAmt.Text = "Password";
+                tAmt.ForeColor = Color.Silver;
+            }
+
+                if (e.KeyCode == Keys.Enter)
+                {
+               
+                       double moretotal = Convert.ToDouble(tbigtotal.Text);
+                       double lesstotal = Convert.ToDouble(tAmt.Text);
+
+                        if (moretotal > lesstotal)
+                        {
+                            MessageBox.Show("You must fill the exact or more than the net total amount", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+
+                               Cursor.Current = Cursors.WaitCursor;
+
+                                double computeChange = Double.Parse(tAmt.Text) - Double.Parse(tbigtotal.Text);
+
+                                tchange.Text = Convert.ToString(computeChange);
+
+                                tbchange2.Text = tchange.Text;
+                                Double change;
+                                Double.TryParse(tchange.Text, out change);
+                                tchange.Text = change.ToString(".00");
+                    
+
+                        }
+
+
+                }
+            }
+
+        private void logout_MouseClick(object sender, MouseEventArgs e)
+        {
+            scape();
+        }
     }
-}
+ }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRIGHTSIDE_IDEA_POS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,12 +17,14 @@ namespace WindowsFormsApplication1
         {
             Application.EnableVisualStyles();
             //   Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SplashScreen());
+            // Application.Run(new SplashScreen());
             //Application.Run(new Inventory());
             // Application.Run(new Responsive());
-             //Application.Run(new mform());
-            //Application.Run(new log_form());
-            //Application.Run(new returnMedicine());
+            Application.Run(new mform());
+            // Application.Run(new chargeForm());
+            //  Application.Run(new log_form());
+            //Application.returnMedicine();
+
 
         }
 

@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class reportSalesPrint
     {
@@ -42,15 +44,20 @@
             this.salesPrint.Location = new System.Drawing.Point(0, 0);
             this.salesPrint.Name = "salesPrint";
             this.salesPrint.ReportSource = this.SalesReport1;
-            this.salesPrint.Size = new System.Drawing.Size(905, 465);
+            this.salesPrint.Size = new System.Drawing.Size(1103, 522);
             this.salesPrint.TabIndex = 0;
             this.salesPrint.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // SalesReport1
+            // 
+            this.SalesReport1.FileName = "rassdk://C:\\Users\\duke azelean bilayon\\AppData\\Local\\Temp\\temp_effde558-a04b-4cf6" +
+    "-8e9e-ffbf8e2bdc19.rpt";
             // 
             // reportSalesPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 465);
+            this.ClientSize = new System.Drawing.Size(1103, 522);
             this.Controls.Add(this.salesPrint);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "reportSalesPrint";
@@ -65,5 +72,9 @@
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer salesPrint;
         private SalesReport SalesReport1;
+    }
+
+    internal class SalesReport : BRIGHTSIDE_IDEA_POS.SalesReport
+    {
     }
 }

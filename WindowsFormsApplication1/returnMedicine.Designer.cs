@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(returnMedicine));
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_item = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_username = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.fetch = new System.Windows.Forms.Button();
             this.DP_dateReturn = new System.Windows.Forms.DateTimePicker();
             this.cinvoice = new MetroFramework.Controls.MetroComboBox();
             this.qty = new System.Windows.Forms.NumericUpDown();
@@ -49,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TB_editable = new System.Windows.Forms.NumericUpDown();
             this.diskarte = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TB_editable)).BeginInit();
@@ -60,11 +65,11 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(340, 17);
+            this.label4.Location = new System.Drawing.Point(8, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 24);
+            this.label4.Size = new System.Drawing.Size(171, 24);
             this.label4.TabIndex = 130;
-            this.label4.Text = "Date Returned:";
+            this.label4.Text = "Transaction date:";
             // 
             // lbl_item
             // 
@@ -72,7 +77,7 @@
             this.lbl_item.BackColor = System.Drawing.Color.White;
             this.lbl_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbl_item.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbl_item.Location = new System.Drawing.Point(9, 17);
+            this.lbl_item.Location = new System.Drawing.Point(537, 19);
             this.lbl_item.Name = "lbl_item";
             this.lbl_item.Size = new System.Drawing.Size(88, 24);
             this.lbl_item.TabIndex = 124;
@@ -93,21 +98,57 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Green;
+            this.panel2.Controls.Add(this.lbl_username);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.fetch);
             this.panel2.Controls.Add(this.DP_dateReturn);
             this.panel2.Controls.Add(this.cinvoice);
             this.panel2.Controls.Add(this.lbl_item);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(706, 59);
+            this.panel2.Size = new System.Drawing.Size(822, 84);
             this.panel2.TabIndex = 144;
+            // 
+            // lbl_username
+            // 
+            this.lbl_username.AutoSize = true;
+            this.lbl_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_username.ForeColor = System.Drawing.Color.White;
+            this.lbl_username.Location = new System.Drawing.Point(93, 59);
+            this.lbl_username.Name = "lbl_username";
+            this.lbl_username.Size = new System.Drawing.Size(51, 16);
+            this.lbl_username.TabIndex = 152;
+            this.lbl_username.Text = "NAME";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(9, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 16);
+            this.label3.TabIndex = 153;
+            this.label3.Text = "CASHIER:";
+            // 
+            // fetch
+            // 
+            this.fetch.BackColor = System.Drawing.Color.White;
+            this.fetch.Location = new System.Drawing.Point(380, 15);
+            this.fetch.Name = "fetch";
+            this.fetch.Size = new System.Drawing.Size(138, 31);
+            this.fetch.TabIndex = 151;
+            this.fetch.Text = "Fetch INVOICE#";
+            this.fetch.UseVisualStyleBackColor = false;
+            this.fetch.Click += new System.EventHandler(this.fetch_Click);
             // 
             // DP_dateReturn
             // 
             this.DP_dateReturn.CustomFormat = "yyyy-MM-dd";
             this.DP_dateReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DP_dateReturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DP_dateReturn.Location = new System.Drawing.Point(496, 17);
+            this.DP_dateReturn.Location = new System.Drawing.Point(184, 17);
             this.DP_dateReturn.Name = "DP_dateReturn";
             this.DP_dateReturn.Size = new System.Drawing.Size(186, 26);
             this.DP_dateReturn.TabIndex = 150;
@@ -116,35 +157,11 @@
             // 
             this.cinvoice.FormattingEnabled = true;
             this.cinvoice.ItemHeight = 23;
-            this.cinvoice.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24"});
-            this.cinvoice.Location = new System.Drawing.Point(103, 14);
+            this.cinvoice.Location = new System.Drawing.Point(631, 17);
             this.cinvoice.Name = "cinvoice";
-            this.cinvoice.Size = new System.Drawing.Size(229, 29);
+            this.cinvoice.Size = new System.Drawing.Size(182, 29);
             this.cinvoice.TabIndex = 146;
+            this.toolTip1.SetToolTip(this.cinvoice, "This is INVOICE NUMBER\r\n\r\nChoose the invoice number of the return med.");
             this.cinvoice.UseSelectable = true;
             this.cinvoice.SelectedIndexChanged += new System.EventHandler(this.cinvoice_SelectedIndexChanged);
             // 
@@ -166,13 +183,14 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.LVreturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LVreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVreturn.FullRowSelect = true;
             this.LVreturn.GridLines = true;
             this.LVreturn.HoverSelection = true;
-            this.LVreturn.Location = new System.Drawing.Point(25, 72);
+            this.LVreturn.Location = new System.Drawing.Point(25, 90);
             this.LVreturn.Name = "LVreturn";
-            this.LVreturn.Size = new System.Drawing.Size(563, 416);
+            this.LVreturn.Size = new System.Drawing.Size(768, 398);
             this.LVreturn.TabIndex = 144;
             this.LVreturn.UseCompatibleStateImageBehavior = false;
             this.LVreturn.View = System.Windows.Forms.View.Details;
@@ -181,6 +199,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Item ID";
+            this.columnHeader1.Width = 120;
             // 
             // columnHeader2
             // 
@@ -190,16 +209,17 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Qty";
-            this.columnHeader3.Width = 56;
+            this.columnHeader3.Width = 120;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Cost";
+            this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Date purchased";
-            this.columnHeader5.Width = 106;
+            this.columnHeader5.Width = 120;
             // 
             // columnHeader6
             // 
@@ -211,7 +231,7 @@
             this.btn_return.BackColor = System.Drawing.Color.Green;
             this.btn_return.color = System.Drawing.Color.Green;
             this.btn_return.colorActive = System.Drawing.Color.DarkGreen;
-            this.btn_return.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_return.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_return.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_return.ForeColor = System.Drawing.Color.White;
             this.btn_return.Image = ((System.Drawing.Image)(resources.GetObject("btn_return.Image")));
@@ -222,7 +242,7 @@
             this.btn_return.Location = new System.Drawing.Point(584, 510);
             this.btn_return.Margin = new System.Windows.Forms.Padding(6);
             this.btn_return.Name = "btn_return";
-            this.btn_return.Size = new System.Drawing.Size(111, 55);
+            this.btn_return.Size = new System.Drawing.Size(222, 55);
             this.btn_return.TabIndex = 144;
             this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
             // 
@@ -278,12 +298,18 @@
             this.diskarte.Size = new System.Drawing.Size(110, 26);
             this.diskarte.TabIndex = 151;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "INVOICE NUMBER";
+            // 
             // returnMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(706, 576);
+            this.ClientSize = new System.Drawing.Size(821, 576);
             this.Controls.Add(this.itemname);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.panel2);
@@ -299,7 +325,7 @@
             this.MaximizeBox = false;
             this.Name = "returnMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "returnMedicine";
+            this.Text = "RETURNED MEDICINE";
             this.Load += new System.EventHandler(this.returnMedicine_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -331,5 +357,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown TB_editable;
         private System.Windows.Forms.DateTimePicker diskarte;
+        private System.Windows.Forms.Button fetch;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label lbl_username;
+        private System.Windows.Forms.Label label3;
     }
 }

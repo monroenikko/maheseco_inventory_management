@@ -26,26 +26,67 @@ namespace WindowsFormsApplication1
         private MySqlCommand Cmd;
 
         MySqlDataReader Reader;
+        private string un;
 
+        string atime;
+     
 
-        public returnMedicine()
+        public returnMedicine(Label uname)
         {
             InitializeComponent();
+
+            un = uname.Text;
+
+            lbl_username.Text = un.ToString();
+
             itemname.Enabled = false;
 
             fillcombo();
 
             qty.Enabled = false;
-        }
 
-        
+            DateTime date = DateTime.Now;
+            string MySQLFormatDate = date.ToString("yyyy-MM-dd");
+            atime = MySQLFormatDate.ToString();
+        }
 
         private void rsearch_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-       
+        int totalrmed;
+
+        void rMed_total()
+        {
+            double ColumnAvg = 0;
+
+            for (int i = 0; i < LVreturn.Items.Count; i++)
+            {
+                ColumnAvg += double.Parse(LVreturn.Items[i].SubItems[2].Text);
+            }
+
+            totalrmed = Convert.ToInt32(ColumnAvg.ToString());
+            //totalrmed = ColumnAvg.ToString();
+
+        }
+
+
+        void btnprnit_Click()
+        {
+
+            //rMed_total();
+
+            //Cursor.Current = Cursors.WaitCursor;
+
+            //ReportTodaysLog showme = new ReportTodaysLog(totalrmed);
+
+            //showme.ShowDialog();
+
+
+        }
+
+
 
         private void item_Enter(object sender, EventArgs e)
         {
@@ -67,15 +108,12 @@ namespace WindowsFormsApplication1
             try
             {
 
-                // MySqlCommand command = new MySqlCommand();
-                //connection.Open();
-
+            
                 Cmd = new MySqlCommand();
 
                 Cmd.Connection = connection;
 
-                //Cmd.CommandText = "SELECT transaction.qty, transaction.cost, transaction.transaction_date, transaction.cashier_name, drug.ItemName  FROM transaction join drug on drug.ItemID = PO_id WHERE transaction.PO_id LIKE '%" + cinvoice.Text + "%'  ";
-                //Cmd.CommandText = "SELECT * FROM transaction WHERE ItemName LIKE '%" + cinvoice.Text + "%' ";
+                
                 Cmd.CommandText = "SELECT transaction.pro_id, transaction.qty, transaction.cost, transaction.transaction_date, transaction.cashier_name, transaction.item FROM transaction WHERE PO_id LIKE '%" + cinvoice.Text + "%'  ";
                 Adapter = new MySqlDataAdapter();
 
@@ -120,7 +158,7 @@ namespace WindowsFormsApplication1
 
         void fillcombo()
         {
-            Cmd = new MySqlCommand("SELECT DISTINCT PO_id from transaction ORDER BY PO_id ", connection);
+            Cmd = new MySqlCommand("SELECT distinct PO_id from transaction Where transaction_date = '"+ DP_dateReturn.Text+ "'", connection);
             
 
             try
@@ -145,7 +183,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        int iid;
+        string iid;
         double ucost;
         string datepur;
         string incashier;
@@ -154,7 +192,7 @@ namespace WindowsFormsApplication1
         {
            
 
-            iid = int.Parse(LVreturn.SelectedItems[0].SubItems[0].Text);
+            iid = LVreturn.SelectedItems[0].SubItems[0].Text;
             itemname.Text = LVreturn.SelectedItems[0].SubItems[1].Text;
             qty.Text = LVreturn.SelectedItems[0].SubItems[2].Text;
             ucost = double.Parse(LVreturn.SelectedItems[0].SubItems[3].Text);
@@ -164,8 +202,7 @@ namespace WindowsFormsApplication1
           
         }
 
-
-        
+                
         private void btn_return_Click(object sender, EventArgs e)
         {         
             int conqty = int.Parse(qty.Text);
@@ -194,7 +231,7 @@ namespace WindowsFormsApplication1
                     connection.Open();
 
                     Cmd = new MySqlCommand("INSERT INTO medicinelogreturn (ItemId ,Item, qty, POnum, Incharge, Amount, DateReturn, datePurchased)"
-                        + "VALUES('" + iid + "', '" + itemname.Text + "', '" + TB_editable.Text + "', '" + cinvoice.Text + "', '" + incashier + "', '" + ucost + "', '" + DP_dateReturn.Text + "', '" + diskarte.Text + "')", connection);
+                        + "VALUES('" + iid + "', '" + itemname.Text + "', '" + TB_editable.Text + "', '" + cinvoice.Text + "', '" + incashier + "', '" + ucost + "', '" + atime + "', '" + DP_dateReturn.Text + "')", connection);
 
                     try
                     {
@@ -210,9 +247,13 @@ namespace WindowsFormsApplication1
 
                                 Reader = Cmd.ExecuteReader();
                                 MessageBox.Show("The " + itemname.Text + " has returned.", "Medicine has", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                while (Reader.Read())
-                                {
-                                }
+
+                                LVreturn.Items.Clear();
+                                updateQty();
+                                updateDrugConsume();
+
+
+
                                 connection.Close();
                             }
                             catch (Exception ex)
@@ -234,10 +275,133 @@ namespace WindowsFormsApplication1
 
                 }
             }
-           
-           
+
+            rMed_total();
+
+            //Cursor.Current = Cursors.WaitCursor;
+
+            //ReportTodaysLog showme = new ReportTodaysLog(totalrmed);
+
+            //showme.ShowDialog();
+
+
+        }
+
+
+        void updateQty()
+        {
+            connection.Close();
+            connection.Open();
+            string sql = "SELECT * FROM drug_product WHERE ItemID='" + iid + "' ";
+            Cmd = new MySqlCommand(sql, connection);
+            //execute reader
+            Reader = Cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                int batch1 = Reader.GetInt32("stockQty");
+
+                Reader.Close();
+                //condition for add qty of item
+                int totalQty1 = batch1 + Convert.ToInt32(TB_editable.Text);
+
+                string sql1 = "UPDATE drug_product SET stockQty='" + totalQty1 + "'  WHERE ItemID='" + iid + "' && batchNo='" + batch1 + "' ";
+                string sql2 = "UPDATE drug SET stockQty='" + totalQty1 + "'  WHERE ItemID='" + iid + "' && batchNo='" + batch1 + "' ";
+                string sql3 = "UPDATE drug_logs SET stockQty1='" + totalQty1 + "'  WHERE ItemID='" + iid + "' && batchNo='" + batch1 + "' ";
+               
+
+                // connection.Open();
+
+                Cmd = new MySqlCommand(sql1, connection);
+
+                try
+                {
+                    if (Cmd.ExecuteNonQuery() == 1)
+                    {
+                        //  MessageBox.Show("data is now updated");
+                    }
+                    else
+                    {
+                        //  MessageBox.Show("data is not updated");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+                connection.Close();
+
+                // }
+
+            }
+            else
+            {
+
+                MessageBox.Show("NO DATA FILL");
+            }
+            Reader.Close();
+
+            connection.Close();
+        }
+
+
+        void updateDrugConsume()
+        {
+            connection.Close();
+            connection.Open();
+            string sql = "SELECT * FROM drug_consume WHERE ItemID='" + iid + "' ";
+            Cmd = new MySqlCommand(sql, connection);
+            //execute reader
+            Reader = Cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                int batch1 = Reader.GetInt32("stockQty2");
+
+                Reader.Close();
+                //condition for add qty of item
+                int totalQty1 = batch1 - Convert.ToInt32(TB_editable.Text);
+
+                string sql1 = "UPDATE drug_consume SET stockQty2='" + totalQty1 + "'  WHERE ItemID='" + iid + "' && batchNo='" + batch1 + "' ";
                 
 
+
+                // connection.Open();
+
+                Cmd = new MySqlCommand(sql1, connection);
+
+                try
+                {
+                    if (Cmd.ExecuteNonQuery() == 1)
+                    {
+                        //  MessageBox.Show("data is now updated");
+                    }
+                    else
+                    {
+                        //  MessageBox.Show("data is not updated");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+                connection.Close();
+
+                // }
+
+            }
+            else
+            {
+
+                MessageBox.Show("NO DATA FILL");
+            }
+            Reader.Close();
+
+            connection.Close();
         }
 
         private void TB_editable_Enter(object sender, EventArgs e)
@@ -254,9 +418,14 @@ namespace WindowsFormsApplication1
         {
             if (TB_editable.Value == 0)
             {
-                TB_editable.Text = "0";
-                               
+                TB_editable.Text = "0";                               
             }
+        }
+
+        private void fetch_Click(object sender, EventArgs e)
+        {
+            cinvoice.Items.Clear();
+            fillcombo();
         }
     }
 }

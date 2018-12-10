@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRIGHTSIDE_IDEA_POS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,8 @@ namespace WindowsFormsApplication1
     public partial class ReportTodaysLog : Form
     {
 
-        private int tlog;
-        public ReportTodaysLog(int totalrmed)
+        private double tlog;
+        public ReportTodaysLog(double totalrmed)
         {
             InitializeComponent();
             tlog = totalrmed;

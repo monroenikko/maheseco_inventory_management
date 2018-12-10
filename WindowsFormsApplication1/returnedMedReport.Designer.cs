@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class returnedMedReport
     {
@@ -62,6 +64,10 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer RMR;
-        private returnedMedicine returnedMedicine1;
+        private BRIGHTSIDE_IDEA_POS.returnedMedicine returnedMedicine1;
+    }
+
+    internal class returnedMedicine : BRIGHTSIDE_IDEA_POS.returnedMedicine
+    {
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using BRIGHTSIDE_IDEA_POS;
+
+namespace WindowsFormsApplication1
 {
     partial class InventoryMedicinePrint
     {
@@ -63,6 +65,10 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer IMP_crystalreport;
-        private InventoryMedicine InventoryMedicine1;
+        private BRIGHTSIDE_IDEA_POS.InventoryMedicine InventoryMedicine1;
+    }
+
+    internal class InventoryMedicine : BRIGHTSIDE_IDEA_POS.InventoryMedicine
+    {
     }
 }

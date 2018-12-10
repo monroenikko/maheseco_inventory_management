@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tablePOS = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
@@ -81,7 +81,13 @@
             this.unitcost = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.subtotal = new System.Windows.Forms.TextBox();
             this.disclast = new System.Windows.Forms.TextBox();
-            this.tAmt = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.p_notification = new System.Windows.Forms.Panel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.LvNotif = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_print = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pupdate1 = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -133,11 +139,13 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_notif = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_notif = new Bunifu.Framework.UI.BunifuImageButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbigtotal = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label35 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.timein = new System.Windows.Forms.Label();
             this.time_in = new System.Windows.Forms.Label();
@@ -185,16 +193,18 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
-            this.tbchange2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.label37 = new System.Windows.Forms.Label();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.btnback = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.tAmt = new System.Windows.Forms.TextBox();
+            this.tbchange2 = new System.Windows.Forms.TextBox();
             this.epeks = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.draggg = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2.SuspendLayout();
             this.tablePOS.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -212,6 +222,8 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
+            this.p_notification.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
             this.pupdate1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -229,6 +241,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_notif)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -257,6 +270,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel2.Controls.Add(this.tablePOS);
             this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.p_notification);
             this.panel2.Cursor = System.Windows.Forms.Cursors.No;
             this.epeks.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
@@ -296,37 +310,36 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.epeks.SetDecoration(this.label15, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.label15, BunifuAnimatorNS.DecorationType.None);
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label15.Location = new System.Drawing.Point(3, 175);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(18, 445);
+            this.label15.Size = new System.Drawing.Size(18, 345);
             this.label15.TabIndex = 88;
             this.label15.Text = "MAH\r\nE\r\nS\r\nE\r\nC\r\nO \r\n\r\nMP\r\nC \r\n\r\nH\r\nO\r\nS\r\nP\r\nI\r\nT\r\nA\r\nL";
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.ColumnCount = 7;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.360544F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.63946F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 208F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 216F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel7.Controls.Add(this.btnsearch, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btnremove, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_return, 4, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btnUpdate, 3, 0);
+            this.tableLayoutPanel7.ColumnCount = 4;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.btnsearch, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnremove, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btn_return, 3, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnUpdate, 2, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel7, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.tableLayoutPanel7, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(27, 108);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(861, 64);
             this.tableLayoutPanel7.TabIndex = 36;
             this.tableLayoutPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel7_Paint);
@@ -357,14 +370,14 @@
             this.btnsearch.IconVisible = true;
             this.btnsearch.IconZoom = 50D;
             this.btnsearch.IsTab = false;
-            this.btnsearch.Location = new System.Drawing.Point(6, 4);
+            this.btnsearch.Location = new System.Drawing.Point(4, 4);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnsearch.OnHovercolor = System.Drawing.Color.Green;
             this.btnsearch.OnHoverTextColor = System.Drawing.Color.White;
             this.btnsearch.selected = false;
-            this.btnsearch.Size = new System.Drawing.Size(168, 56);
+            this.btnsearch.Size = new System.Drawing.Size(207, 56);
             this.btnsearch.TabIndex = 1;
             this.btnsearch.Text = "   Search   (F1)";
             this.btnsearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,14 +411,14 @@
             this.btnremove.IconVisible = true;
             this.btnremove.IconZoom = 50D;
             this.btnremove.IsTab = false;
-            this.btnremove.Location = new System.Drawing.Point(182, 4);
+            this.btnremove.Location = new System.Drawing.Point(219, 4);
             this.btnremove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnremove.Name = "btnremove";
             this.btnremove.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnremove.OnHovercolor = System.Drawing.Color.Green;
             this.btnremove.OnHoverTextColor = System.Drawing.Color.White;
             this.btnremove.selected = false;
-            this.btnremove.Size = new System.Drawing.Size(200, 56);
+            this.btnremove.Size = new System.Drawing.Size(207, 56);
             this.btnremove.TabIndex = 1;
             this.btnremove.Text = "    VOID    (F2)";
             this.btnremove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -439,14 +452,14 @@
             this.btn_return.IconVisible = true;
             this.btn_return.IconZoom = 50D;
             this.btn_return.IsTab = false;
-            this.btn_return.Location = new System.Drawing.Point(606, 4);
+            this.btn_return.Location = new System.Drawing.Point(649, 4);
             this.btn_return.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_return.Name = "btn_return";
             this.btn_return.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_return.OnHovercolor = System.Drawing.Color.Green;
             this.btn_return.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_return.selected = false;
-            this.btn_return.Size = new System.Drawing.Size(204, 56);
+            this.btn_return.Size = new System.Drawing.Size(208, 56);
             this.btn_return.TabIndex = 1;
             this.btn_return.Text = "   RETURN    (F4)";
             this.btn_return.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -480,14 +493,14 @@
             this.btnUpdate.IconVisible = true;
             this.btnUpdate.IconZoom = 50D;
             this.btnUpdate.IsTab = false;
-            this.btnUpdate.Location = new System.Drawing.Point(390, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(434, 4);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnUpdate.OnHovercolor = System.Drawing.Color.Green;
             this.btnUpdate.OnHoverTextColor = System.Drawing.Color.White;
             this.btnUpdate.selected = false;
-            this.btnUpdate.Size = new System.Drawing.Size(208, 56);
+            this.btnUpdate.Size = new System.Drawing.Size(207, 56);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "     EDIT     (F3)";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -501,7 +514,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.89544F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.10456F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel8, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
@@ -540,7 +553,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(166, 85);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(153, 85);
             this.tableLayoutPanel8.TabIndex = 66;
             // 
             // label4
@@ -555,7 +568,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(3, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 30);
+            this.label4.Size = new System.Drawing.Size(147, 30);
             this.label4.TabIndex = 87;
             this.label4.Text = "CHANGE:";
             // 
@@ -573,7 +586,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(166, 81);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(153, 81);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label2
@@ -588,7 +601,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(3, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 28);
+            this.label2.Size = new System.Drawing.Size(147, 28);
             this.label2.TabIndex = 87;
             this.label2.Text = "TOTAL ITEMS:";
             // 
@@ -606,7 +619,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(166, 81);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(153, 81);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label1
@@ -621,7 +634,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(3, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 28);
+            this.label1.Size = new System.Drawing.Size(147, 28);
             this.label1.TabIndex = 87;
             this.label1.Text = "SUB TOTAL:";
             // 
@@ -638,13 +651,13 @@
             this.bottompanel.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bottompanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.bottompanel.isPassword = false;
-            this.bottompanel.Location = new System.Drawing.Point(180, 95);
+            this.bottompanel.Location = new System.Drawing.Point(167, 95);
             this.bottompanel.Margin = new System.Windows.Forms.Padding(8);
             this.bottompanel.MaximumSize = new System.Drawing.Size(1258, 102);
             this.bottompanel.Name = "bottompanel";
             this.bottompanel.Padding = new System.Windows.Forms.Padding(5);
             this.bottompanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bottompanel.Size = new System.Drawing.Size(213, 71);
+            this.bottompanel.Size = new System.Drawing.Size(196, 71);
             this.bottompanel.TabIndex = 64;
             this.bottompanel.Text = "0.00";
             this.bottompanel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -662,12 +675,12 @@
             this.titems.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.titems.isPassword = false;
-            this.titems.Location = new System.Drawing.Point(180, 8);
+            this.titems.Location = new System.Drawing.Point(167, 8);
             this.titems.Margin = new System.Windows.Forms.Padding(8);
             this.titems.Name = "titems";
             this.titems.Padding = new System.Windows.Forms.Padding(5);
             this.titems.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.titems.Size = new System.Drawing.Size(213, 71);
+            this.titems.Size = new System.Drawing.Size(196, 71);
             this.titems.TabIndex = 64;
             this.titems.Text = "0";
             this.titems.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -685,12 +698,12 @@
             this.tchange.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tchange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tchange.isPassword = false;
-            this.tchange.Location = new System.Drawing.Point(180, 356);
+            this.tchange.Location = new System.Drawing.Point(167, 356);
             this.tchange.Margin = new System.Windows.Forms.Padding(8);
             this.tchange.Name = "tchange";
             this.tchange.Padding = new System.Windows.Forms.Padding(5);
             this.tchange.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tchange.Size = new System.Drawing.Size(213, 75);
+            this.tchange.Size = new System.Drawing.Size(196, 75);
             this.tchange.TabIndex = 64;
             this.tchange.Text = "0.00";
             this.tchange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -709,7 +722,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(166, 81);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(153, 81);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label3
@@ -724,7 +737,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(3, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 28);
+            this.label3.Size = new System.Drawing.Size(147, 28);
             this.label3.TabIndex = 87;
             // 
             // tableLayoutPanel10
@@ -741,7 +754,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(166, 81);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(153, 81);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // label6
@@ -756,7 +769,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(3, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 28);
+            this.label6.Size = new System.Drawing.Size(147, 28);
             this.label6.TabIndex = 87;
             this.label6.Text = "DISC AMT:";
             // 
@@ -773,12 +786,12 @@
             this.tdiscount.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tdiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tdiscount.isPassword = false;
-            this.tdiscount.Location = new System.Drawing.Point(180, 182);
+            this.tdiscount.Location = new System.Drawing.Point(167, 182);
             this.tdiscount.Margin = new System.Windows.Forms.Padding(8);
             this.tdiscount.Name = "tdiscount";
             this.tdiscount.Padding = new System.Windows.Forms.Padding(5);
             this.tdiscount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tdiscount.Size = new System.Drawing.Size(213, 71);
+            this.tdiscount.Size = new System.Drawing.Size(196, 71);
             this.tdiscount.TabIndex = 64;
             this.tdiscount.Text = "0.00";
             this.tdiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1134,13 +1147,13 @@
             this.effects2.SetDecoration(this.tableLayoutPanel9, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this.tableLayoutPanel9, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(993, 5);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(937, 5);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.15789F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.84211F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(255, 76);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(311, 76);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
             // atime
@@ -1151,7 +1164,7 @@
             this.atime.Dock = System.Windows.Forms.DockStyle.Right;
             this.atime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.atime.Location = new System.Drawing.Point(182, 47);
+            this.atime.Location = new System.Drawing.Point(238, 47);
             this.atime.Name = "atime";
             this.atime.Size = new System.Drawing.Size(70, 29);
             this.atime.TabIndex = 1;
@@ -1165,13 +1178,13 @@
             this.logout.Dock = System.Windows.Forms.DockStyle.Right;
             this.logout.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout.LinkColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(177, 0);
+            this.logout.Location = new System.Drawing.Point(233, 0);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(75, 47);
             this.logout.TabIndex = 2;
             this.logout.TabStop = true;
             this.logout.Text = "Logout";
-            this.logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.logout_LinkClicked);
+            this.logout.MouseClick += new System.Windows.Forms.MouseEventHandler(this.logout_MouseClick);
             // 
             // uptotal
             // 
@@ -1248,31 +1261,82 @@
             this.disclast.Size = new System.Drawing.Size(100, 20);
             this.disclast.TabIndex = 75;
             // 
-            // tAmt
+            // p_notification
             // 
-            this.tAmt.BorderColorFocused = System.Drawing.Color.LimeGreen;
-            this.tAmt.BorderColorIdle = System.Drawing.Color.DarkGreen;
-            this.tAmt.BorderColorMouseHover = System.Drawing.Color.LimeGreen;
-            this.tAmt.BorderThickness = 3;
-            this.tAmt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.effects2.SetDecoration(this.tAmt, BunifuAnimatorNS.DecorationType.None);
-            this.epeks.SetDecoration(this.tAmt, BunifuAnimatorNS.DecorationType.None);
-            this.tAmt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tAmt.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tAmt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tAmt.isPassword = false;
-            this.tAmt.Location = new System.Drawing.Point(248, 24);
-            this.tAmt.Margin = new System.Windows.Forms.Padding(8);
-            this.tAmt.Name = "tAmt";
-            this.tAmt.Padding = new System.Windows.Forms.Padding(5);
-            this.tAmt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tAmt.Size = new System.Drawing.Size(243, 139);
-            this.tAmt.TabIndex = 64;
-            this.tAmt.Text = "0.00";
-            this.tAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tAmt.Enter += new System.EventHandler(this.tAmt_Enter);
-            this.tAmt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tAmt_KeyDown);
-            this.tAmt.Leave += new System.EventHandler(this.tAmt_Leave);
+            this.p_notification.BackColor = System.Drawing.Color.Green;
+            this.p_notification.Controls.Add(this.label38);
+            this.p_notification.Controls.Add(this.LvNotif);
+            this.p_notification.Controls.Add(this.bunifuImageButton4);
+            this.p_notification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.epeks.SetDecoration(this.p_notification, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.p_notification, BunifuAnimatorNS.DecorationType.None);
+            this.p_notification.Location = new System.Drawing.Point(337, 112);
+            this.p_notification.Name = "p_notification";
+            this.p_notification.Size = new System.Drawing.Size(629, 498);
+            this.p_notification.TabIndex = 28;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.effects2.SetDecoration(this.label38, BunifuAnimatorNS.DecorationType.None);
+            this.epeks.SetDecoration(this.label38, BunifuAnimatorNS.DecorationType.None);
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(4, 12);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(381, 24);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "NOTIFICATION FOR EXPIRED MEDICINES";
+            // 
+            // LvNotif
+            // 
+            this.LvNotif.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.epeks.SetDecoration(this.LvNotif, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.LvNotif, BunifuAnimatorNS.DecorationType.None);
+            this.LvNotif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LvNotif.FullRowSelect = true;
+            this.LvNotif.HideSelection = false;
+            this.LvNotif.Location = new System.Drawing.Point(3, 39);
+            this.LvNotif.Name = "LvNotif";
+            this.LvNotif.Size = new System.Drawing.Size(623, 457);
+            this.LvNotif.TabIndex = 0;
+            this.LvNotif.UseCompatibleStateImageBehavior = false;
+            this.LvNotif.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "MEDICINE";
+            this.columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "UNIT";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "BATCH NO.";
+            this.columnHeader3.Width = 200;
+            // 
+            // bunifuImageButton4
+            // 
+            this.bunifuImageButton4.BackColor = System.Drawing.Color.Transparent;
+            this.epeks.SetDecoration(this.bunifuImageButton4, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.bunifuImageButton4, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
+            this.bunifuImageButton4.ImageActive = null;
+            this.bunifuImageButton4.Location = new System.Drawing.Point(594, 3);
+            this.bunifuImageButton4.Name = "bunifuImageButton4";
+            this.bunifuImageButton4.Size = new System.Drawing.Size(32, 32);
+            this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.bunifuImageButton4.TabIndex = 2;
+            this.bunifuImageButton4.TabStop = false;
+            this.bunifuImageButton4.Zoom = 10;
+            this.bunifuImageButton4.Click += new System.EventHandler(this.bunifuImageButton4_Click);
             // 
             // btn_print
             // 
@@ -1307,7 +1371,7 @@
             this.btn_print.OnHovercolor = System.Drawing.Color.ForestGreen;
             this.btn_print.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_print.selected = false;
-            this.btn_print.Size = new System.Drawing.Size(241, 65);
+            this.btn_print.Size = new System.Drawing.Size(227, 65);
             this.btn_print.TabIndex = 0;
             this.btn_print.Text = "        Save";
             this.btn_print.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2168,7 +2232,7 @@
             // 
             this.effects2.SetDecoration(this.qty_del, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this.qty_del, BunifuAnimatorNS.DecorationType.None);
-            this.qty_del.Location = new System.Drawing.Point(30, 11);
+            this.qty_del.Location = new System.Drawing.Point(81, 11);
             this.qty_del.Name = "qty_del";
             this.qty_del.Size = new System.Drawing.Size(100, 22);
             this.qty_del.TabIndex = 2;
@@ -2192,18 +2256,20 @@
             this.effects2.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 53);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 46);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.Size = new System.Drawing.Size(64, 55);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.lbl_notif);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btn_notif);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Controls.Add(this.qty_del);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -2220,6 +2286,52 @@
             this.panel1.Size = new System.Drawing.Size(1258, 102);
             this.panel1.TabIndex = 17;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lbl_notif
+            // 
+            this.lbl_notif.AutoSize = true;
+            this.lbl_notif.BackColor = System.Drawing.Color.Red;
+            this.lbl_notif.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.effects2.SetDecoration(this.lbl_notif, BunifuAnimatorNS.DecorationType.None);
+            this.epeks.SetDecoration(this.lbl_notif, BunifuAnimatorNS.DecorationType.None);
+            this.lbl_notif.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_notif.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_notif.ForeColor = System.Drawing.Color.White;
+            this.lbl_notif.Location = new System.Drawing.Point(330, 52);
+            this.lbl_notif.Name = "lbl_notif";
+            this.lbl_notif.Size = new System.Drawing.Size(21, 24);
+            this.lbl_notif.TabIndex = 70;
+            this.lbl_notif.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.effects2.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
+            this.epeks.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label5.Location = new System.Drawing.Point(69, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(800, 46);
+            this.label5.TabIndex = 65;
+            this.label5.Text = "MAHESECO PHARMACY POINT OF SALE";
+            // 
+            // btn_notif
+            // 
+            this.btn_notif.BackColor = System.Drawing.Color.Transparent;
+            this.btn_notif.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.epeks.SetDecoration(this.btn_notif, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.btn_notif, BunifuAnimatorNS.DecorationType.None);
+            this.btn_notif.Image = ((System.Drawing.Image)(resources.GetObject("btn_notif.Image")));
+            this.btn_notif.ImageActive = null;
+            this.btn_notif.Location = new System.Drawing.Point(312, 59);
+            this.btn_notif.Name = "btn_notif";
+            this.btn_notif.Size = new System.Drawing.Size(39, 40);
+            this.btn_notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_notif.TabIndex = 69;
+            this.btn_notif.TabStop = false;
+            this.btn_notif.Zoom = 10;
+            this.btn_notif.Click += new System.EventHandler(this.btn_notif_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -2292,19 +2404,6 @@
             this.label35.Text = "NET\r\nTOTAL:";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.effects2.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
-            this.epeks.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label5.Location = new System.Drawing.Point(-8, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(800, 46);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "MAHESECO PHARMACY POINT OF SALE";
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -2316,7 +2415,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label22, 0, 0);
             this.effects2.SetDecoration(this.tableLayoutPanel3, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this.tableLayoutPanel3, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(57, 53);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 59);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.09091F));
@@ -2785,7 +2884,7 @@
             this.backpinpanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.backpinpanel, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.backpinpanel, BunifuAnimatorNS.DecorationType.None);
-            this.backpinpanel.Location = new System.Drawing.Point(95, 118);
+            this.backpinpanel.Location = new System.Drawing.Point(95, 142);
             this.backpinpanel.Name = "backpinpanel";
             this.backpinpanel.Size = new System.Drawing.Size(363, 196);
             this.backpinpanel.TabIndex = 119;
@@ -2897,22 +2996,22 @@
             // 
             this.effects2.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.effects2.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.effects2.DefaultAnimation = animation3;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.effects2.DefaultAnimation = animation2;
             this.effects2.Interval = 5;
             this.effects2.MaxAnimationTime = 200;
             // 
@@ -2960,14 +3059,14 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.58289F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.41711F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 1, 2);
-            this.tableLayoutPanel16.Controls.Add(this.tbchange2, 2, 2);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel20, 1, 1);
-            this.tableLayoutPanel16.Controls.Add(this.tAmt, 2, 1);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 1, 4);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel23, 2, 4);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel19, 1, 3);
+            this.tableLayoutPanel16.Controls.Add(this.tAmt, 2, 1);
+            this.tableLayoutPanel16.Controls.Add(this.tbchange2, 2, 2);
             this.effects2.SetDecoration(this.tableLayoutPanel16, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this.tableLayoutPanel16, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2998,7 +3097,7 @@
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(194, 153);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(184, 153);
             this.tableLayoutPanel17.TabIndex = 66;
             // 
             // label20
@@ -3013,32 +3112,9 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label20.Location = new System.Drawing.Point(3, 51);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(188, 69);
+            this.label20.Size = new System.Drawing.Size(178, 69);
             this.label20.TabIndex = 87;
             this.label20.Text = "CHANGE:";
-            // 
-            // tbchange2
-            // 
-            this.tbchange2.BorderColorFocused = System.Drawing.Color.LimeGreen;
-            this.tbchange2.BorderColorIdle = System.Drawing.Color.DarkGreen;
-            this.tbchange2.BorderColorMouseHover = System.Drawing.Color.LimeGreen;
-            this.tbchange2.BorderThickness = 3;
-            this.tbchange2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.effects2.SetDecoration(this.tbchange2, BunifuAnimatorNS.DecorationType.None);
-            this.epeks.SetDecoration(this.tbchange2, BunifuAnimatorNS.DecorationType.None);
-            this.tbchange2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbchange2.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbchange2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tbchange2.isPassword = false;
-            this.tbchange2.Location = new System.Drawing.Point(248, 179);
-            this.tbchange2.Margin = new System.Windows.Forms.Padding(8);
-            this.tbchange2.Name = "tbchange2";
-            this.tbchange2.Padding = new System.Windows.Forms.Padding(5);
-            this.tbchange2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbchange2.Size = new System.Drawing.Size(243, 143);
-            this.tbchange2.TabIndex = 64;
-            this.tbchange2.Text = "0.00";
-            this.tbchange2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tableLayoutPanel20
             // 
@@ -3054,7 +3130,7 @@
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.25352F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.74648F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(194, 149);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(184, 149);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // label37
@@ -3069,7 +3145,7 @@
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label37.Location = new System.Drawing.Point(3, 49);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(188, 67);
+            this.label37.Size = new System.Drawing.Size(178, 67);
             this.label37.TabIndex = 87;
             this.label37.Text = "TENDERED:";
             // 
@@ -3078,7 +3154,7 @@
             this.tableLayoutPanel18.ColumnCount = 3;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.624278F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.37572F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel18.Controls.Add(this.btnback, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel18, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.tableLayoutPanel18, BunifuAnimatorNS.DecorationType.None);
@@ -3087,7 +3163,7 @@
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(194, 78);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(184, 78);
             this.tableLayoutPanel18.TabIndex = 67;
             // 
             // btnback
@@ -3116,14 +3192,14 @@
             this.btnback.IconVisible = true;
             this.btnback.IconZoom = 50D;
             this.btnback.IsTab = false;
-            this.btnback.Location = new System.Drawing.Point(14, 6);
+            this.btnback.Location = new System.Drawing.Point(12, 6);
             this.btnback.Margin = new System.Windows.Forms.Padding(6);
             this.btnback.Name = "btnback";
             this.btnback.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnback.OnHovercolor = System.Drawing.Color.ForestGreen;
             this.btnback.OnHoverTextColor = System.Drawing.Color.White;
             this.btnback.selected = false;
-            this.btnback.Size = new System.Drawing.Size(153, 66);
+            this.btnback.Size = new System.Drawing.Size(122, 66);
             this.btnback.TabIndex = 0;
             this.btnback.Text = "            Back";
             this.btnback.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3140,11 +3216,11 @@
             this.tableLayoutPanel23.Controls.Add(this.btn_print, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel23, BunifuAnimatorNS.DecorationType.None);
             this.effects2.SetDecoration(this.tableLayoutPanel23, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(243, 406);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(233, 406);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(253, 77);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(239, 77);
             this.tableLayoutPanel23.TabIndex = 67;
             // 
             // tableLayoutPanel19
@@ -3160,29 +3236,60 @@
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(194, 67);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(184, 67);
             this.tableLayoutPanel19.TabIndex = 67;
+            // 
+            // tAmt
+            // 
+            this.epeks.SetDecoration(this.tAmt, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.tAmt, BunifuAnimatorNS.DecorationType.None);
+            this.tAmt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tAmt.Location = new System.Drawing.Point(233, 19);
+            this.tAmt.Name = "tAmt";
+            this.tAmt.Size = new System.Drawing.Size(239, 113);
+            this.tAmt.TabIndex = 68;
+            this.tAmt.Text = "0.00";
+            this.tAmt.TextChanged += new System.EventHandler(this.tAmt_TextChanged_1);
+            this.tAmt.Enter += new System.EventHandler(this.tAmt_Enter_1);
+            this.tAmt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tAmt_KeyDown_1);
+            this.tAmt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tAmt_KeyPress);
+            this.tAmt.Leave += new System.EventHandler(this.tAmt_Leave_1);
+            // 
+            // tbchange2
+            // 
+            this.epeks.SetDecoration(this.tbchange2, BunifuAnimatorNS.DecorationType.None);
+            this.effects2.SetDecoration(this.tbchange2, BunifuAnimatorNS.DecorationType.None);
+            this.tbchange2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbchange2.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbchange2.Location = new System.Drawing.Point(233, 174);
+            this.tbchange2.Name = "tbchange2";
+            this.tbchange2.Size = new System.Drawing.Size(239, 113);
+            this.tbchange2.TabIndex = 68;
+            this.tbchange2.Text = "0.00";
+            this.tbchange2.TextChanged += new System.EventHandler(this.tAmt_TextChanged_1);
+            this.tbchange2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tAmt_KeyPress);
             // 
             // epeks
             // 
             this.epeks.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.epeks.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.epeks.DefaultAnimation = animation4;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.epeks.DefaultAnimation = animation1;
             this.epeks.MaxAnimationTime = 500;
             // 
             // draggg
@@ -3191,6 +3298,15 @@
             this.draggg.Horizontal = true;
             this.draggg.TargetControl = this.pupdate1;
             this.draggg.Vertical = true;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipText = "There will be an Expired Medicine. Pls. Tell to your admin.";
+            this.notifyIcon1.BalloonTipTitle = "EXPIRED MEDICINE";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "There is an Expired Medicine. Pls. Tell to your admin.";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
             // POS
             // 
@@ -3201,10 +3317,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dpanel);
             this.Controls.Add(this.pinpanel);
+            this.Controls.Add(this.pupdate1);
             this.Controls.Add(this.gbCharge);
             this.Controls.Add(this.pdone);
             this.Controls.Add(this.viewpanel);
-            this.Controls.Add(this.pupdate1);
             this.effects2.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.epeks.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -3242,6 +3358,9 @@
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            this.p_notification.ResumeLayout(false);
+            this.p_notification.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
             this.pupdate1.ResumeLayout(false);
             this.pupdate1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
@@ -3266,6 +3385,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_notif)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
@@ -3290,6 +3410,7 @@
             this.pdone.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel16.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel17.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
@@ -3326,7 +3447,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox tAmt;
         private Bunifu.Framework.UI.BunifuMetroTextbox bottompanel;
         private Bunifu.Framework.UI.BunifuMetroTextbox titems;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -3448,7 +3568,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Label label20;
-        private Bunifu.Framework.UI.BunifuMetroTextbox tbchange2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
@@ -3464,5 +3583,17 @@
         private Bunifu.Framework.UI.BunifuImageButton btn_close2;
         private System.Windows.Forms.NumericUpDown nup_roomnum;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Panel p_notification;
+        private System.Windows.Forms.ListView LvNotif;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label lbl_notif;
+        private Bunifu.Framework.UI.BunifuImageButton btn_notif;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton4;
+        private System.Windows.Forms.TextBox tAmt;
+        private System.Windows.Forms.TextBox tbchange2;
     }
 }

@@ -163,7 +163,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(28, 256);
+            this.pictureBox3.Location = new System.Drawing.Point(24, 256);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(29, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,7 +173,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(24, 191);
+            this.pictureBox2.Location = new System.Drawing.Point(20, 191);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 43);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +191,7 @@
             this.textPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPassword.ForeColor = System.Drawing.Color.Lavender;
             this.textPassword.isPassword = false;
-            this.textPassword.Location = new System.Drawing.Point(60, 252);
+            this.textPassword.Location = new System.Drawing.Point(56, 252);
             this.textPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(285, 43);
@@ -213,7 +213,7 @@
             this.textUsername1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsername1.ForeColor = System.Drawing.Color.Lavender;
             this.textUsername1.isPassword = false;
-            this.textUsername1.Location = new System.Drawing.Point(60, 191);
+            this.textUsername1.Location = new System.Drawing.Point(56, 191);
             this.textUsername1.Margin = new System.Windows.Forms.Padding(4);
             this.textUsername1.Name = "textUsername1";
             this.textUsername1.Size = new System.Drawing.Size(285, 43);
@@ -246,7 +246,7 @@
             this.Blog.IconVisible = true;
             this.Blog.IconZoom = 60D;
             this.Blog.IsTab = false;
-            this.Blog.Location = new System.Drawing.Point(60, 358);
+            this.Blog.Location = new System.Drawing.Point(56, 358);
             this.Blog.Name = "Blog";
             this.Blog.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Blog.OnHovercolor = System.Drawing.Color.LimeGreen;
@@ -265,7 +265,7 @@
             this.cshow.AutoSize = true;
             this.cshow.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cshow.ForeColor = System.Drawing.Color.Lavender;
-            this.cshow.Location = new System.Drawing.Point(29, 311);
+            this.cshow.Location = new System.Drawing.Point(25, 311);
             this.cshow.Name = "cshow";
             this.cshow.Size = new System.Drawing.Size(110, 20);
             this.cshow.TabIndex = 17;
@@ -322,7 +322,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mform";
+            this.Text = "Login Form";
             this.TransparencyKey = System.Drawing.Color.Ivory;
             this.Load += new System.EventHandler(this.mform_Load);
             this.mformpanel.ResumeLayout(false);

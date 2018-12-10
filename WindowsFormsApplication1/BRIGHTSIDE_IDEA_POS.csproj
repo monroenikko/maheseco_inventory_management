@@ -7,8 +7,8 @@
     <ProjectGuid>{C573A462-AD51-4C80-8E60-515F74A9367C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsFormsApplication1</RootNamespace>
-    <AssemblyName>WindowsFormsApplication1</AssemblyName>
+    <RootNamespace>BRIGHTSIDE_IDEA_POS</RootNamespace>
+    <AssemblyName>BRIGHTSIDE_IDEA_POS</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,7 +72,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -180,6 +180,48 @@
     <Compile Include="Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="chargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chargeForm.Designer.cs">
+      <DependentUpon>chargeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crystal_report\Crystal_risLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crystal_report\Crystal_risLog.Designer.cs">
+      <DependentUpon>Crystal_risLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crystal_report\RisTransactionLogs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RisTransactionLogs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\purchaseOrderform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\purchaseOrderform.Designer.cs">
+      <DependentUpon>purchaseOrderform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\purchaseOrderLogs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purchaseOrderLogs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\risForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\risForm.Designer.cs">
+      <DependentUpon>risForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crystal_report_HistoryLogs\risLogs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>risLogs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CR_damagedHistory.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,6 +257,42 @@
     </Compile>
     <Compile Include="InventoryMedicinePrint.Designer.cs">
       <DependentUpon>InventoryMedicinePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="poforprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="poforprint.Designer.cs">
+      <DependentUpon>poforprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="printRIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printRIS.Designer.cs">
+      <DependentUpon>printRIS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PurchaseOrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrderLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrderLogs.Designer.cs">
+      <DependentUpon>PurchaseOrderLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="requisitionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>requisitionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="risLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="risLogs.Designer.cs">
+      <DependentUpon>risLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="Today_CR.cs">
       <AutoGen>True</AutoGen>
@@ -343,11 +421,38 @@
     </Compile>
     <Compile Include="pin.cs" />
     <Compile Include="user.cs" />
+    <Compile Include="WindowsFormsApplication1\TodaysLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="charge.resx">
       <DependentUpon>charge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chargeForm.resx">
+      <DependentUpon>chargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\Crystal_risLog.resx">
+      <DependentUpon>Crystal_risLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report\RisTransactionLogs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RisTransactionLogs.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report_HistoryLogs\purchaseOrderform.resx">
+      <DependentUpon>purchaseOrderform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report_HistoryLogs\purchaseOrderLogs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>purchaseOrderLogs.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report_HistoryLogs\risForm.resx">
+      <DependentUpon>risForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal_report_HistoryLogs\risLogs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>risLogs.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CR_damagedHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -369,6 +474,26 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryMedicinePrint.resx">
       <DependentUpon>InventoryMedicinePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="poforprint.resx">
+      <DependentUpon>poforprint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printRIS.resx">
+      <DependentUpon>printRIS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PurchaseOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrderLogs.resx">
+      <DependentUpon>PurchaseOrderLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="requisitionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>requisitionReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="risLogs.resx">
+      <DependentUpon>risLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Today_CR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -487,6 +612,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
