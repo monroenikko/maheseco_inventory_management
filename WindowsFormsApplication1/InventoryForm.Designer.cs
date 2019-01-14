@@ -340,9 +340,6 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_PMprint = new Bunifu.Framework.UI.BunifuTileButton();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.tbgetyear = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dateforIM = new MetroFramework.Controls.MetroDateTime();
             this.label22 = new System.Windows.Forms.Label();
@@ -522,6 +519,9 @@
             this.b2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnhome = new Bunifu.Framework.UI.BunifuFlatButton();
             this.b1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.tbgetyear = new System.Windows.Forms.TextBox();
             this.ppoedit = new System.Windows.Forms.Panel();
             this.btnclosepoedit = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel30 = new System.Windows.Forms.Panel();
@@ -680,7 +680,6 @@
             this.PMtable.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel21.SuspendLayout();
             this.panel7.SuspendLayout();
             this.RTable.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -4601,9 +4600,9 @@
             // tableLayoutPanel23
             // 
             this.tableLayoutPanel23.ColumnCount = 3;
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.53897F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.46103F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 724F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.05882F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.94118F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 695F));
             this.tableLayoutPanel23.Controls.Add(this.btn_expiredLogs, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.btnExpired, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel23, BunifuAnimatorNS.DecorationType.None);
@@ -4640,7 +4639,7 @@
             this.btn_expiredLogs.IconVisible = true;
             this.btn_expiredLogs.IconZoom = 50D;
             this.btn_expiredLogs.IsTab = false;
-            this.btn_expiredLogs.Location = new System.Drawing.Point(166, 4);
+            this.btn_expiredLogs.Location = new System.Drawing.Point(147, 4);
             this.btn_expiredLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_expiredLogs.Name = "btn_expiredLogs";
             this.btn_expiredLogs.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -4687,7 +4686,7 @@
             this.btnExpired.OnHovercolor = System.Drawing.Color.ForestGreen;
             this.btnExpired.OnHoverTextColor = System.Drawing.Color.White;
             this.btnExpired.selected = false;
-            this.btnExpired.Size = new System.Drawing.Size(154, 39);
+            this.btnExpired.Size = new System.Drawing.Size(135, 39);
             this.btnExpired.TabIndex = 140;
             this.btnExpired.Text = "         Expired";
             this.btnExpired.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5516,10 +5515,12 @@
             // 
             // tableLayoutPanel18
             // 
-            this.tableLayoutPanel18.ColumnCount = 3;
+            this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.68316F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.31684F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.3672F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.6328F));
             this.tableLayoutPanel18.Controls.Add(this.btn_PMprint, 2, 0);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel21, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel18, BunifuAnimatorNS.DecorationType.None);
@@ -5529,6 +5530,7 @@
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(843, 44);
             this.tableLayoutPanel18.TabIndex = 139;
             // 
@@ -5547,82 +5549,21 @@
             this.btn_PMprint.ImageZoom = 20;
             this.btn_PMprint.LabelPosition = 27;
             this.btn_PMprint.LabelText = "PRINT";
-            this.btn_PMprint.Location = new System.Drawing.Point(686, 6);
+            this.btn_PMprint.Location = new System.Drawing.Point(5, 6);
             this.btn_PMprint.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_PMprint.Name = "btn_PMprint";
-            this.btn_PMprint.Size = new System.Drawing.Size(152, 32);
+            this.btn_PMprint.Size = new System.Drawing.Size(1, 32);
             this.btn_PMprint.TabIndex = 138;
             this.btn_PMprint.Click += new System.EventHandler(this.btn_PMprint_Click);
             // 
             // tableLayoutPanel21
             // 
-            this.tableLayoutPanel21.ColumnCount = 3;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.99214F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.00786F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLayoutPanel21.Controls.Add(this.comboBox1, 1, 1);
-            this.tableLayoutPanel21.Controls.Add(this.label60, 0, 1);
-            this.tableLayoutPanel21.Controls.Add(this.tbgetyear, 2, 1);
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.epeks.SetDecoration(this.tableLayoutPanel21, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel21.Location = new System.Drawing.Point(11, 3);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 3;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.93023F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.06977F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(667, 38);
-            this.tableLayoutPanel21.TabIndex = 140;
-            // 
-            // comboBox1
-            // 
-            this.epeks.SetDecoration(this.comboBox1, BunifuAnimatorNS.DecorationType.None);
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.comboBox1.Location = new System.Drawing.Point(284, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 32);
-            this.comboBox1.TabIndex = 100;
-            this.comboBox1.Text = "----Select Month----";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.epeks.SetDecoration(this.label60, BunifuAnimatorNS.DecorationType.None);
-            this.label60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.ForeColor = System.Drawing.Color.White;
-            this.label60.Location = new System.Drawing.Point(3, 5);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(275, 22);
-            this.label60.TabIndex = 101;
-            this.label60.Text = "Select Month:";
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbgetyear
-            // 
-            this.epeks.SetDecoration(this.tbgetyear, BunifuAnimatorNS.DecorationType.None);
-            this.tbgetyear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbgetyear.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbgetyear.Location = new System.Drawing.Point(505, 8);
-            this.tbgetyear.Name = "tbgetyear";
-            this.tbgetyear.Size = new System.Drawing.Size(159, 33);
-            this.tbgetyear.TabIndex = 102;
-            this.tbgetyear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(200, 1);
+            this.tableLayoutPanel21.TabIndex = 139;
             // 
             // panel7
             // 
@@ -5747,7 +5688,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 279F));
             this.tableLayoutPanel7.Controls.Add(this.label50, 4, 1);
             this.tableLayoutPanel7.Controls.Add(this.label51, 3, 1);
             this.tableLayoutPanel7.Controls.Add(this.label52, 7, 1);
@@ -5772,7 +5713,7 @@
             this.epeks.SetDecoration(this.label50, BunifuAnimatorNS.DecorationType.None);
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(65, 10);
+            this.label50.Location = new System.Drawing.Point(97, 10);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(85, 31);
             this.label50.TabIndex = 0;
@@ -5784,7 +5725,7 @@
             this.epeks.SetDecoration(this.label51, BunifuAnimatorNS.DecorationType.None);
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(57, 10);
+            this.label51.Location = new System.Drawing.Point(89, 10);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(2, 39);
             this.label51.TabIndex = 0;
@@ -5796,7 +5737,7 @@
             this.epeks.SetDecoration(this.label52, BunifuAnimatorNS.DecorationType.None);
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(355, 10);
+            this.label52.Location = new System.Drawing.Point(387, 10);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(54, 31);
             this.label52.TabIndex = 0;
@@ -5808,7 +5749,7 @@
             this.epeks.SetDecoration(this.rfrom, BunifuAnimatorNS.DecorationType.None);
             this.rfrom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rfrom.Location = new System.Drawing.Point(168, 13);
+            this.rfrom.Location = new System.Drawing.Point(200, 13);
             this.rfrom.MinimumSize = new System.Drawing.Size(4, 29);
             this.rfrom.Name = "rfrom";
             this.rfrom.Size = new System.Drawing.Size(169, 29);
@@ -5820,7 +5761,7 @@
             this.epeks.SetDecoration(this.rto, BunifuAnimatorNS.DecorationType.None);
             this.rto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rto.Location = new System.Drawing.Point(426, 13);
+            this.rto.Location = new System.Drawing.Point(458, 13);
             this.rto.MinimumSize = new System.Drawing.Size(4, 29);
             this.rto.Name = "rto";
             this.rto.Size = new System.Drawing.Size(170, 29);
@@ -5849,7 +5790,7 @@
             this.btn_rfetch.IconVisible = true;
             this.btn_rfetch.IconZoom = 90D;
             this.btn_rfetch.IsTab = false;
-            this.btn_rfetch.Location = new System.Drawing.Point(621, 13);
+            this.btn_rfetch.Location = new System.Drawing.Point(653, 13);
             this.btn_rfetch.Name = "btn_rfetch";
             this.btn_rfetch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_rfetch.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -5870,9 +5811,9 @@
             this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.ForeColor = System.Drawing.Color.White;
-            this.label53.Location = new System.Drawing.Point(4, 10);
+            this.label53.Location = new System.Drawing.Point(5, 10);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(29, 39);
+            this.label53.Size = new System.Drawing.Size(60, 39);
             this.label53.TabIndex = 0;
             this.label53.Text = "Returned Med:";
             // 
@@ -8312,6 +8253,30 @@
             this.b1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1.Click += new System.EventHandler(this.b1_Click);
             // 
+            // comboBox1
+            // 
+            this.epeks.SetDecoration(this.comboBox1, BunifuAnimatorNS.DecorationType.None);
+            this.comboBox1.Location = new System.Drawing.Point(0, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // label60
+            // 
+            this.epeks.SetDecoration(this.label60, BunifuAnimatorNS.DecorationType.None);
+            this.label60.Location = new System.Drawing.Point(0, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(100, 23);
+            this.label60.TabIndex = 0;
+            // 
+            // tbgetyear
+            // 
+            this.epeks.SetDecoration(this.tbgetyear, BunifuAnimatorNS.DecorationType.None);
+            this.tbgetyear.Location = new System.Drawing.Point(0, 0);
+            this.tbgetyear.Name = "tbgetyear";
+            this.tbgetyear.Size = new System.Drawing.Size(100, 20);
+            this.tbgetyear.TabIndex = 0;
+            // 
             // ppoedit
             // 
             this.ppoedit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -9440,8 +9405,6 @@
             this.PMtable.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel21.ResumeLayout(false);
-            this.tableLayoutPanel21.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.RTable.ResumeLayout(false);
