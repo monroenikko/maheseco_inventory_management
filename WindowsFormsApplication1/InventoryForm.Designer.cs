@@ -1246,11 +1246,11 @@
             // 
             this.hideme.AutoSize = true;
             this.epeks.SetDecoration(this.hideme, BunifuAnimatorNS.DecorationType.None);
-            this.hideme.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideme.LinkColor = System.Drawing.Color.White;
             this.hideme.Location = new System.Drawing.Point(84, 17);
             this.hideme.Name = "hideme";
-            this.hideme.Size = new System.Drawing.Size(76, 20);
+            this.hideme.Size = new System.Drawing.Size(70, 20);
             this.hideme.TabIndex = 72;
             this.hideme.TabStop = true;
             this.hideme.Text = "Minimize";
@@ -1284,11 +1284,11 @@
             // 
             this.logout.AutoSize = true;
             this.epeks.SetDecoration(this.logout, BunifuAnimatorNS.DecorationType.None);
-            this.logout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout.LinkColor = System.Drawing.Color.White;
             this.logout.Location = new System.Drawing.Point(3, 17);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(65, 20);
+            this.logout.Size = new System.Drawing.Size(59, 20);
             this.logout.TabIndex = 71;
             this.logout.TabStop = true;
             this.logout.Text = "Logout";
@@ -1298,12 +1298,12 @@
             // 
             this.lblPM.AutoSize = true;
             this.epeks.SetDecoration(this.lblPM, BunifuAnimatorNS.DecorationType.None);
-            this.lblPM.Font = new System.Drawing.Font("Century Gothic", 27.75F);
+            this.lblPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F);
             this.lblPM.ForeColor = System.Drawing.Color.Lavender;
             this.lblPM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblPM.Location = new System.Drawing.Point(64, 2);
             this.lblPM.Name = "lblPM";
-            this.lblPM.Size = new System.Drawing.Size(413, 44);
+            this.lblPM.Size = new System.Drawing.Size(372, 42);
             this.lblPM.TabIndex = 0;
             this.lblPM.Text = "Product Maintenance";
             // 
@@ -1404,7 +1404,7 @@
             this.btn_prnitExpDamaged.colorActive = System.Drawing.Color.Green;
             this.btn_prnitExpDamaged.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_prnitExpDamaged, BunifuAnimatorNS.DecorationType.None);
-            this.btn_prnitExpDamaged.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btn_prnitExpDamaged.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.btn_prnitExpDamaged.ForeColor = System.Drawing.Color.White;
             this.btn_prnitExpDamaged.Image = ((System.Drawing.Image)(resources.GetObject("btn_prnitExpDamaged.Image")));
             this.btn_prnitExpDamaged.ImagePosition = 10;
@@ -1502,7 +1502,7 @@
             this.btnaddproduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btnaddproduct, BunifuAnimatorNS.DecorationType.None);
             this.btnaddproduct.DisabledColor = System.Drawing.Color.Gray;
-            this.btnaddproduct.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnaddproduct.Iconcolor = System.Drawing.Color.Transparent;
             this.btnaddproduct.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnaddproduct.Iconimage")));
             this.btnaddproduct.Iconimage_right = null;
@@ -1540,7 +1540,7 @@
             this.btncatSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btncatSettings, BunifuAnimatorNS.DecorationType.None);
             this.btncatSettings.DisabledColor = System.Drawing.Color.Gray;
-            this.btncatSettings.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncatSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncatSettings.Iconcolor = System.Drawing.Color.Transparent;
             this.btncatSettings.Iconimage = ((System.Drawing.Image)(resources.GetObject("btncatSettings.Iconimage")));
             this.btncatSettings.Iconimage_right = null;
@@ -1578,7 +1578,7 @@
             this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton2, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
             this.bunifuFlatButton2.Iconimage_right = null;
@@ -1631,7 +1631,7 @@
             this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton4, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton4.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
             this.bunifuFlatButton4.Iconimage_right = null;
@@ -1669,7 +1669,7 @@
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
             this.bunifuFlatButton1.Iconimage_right = null;
@@ -1719,7 +1719,7 @@
             this.btn_po.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_po.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_po, BunifuAnimatorNS.DecorationType.None);
-            this.btn_po.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_po.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_po.ForeColor = System.Drawing.Color.White;
             this.btn_po.Image = ((System.Drawing.Image)(resources.GetObject("btn_po.Image")));
             this.btn_po.ImagePosition = 6;
@@ -1740,7 +1740,7 @@
             this.btn_outofstock.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_outofstock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_outofstock, BunifuAnimatorNS.DecorationType.None);
-            this.btn_outofstock.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_outofstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_outofstock.ForeColor = System.Drawing.Color.White;
             this.btn_outofstock.Image = ((System.Drawing.Image)(resources.GetObject("btn_outofstock.Image")));
             this.btn_outofstock.ImagePosition = 6;
@@ -1761,7 +1761,7 @@
             this.rreturn.colorActive = System.Drawing.Color.DarkGreen;
             this.rreturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rreturn, BunifuAnimatorNS.DecorationType.None);
-            this.rreturn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rreturn.ForeColor = System.Drawing.Color.White;
             this.rreturn.Image = ((System.Drawing.Image)(resources.GetObject("rreturn.Image")));
             this.rreturn.ImagePosition = 6;
@@ -1782,7 +1782,7 @@
             this.btnrequested_items.colorActive = System.Drawing.Color.DarkGreen;
             this.btnrequested_items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btnrequested_items, BunifuAnimatorNS.DecorationType.None);
-            this.btnrequested_items.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrequested_items.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrequested_items.ForeColor = System.Drawing.Color.White;
             this.btnrequested_items.Image = ((System.Drawing.Image)(resources.GetObject("btnrequested_items.Image")));
             this.btnrequested_items.ImagePosition = 6;
@@ -1803,7 +1803,7 @@
             this.btn_unused.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_unused.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_unused, BunifuAnimatorNS.DecorationType.None);
-            this.btn_unused.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_unused.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_unused.ForeColor = System.Drawing.Color.White;
             this.btn_unused.Image = ((System.Drawing.Image)(resources.GetObject("btn_unused.Image")));
             this.btn_unused.ImagePosition = 6;
@@ -1824,7 +1824,7 @@
             this.rinventory.colorActive = System.Drawing.Color.DarkGreen;
             this.rinventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rinventory, BunifuAnimatorNS.DecorationType.None);
-            this.rinventory.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rinventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rinventory.ForeColor = System.Drawing.Color.White;
             this.rinventory.Image = ((System.Drawing.Image)(resources.GetObject("rinventory.Image")));
             this.rinventory.ImagePosition = 6;
@@ -1845,7 +1845,7 @@
             this.btn_recap.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_recap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_recap, BunifuAnimatorNS.DecorationType.None);
-            this.btn_recap.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_recap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_recap.ForeColor = System.Drawing.Color.White;
             this.btn_recap.Image = ((System.Drawing.Image)(resources.GetObject("btn_recap.Image")));
             this.btn_recap.ImagePosition = 6;
@@ -1866,7 +1866,7 @@
             this.rexpired.colorActive = System.Drawing.Color.DarkGreen;
             this.rexpired.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rexpired, BunifuAnimatorNS.DecorationType.None);
-            this.rexpired.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rexpired.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rexpired.ForeColor = System.Drawing.Color.White;
             this.rexpired.Image = ((System.Drawing.Image)(resources.GetObject("rexpired.Image")));
             this.rexpired.ImagePosition = 6;
@@ -2015,9 +2015,10 @@
             // 
             this.paddproduct.Controls.Add(this.additem_panel);
             this.epeks.SetDecoration(this.paddproduct, BunifuAnimatorNS.DecorationType.None);
-            this.paddproduct.Location = new System.Drawing.Point(1081, 464);
+            this.paddproduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.paddproduct.Location = new System.Drawing.Point(0, 0);
             this.paddproduct.Name = "paddproduct";
-            this.paddproduct.Size = new System.Drawing.Size(96, 153);
+            this.paddproduct.Size = new System.Drawing.Size(1177, 617);
             this.paddproduct.TabIndex = 33;
             // 
             // additem_panel
@@ -2219,7 +2220,7 @@
             this.ProductName.BorderThickness = 3;
             this.ProductName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.ProductName, BunifuAnimatorNS.DecorationType.None);
-            this.ProductName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductName.ForeColor = System.Drawing.Color.DarkGreen;
             this.ProductName.isPassword = false;
             this.ProductName.Location = new System.Drawing.Point(198, 78);
@@ -2264,7 +2265,7 @@
             this.catpanel.Controls.Add(this.btnsave4);
             this.catpanel.Controls.Add(this.tbcat);
             this.epeks.SetDecoration(this.catpanel, BunifuAnimatorNS.DecorationType.None);
-            this.catpanel.Location = new System.Drawing.Point(203, 2);
+            this.catpanel.Location = new System.Drawing.Point(201, 3);
             this.catpanel.Name = "catpanel";
             this.catpanel.Size = new System.Drawing.Size(374, 285);
             this.catpanel.TabIndex = 27;
@@ -2398,11 +2399,11 @@
             this.tbcat.BorderThickness = 3;
             this.tbcat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbcat, BunifuAnimatorNS.DecorationType.None);
-            this.tbcat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbcat.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbcat.isPassword = false;
             this.tbcat.Location = new System.Drawing.Point(24, 153);
-            this.tbcat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbcat.Margin = new System.Windows.Forms.Padding(5);
             this.tbcat.Name = "tbcat";
             this.tbcat.Size = new System.Drawing.Size(328, 41);
             this.tbcat.TabIndex = 21;
@@ -2468,11 +2469,11 @@
             this.supnametxt.BorderThickness = 3;
             this.supnametxt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.supnametxt, BunifuAnimatorNS.DecorationType.None);
-            this.supnametxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supnametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supnametxt.ForeColor = System.Drawing.Color.DarkGreen;
             this.supnametxt.isPassword = false;
             this.supnametxt.Location = new System.Drawing.Point(31, 150);
-            this.supnametxt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.supnametxt.Margin = new System.Windows.Forms.Padding(5);
             this.supnametxt.Name = "supnametxt";
             this.supnametxt.Size = new System.Drawing.Size(306, 41);
             this.supnametxt.TabIndex = 25;
@@ -2749,11 +2750,11 @@
             this.tb_setunit.BorderThickness = 3;
             this.tb_setunit.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_setunit, BunifuAnimatorNS.DecorationType.None);
-            this.tb_setunit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_setunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_setunit.ForeColor = System.Drawing.Color.DarkGreen;
             this.tb_setunit.isPassword = false;
             this.tb_setunit.Location = new System.Drawing.Point(29, 227);
-            this.tb_setunit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_setunit.Margin = new System.Windows.Forms.Padding(5);
             this.tb_setunit.Name = "tb_setunit";
             this.tb_setunit.Size = new System.Drawing.Size(304, 41);
             this.tb_setunit.TabIndex = 21;
@@ -2921,11 +2922,11 @@
             this.tbfullname.BorderThickness = 3;
             this.tbfullname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbfullname, BunifuAnimatorNS.DecorationType.None);
-            this.tbfullname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbfullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbfullname.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbfullname.isPassword = false;
             this.tbfullname.Location = new System.Drawing.Point(24, 149);
-            this.tbfullname.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbfullname.Margin = new System.Windows.Forms.Padding(5);
             this.tbfullname.Name = "tbfullname";
             this.tbfullname.Size = new System.Drawing.Size(313, 41);
             this.tbfullname.TabIndex = 21;
@@ -3076,11 +3077,11 @@
             this.tbdepartment.BorderThickness = 3;
             this.tbdepartment.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbdepartment, BunifuAnimatorNS.DecorationType.None);
-            this.tbdepartment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbdepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdepartment.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbdepartment.isPassword = false;
             this.tbdepartment.Location = new System.Drawing.Point(26, 148);
-            this.tbdepartment.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbdepartment.Margin = new System.Windows.Forms.Padding(5);
             this.tbdepartment.Name = "tbdepartment";
             this.tbdepartment.Size = new System.Drawing.Size(310, 41);
             this.tbdepartment.TabIndex = 21;
@@ -3133,7 +3134,7 @@
             this.btndep.Text = "     Department";
             this.btndep.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndep.Textcolor = System.Drawing.Color.White;
-            this.btndep.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndep.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndep.Click += new System.EventHandler(this.btndep_Click);
             // 
             // btnemp
@@ -3169,7 +3170,7 @@
             this.btnemp.Text = "     Employee";
             this.btnemp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnemp.Textcolor = System.Drawing.Color.White;
-            this.btnemp.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnemp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnemp.Click += new System.EventHandler(this.btnemp_Click);
             // 
             // btnunit
@@ -3205,7 +3206,7 @@
             this.btnunit.Text = "     Unit";
             this.btnunit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnunit.Textcolor = System.Drawing.Color.White;
-            this.btnunit.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnunit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnunit.Click += new System.EventHandler(this.btnunit_Click);
             // 
             // btnsup
@@ -3241,7 +3242,7 @@
             this.btnsup.Text = "     Supplier";
             this.btnsup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnsup.Textcolor = System.Drawing.Color.White;
-            this.btnsup.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsup.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsup.Click += new System.EventHandler(this.btnsup_Click);
             // 
             // btncat
@@ -3277,7 +3278,7 @@
             this.btncat.Text = "     Category";
             this.btncat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncat.Textcolor = System.Drawing.Color.White;
-            this.btncat.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncat.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncat.Click += new System.EventHandler(this.btncat_Click);
             // 
             // tableLayoutPanel26
@@ -3612,7 +3613,7 @@
             this.editUnitPrice.BorderThickness = 3;
             this.editUnitPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.editUnitPrice, BunifuAnimatorNS.DecorationType.None);
-            this.editUnitPrice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editUnitPrice.ForeColor = System.Drawing.Color.DarkGreen;
             this.editUnitPrice.isPassword = false;
             this.editUnitPrice.Location = new System.Drawing.Point(46, 442);
@@ -3631,7 +3632,7 @@
             this.tbname.BorderThickness = 3;
             this.tbname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbname, BunifuAnimatorNS.DecorationType.None);
-            this.tbname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbname.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbname.isPassword = false;
             this.tbname.Location = new System.Drawing.Point(46, 144);
@@ -3662,7 +3663,7 @@
             this.tbitemid.BorderThickness = 3;
             this.tbitemid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemid, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemid.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbitemid.isPassword = false;
             this.tbitemid.Location = new System.Drawing.Point(46, 55);
@@ -3746,11 +3747,11 @@
             // 
             this.cshow.AutoSize = true;
             this.epeks.SetDecoration(this.cshow, BunifuAnimatorNS.DecorationType.None);
-            this.cshow.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cshow.ForeColor = System.Drawing.Color.Lavender;
             this.cshow.Location = new System.Drawing.Point(88, 16);
             this.cshow.Name = "cshow";
-            this.cshow.Size = new System.Drawing.Size(110, 20);
+            this.cshow.Size = new System.Drawing.Size(99, 17);
             this.cshow.TabIndex = 34;
             this.cshow.Text = "show password";
             this.cshow.ThreeState = true;
@@ -3791,7 +3792,7 @@
             this.Blog.Text = "Verify";
             this.Blog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Blog.Textcolor = System.Drawing.Color.White;
-            this.Blog.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Blog.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Blog.Click += new System.EventHandler(this.Blog_Click);
             // 
             // panel16
@@ -3850,7 +3851,7 @@
             this.savePassword.Text = "Save";
             this.savePassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.savePassword.Textcolor = System.Drawing.Color.White;
-            this.savePassword.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savePassword.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savePassword.Click += new System.EventHandler(this.savePassword_Click);
             // 
             // label10
@@ -3873,7 +3874,7 @@
             this.tcpw.BorderThickness = 3;
             this.tcpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tcpw, BunifuAnimatorNS.DecorationType.None);
-            this.tcpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcpw.ForeColor = System.Drawing.Color.Lavender;
             this.tcpw.isPassword = true;
             this.tcpw.Location = new System.Drawing.Point(123, 435);
@@ -3895,7 +3896,7 @@
             this.tnpw.BorderThickness = 3;
             this.tnpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tnpw, BunifuAnimatorNS.DecorationType.None);
-            this.tnpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tnpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tnpw.ForeColor = System.Drawing.Color.Lavender;
             this.tnpw.isPassword = true;
             this.tnpw.Location = new System.Drawing.Point(125, 348);
@@ -3973,7 +3974,7 @@
             this.tpw.BorderThickness = 3;
             this.tpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tpw, BunifuAnimatorNS.DecorationType.None);
-            this.tpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpw.ForeColor = System.Drawing.Color.Lavender;
             this.tpw.isPassword = false;
             this.tpw.Location = new System.Drawing.Point(124, 287);
@@ -3996,7 +3997,7 @@
             this.tun.BorderThickness = 3;
             this.tun.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tun, BunifuAnimatorNS.DecorationType.None);
-            this.tun.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tun.ForeColor = System.Drawing.Color.Lavender;
             this.tun.isPassword = false;
             this.tun.Location = new System.Drawing.Point(124, 226);
@@ -4014,11 +4015,11 @@
             // 
             this.shownew.AutoSize = true;
             this.epeks.SetDecoration(this.shownew, BunifuAnimatorNS.DecorationType.None);
-            this.shownew.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shownew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shownew.ForeColor = System.Drawing.Color.Lavender;
             this.shownew.Location = new System.Drawing.Point(88, 404);
             this.shownew.Name = "shownew";
-            this.shownew.Size = new System.Drawing.Size(137, 20);
+            this.shownew.Size = new System.Drawing.Size(122, 17);
             this.shownew.TabIndex = 34;
             this.shownew.Text = "show new password";
             this.shownew.ThreeState = true;
@@ -4129,11 +4130,11 @@
             // 
             this.checkBox1.AutoSize = true;
             this.epeks.SetDecoration(this.checkBox1, BunifuAnimatorNS.DecorationType.None);
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.checkBox1.Location = new System.Drawing.Point(33, 173);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 20);
+            this.checkBox1.Size = new System.Drawing.Size(99, 17);
             this.checkBox1.TabIndex = 18;
             this.checkBox1.Text = "show password";
             this.checkBox1.ThreeState = true;
@@ -4183,7 +4184,7 @@
             this.tempid.BorderThickness = 3;
             this.tempid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tempid, BunifuAnimatorNS.DecorationType.None);
-            this.tempid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tempid.ForeColor = System.Drawing.Color.DarkGreen;
             this.tempid.isPassword = false;
             this.tempid.Location = new System.Drawing.Point(33, 16);
@@ -4203,7 +4204,7 @@
             this.tfn.BorderThickness = 3;
             this.tfn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tfn, BunifuAnimatorNS.DecorationType.None);
-            this.tfn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tfn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tfn.ForeColor = System.Drawing.Color.DarkGreen;
             this.tfn.isPassword = false;
             this.tfn.Location = new System.Drawing.Point(33, 200);
@@ -4226,7 +4227,7 @@
             this.tusername.BorderThickness = 3;
             this.tusername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tusername, BunifuAnimatorNS.DecorationType.None);
-            this.tusername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tusername.ForeColor = System.Drawing.Color.DarkGreen;
             this.tusername.isPassword = false;
             this.tusername.Location = new System.Drawing.Point(33, 70);
@@ -4249,7 +4250,7 @@
             this.tln.BorderThickness = 3;
             this.tln.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tln, BunifuAnimatorNS.DecorationType.None);
-            this.tln.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tln.ForeColor = System.Drawing.Color.DarkGreen;
             this.tln.isPassword = false;
             this.tln.Location = new System.Drawing.Point(33, 305);
@@ -4272,7 +4273,7 @@
             this.tpassword.BorderThickness = 3;
             this.tpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tpassword, BunifuAnimatorNS.DecorationType.None);
-            this.tpassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpassword.ForeColor = System.Drawing.Color.DarkGreen;
             this.tpassword.isPassword = true;
             this.tpassword.Location = new System.Drawing.Point(33, 123);
@@ -4295,7 +4296,7 @@
             this.tmn.BorderThickness = 3;
             this.tmn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tmn, BunifuAnimatorNS.DecorationType.None);
-            this.tmn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tmn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tmn.ForeColor = System.Drawing.Color.DarkGreen;
             this.tmn.isPassword = false;
             this.tmn.Location = new System.Drawing.Point(33, 252);
@@ -4862,7 +4863,7 @@
             this.bunifuMetroTextbox1.BorderThickness = 3;
             this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.bunifuMetroTextbox1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.White;
             this.bunifuMetroTextbox1.isPassword = false;
             this.bunifuMetroTextbox1.Location = new System.Drawing.Point(194, 714);
@@ -5184,7 +5185,7 @@
             this.columnHeader37});
             this.epeks.SetDecoration(this.GLLV, BunifuAnimatorNS.DecorationType.None);
             this.GLLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GLLV.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GLLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GLLV.FullRowSelect = true;
             this.GLLV.GridLines = true;
             this.GLLV.HoverSelection = true;
@@ -5539,7 +5540,7 @@
             this.btn_PMprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_PMprint, BunifuAnimatorNS.DecorationType.None);
             this.btn_PMprint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_PMprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PMprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PMprint.ForeColor = System.Drawing.Color.White;
             this.btn_PMprint.Image = ((System.Drawing.Image)(resources.GetObject("btn_PMprint.Image")));
             this.btn_PMprint.ImagePosition = 6;
@@ -5956,7 +5957,7 @@
             this.btn_rprint.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_rprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_rprint, BunifuAnimatorNS.DecorationType.None);
-            this.btn_rprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rprint.ForeColor = System.Drawing.Color.White;
             this.btn_rprint.Image = ((System.Drawing.Image)(resources.GetObject("btn_rprint.Image")));
             this.btn_rprint.ImagePosition = 6;
@@ -6263,7 +6264,7 @@
             this.total_monthly.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.total_monthly, BunifuAnimatorNS.DecorationType.None);
             this.total_monthly.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total_monthly.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_monthly.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.total_monthly.ForeColor = System.Drawing.Color.DarkGreen;
             this.total_monthly.isPassword = false;
             this.total_monthly.Location = new System.Drawing.Point(306, 7);
@@ -6325,7 +6326,7 @@
             this.btn_Charge.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_Charge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_Charge, BunifuAnimatorNS.DecorationType.None);
-            this.btn_Charge.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Charge.ForeColor = System.Drawing.Color.White;
             this.btn_Charge.Image = ((System.Drawing.Image)(resources.GetObject("btn_Charge.Image")));
             this.btn_Charge.ImagePosition = 6;
@@ -6346,7 +6347,7 @@
             this.sprint.colorActive = System.Drawing.Color.DarkGreen;
             this.sprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.sprint, BunifuAnimatorNS.DecorationType.None);
-            this.sprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sprint.ForeColor = System.Drawing.Color.White;
             this.sprint.Image = ((System.Drawing.Image)(resources.GetObject("sprint.Image")));
             this.sprint.ImagePosition = 6;
@@ -6560,7 +6561,7 @@
             this.columnHeader95});
             this.epeks.SetDecoration(this.LVreport, BunifuAnimatorNS.DecorationType.None);
             this.LVreport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVreport.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVreport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVreport.FullRowSelect = true;
             this.LVreport.GridLines = true;
             this.LVreport.HoverSelection = true;
@@ -6711,7 +6712,7 @@
             this.btnprint.colorActive = System.Drawing.Color.Lime;
             this.btnprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btnprint, BunifuAnimatorNS.DecorationType.None);
-            this.btnprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnprint.ForeColor = System.Drawing.Color.White;
             this.btnprint.Image = ((System.Drawing.Image)(resources.GetObject("btnprint.Image")));
             this.btnprint.ImagePosition = 6;
@@ -6794,7 +6795,7 @@
             this.columnHeader89});
             this.epeks.SetDecoration(this.LVRIS, BunifuAnimatorNS.DecorationType.None);
             this.LVRIS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVRIS.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVRIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVRIS.FullRowSelect = true;
             this.LVRIS.GridLines = true;
             this.LVRIS.HideSelection = false;
@@ -7096,7 +7097,7 @@
             this.tbRisID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbRisID, BunifuAnimatorNS.DecorationType.None);
             this.tbRisID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbRisID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRisID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRisID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbRisID.isPassword = false;
             this.tbRisID.Location = new System.Drawing.Point(62, 4);
@@ -7434,7 +7435,7 @@
             this.columnHeader83});
             this.epeks.SetDecoration(this.LVPO, BunifuAnimatorNS.DecorationType.None);
             this.LVPO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVPO.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVPO.FullRowSelect = true;
             this.LVPO.GridLines = true;
             this.LVPO.HideSelection = false;
@@ -7927,7 +7928,7 @@
             this.columnHeader53,
             this.columnHeader50});
             this.epeks.SetDecoration(this.LVnotification, BunifuAnimatorNS.DecorationType.None);
-            this.LVnotification.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVnotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVnotification.FullRowSelect = true;
             this.LVnotification.HideSelection = false;
             this.LVnotification.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
@@ -8115,7 +8116,7 @@
             this.btnPOS.Text = "     R.I.S";
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPOS.Textcolor = System.Drawing.Color.White;
-            this.btnPOS.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPOS.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // panel3
@@ -8200,7 +8201,7 @@
             this.b3.Text = "     Settings";
             this.b3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b3.Textcolor = System.Drawing.Color.White;
-            this.b3.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b3.Click += new System.EventHandler(this.b3_Click);
             // 
             // b2
@@ -8236,7 +8237,7 @@
             this.b2.Text = "      Report";
             this.b2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b2.Textcolor = System.Drawing.Color.White;
-            this.b2.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2.Click += new System.EventHandler(this.b2_Click);
             // 
             // btnhome
@@ -8272,7 +8273,7 @@
             this.btnhome.Text = "     Home";
             this.btnhome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhome.Textcolor = System.Drawing.Color.White;
-            this.btnhome.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhome.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhome.Click += new System.EventHandler(this.btnhome_Click);
             // 
             // b1
@@ -8308,7 +8309,7 @@
             this.b1.Text = "     Purchase Order";
             this.b1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b1.Textcolor = System.Drawing.Color.White;
-            this.b1.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1.Click += new System.EventHandler(this.b1_Click);
             // 
             // ppoedit
@@ -8470,7 +8471,7 @@
             this.tbitemnameupdate.BorderThickness = 3;
             this.tbitemnameupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemnameupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemnameupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemnameupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemnameupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbitemnameupdate.isPassword = false;
             this.tbitemnameupdate.Location = new System.Drawing.Point(27, 223);
@@ -8501,7 +8502,7 @@
             this.tbitemidupate.BorderThickness = 3;
             this.tbitemidupate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemidupate, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemidupate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemidupate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemidupate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbitemidupate.isPassword = false;
             this.tbitemidupate.Location = new System.Drawing.Point(27, 134);
@@ -8532,7 +8533,7 @@
             this.tbpoidupdate.BorderThickness = 3;
             this.tbpoidupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbpoidupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbpoidupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpoidupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpoidupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbpoidupdate.isPassword = false;
             this.tbpoidupdate.Location = new System.Drawing.Point(27, 52);
@@ -8605,7 +8606,7 @@
             this.tbreorderup.BorderThickness = 3;
             this.tbreorderup.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbreorderup, BunifuAnimatorNS.DecorationType.None);
-            this.tbreorderup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbreorderup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbreorderup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbreorderup.isPassword = false;
             this.tbreorderup.Location = new System.Drawing.Point(609, 56);
@@ -8636,7 +8637,7 @@
             this.tbamountup.BorderThickness = 3;
             this.tbamountup.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbamountup, BunifuAnimatorNS.DecorationType.None);
-            this.tbamountup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbamountup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbamountup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbamountup.isPassword = false;
             this.tbamountup.Location = new System.Drawing.Point(439, 56);
@@ -8679,7 +8680,7 @@
             this.tbupriceupdate.BorderThickness = 3;
             this.tbupriceupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbupriceupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbupriceupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbupriceupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbupriceupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbupriceupdate.isPassword = false;
             this.tbupriceupdate.Location = new System.Drawing.Point(202, 306);
@@ -8978,7 +8979,7 @@
             this.tb_poid.BorderThickness = 3;
             this.tb_poid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_poid, BunifuAnimatorNS.DecorationType.None);
-            this.tb_poid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_poid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_poid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tb_poid.isPassword = false;
             this.tb_poid.Location = new System.Drawing.Point(15, 96);
@@ -9060,7 +9061,7 @@
             this.tb_poreorderedlvl.BorderThickness = 3;
             this.tb_poreorderedlvl.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_poreorderedlvl, BunifuAnimatorNS.DecorationType.None);
-            this.tb_poreorderedlvl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_poreorderedlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_poreorderedlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tb_poreorderedlvl.isPassword = false;
             this.tb_poreorderedlvl.Location = new System.Drawing.Point(184, 343);
@@ -9093,7 +9094,7 @@
             this.tbamount.BorderThickness = 3;
             this.tbamount.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbamount, BunifuAnimatorNS.DecorationType.None);
-            this.tbamount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbamount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbamount.isPassword = false;
             this.tbamount.Location = new System.Drawing.Point(16, 344);
@@ -9137,7 +9138,7 @@
             this.tbunitprice.BorderThickness = 3;
             this.tbunitprice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbunitprice, BunifuAnimatorNS.DecorationType.None);
-            this.tbunitprice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbunitprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbunitprice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbunitprice.isPassword = false;
             this.tbunitprice.Location = new System.Drawing.Point(14, 259);

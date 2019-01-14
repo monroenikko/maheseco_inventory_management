@@ -3682,6 +3682,7 @@ namespace WindowsFormsApplication1
                     tbsupplier.Items.Add(sid);
                     cbsupup.Items.Add(sid);
                     cb_suppliername.Items.Add(sid);
+                    cbSupplier.Items.Add(sid);
                 }
             }
             catch (Exception ex)
@@ -3888,11 +3889,14 @@ namespace WindowsFormsApplication1
                             tbsupplier.Items.Clear();
                             cbsupup.Items.Clear();
                             cb_suppliername.Items.Clear();
+                            cbSupplier.Items.Clear();
                             unitCat();
                             cb_set_supplier.Text = "Select Supplier";
                             tbsupplier.Text = "Select";
                             cbsupup.Text = "Select";
                             cb_suppliername.Text = "Select Supplier";
+                            cbSupplier.Text = "Select Supplier";
+
 
 
 
@@ -3944,11 +3948,13 @@ namespace WindowsFormsApplication1
                             cbsupup.Items.Clear();
                             tbsupplier.Items.Clear();
                             cb_suppliername.Items.Clear();
+                            cbSupplier.Items.Clear();
                             unitCat();
                             cb_set_supplier.Text = "Select Supplier";
                             cbsupup.Text = "Select";
                             tbsupplier.Text = "Select";
                             cb_suppliername.Text = "Select Supplier";
+                            cbSupplier.Text = "Select Supplier";
 
 
                           //  MessageBox.Show("Supplier" + tb_prod.Text + " is Successfuly Updated", "CATEGORY UNIT SETTINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -6255,11 +6261,12 @@ namespace WindowsFormsApplication1
                         retrieveItem();
                         LVPOSEARCH.Items.Clear();
                         cb_suppliername.Items.Clear();
+                        cbSupplier.Items.Clear();
                         //retrieve_LVPOSEARCH();
                         retrievePOSEARCH();
                         LVSearch.Items.Clear();
                         cb_suppliername.Text = "Select Supplier";
-
+                        cbSupplier.Text = "Select Supplier";
                         //getting the data from database
                         cbcatsearch();
                         retrieve();
@@ -6807,7 +6814,7 @@ namespace WindowsFormsApplication1
                 if(MessageBox.Show("Are you sure do you want to update?", "UPDATE ITEM SETTINGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (tbname.Text == "" && cbitemcat.Text == "Select Item Category")
+                    if (tbname.Text == "" && cbitemcat.Text == "Select Item Cat egory")
                     {
                         MessageBox.Show("Pls. Input the required Information.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
