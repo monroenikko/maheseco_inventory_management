@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
             this.IMP_crystalreport.Location = new System.Drawing.Point(0, 0);
             this.IMP_crystalreport.Name = "IMP_crystalreport";
             this.IMP_crystalreport.ReportSource = this.InventoryMedicine1;
-            this.IMP_crystalreport.Size = new System.Drawing.Size(837, 556);
+            this.IMP_crystalreport.Size = new System.Drawing.Size(1059, 556);
             this.IMP_crystalreport.TabIndex = 0;
             this.IMP_crystalreport.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 556);
+            this.ClientSize = new System.Drawing.Size(1059, 556);
             this.Controls.Add(this.IMP_crystalreport);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InventoryMedicinePrint";
@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer IMP_crystalreport;
-        private BRIGHTSIDE_IDEA_POS.InventoryMedicine InventoryMedicine1;
+        private InventoryMedicine InventoryMedicine1;
     }
 
     internal class InventoryMedicine : BRIGHTSIDE_IDEA_POS.InventoryMedicine

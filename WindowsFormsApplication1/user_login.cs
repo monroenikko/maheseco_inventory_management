@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
     public partial class mform : Form
     {
-        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=mahesecoinventory; port= 3306; username=root;password=");
+        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=maheseco_inventory; port= 3306; username=root;password=");
         MySqlCommand Cmd;
         MySqlDataReader reader;
 
@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1
                     {
                         getid.Text = user.pos_id;
 
-                        string query1 = "SELECT * FROM cashier WHERE  emp_no=" + getid.Text + " ";
+                        string query1 = "SELECT * FROM user_information WHERE  user_id=" + getid.Text + " ";
 
 
                         Cmd = new MySqlCommand(query1, connection);
@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
 
                         if (reader.Read())
                         {
-                            getid.Text = reader.GetString("Firstname").ToString();
+                            getid.Text = reader.GetString("firstname").ToString();
 
                             POS ca = new POS(getid.Text, atime.Text);
                             ca.Show();
@@ -80,8 +80,8 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-
-                            MessageBox.Show("NO DATA FILL");
+                            MessageBox.Show("Wrong Username or Password", "Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                            
                         }
                         reader.Close();
 
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication1
 
                         getid.Text = user.pos_id;
 
-                        string query1 = "SELECT * FROM admin WHERE  emp_no=" + getid.Text + " ";
+                        string query1 = "SELECT * FROM user_information WHERE  user_id=" + getid.Text + " ";
 
 
                         Cmd = new MySqlCommand(query1, connection);
@@ -105,7 +105,7 @@ namespace WindowsFormsApplication1
 
                         if (reader.Read())
                         {
-                            getid.Text = reader.GetString("Firstname").ToString();
+                            getid.Text = reader.GetString("firstname").ToString();
 
                             InventoryForm form = new InventoryForm(getid.Text, atime.Text);
                             form.Show();
@@ -116,6 +116,7 @@ namespace WindowsFormsApplication1
                         {
 
                             MessageBox.Show("Wrong Username or Password", "Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                            
                         }
                         reader.Close();
 
@@ -129,6 +130,16 @@ namespace WindowsFormsApplication1
                 else
                 {
                     MessageBox.Show("Wrong Username or Password", "Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    textPassword.Text = "";
+                    if (textPassword.Text == "")
+                    {
+                        lblhint.Visible = true;
+                    }
+                    else
+                    {
+                        lblhint.Visible = false;
+                    }
+                    
                 }
             }
         }

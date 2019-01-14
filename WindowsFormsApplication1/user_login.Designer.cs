@@ -48,6 +48,7 @@
             this.atime = new System.Windows.Forms.Label();
             this.tick = new System.Windows.Forms.Timer(this.components);
             this.getid = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.lblhint = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.mformpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bminimize1)).BeginInit();
@@ -136,6 +137,7 @@
             // logpanel
             // 
             this.logpanel.BackColor = System.Drawing.Color.Green;
+            this.logpanel.Controls.Add(this.lblhint);
             this.logpanel.Controls.Add(this.pictureBox4);
             this.logpanel.Controls.Add(this.pictureBox3);
             this.logpanel.Controls.Add(this.pictureBox2);
@@ -156,7 +158,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(113, 18);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(147, 150);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 31;
             this.pictureBox4.TabStop = false;
             // 
@@ -307,6 +309,17 @@
             this.getid.Text = "Username";
             this.getid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // lblhint
+            // 
+            this.lblhint.AutoSize = true;
+            this.lblhint.ForeColor = System.Drawing.Color.Red;
+            this.lblhint.Location = new System.Drawing.Point(59, 295);
+            this.lblhint.Name = "lblhint";
+            this.lblhint.Size = new System.Drawing.Size(169, 13);
+            this.lblhint.TabIndex = 32;
+            this.lblhint.Text = "Password is invalid please re-enter";
+            this.lblhint.Visible = false;
+            // 
             // mform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,5 +372,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private Bunifu.Framework.UI.BunifuMetroTextbox getid;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblhint;
     }
 }

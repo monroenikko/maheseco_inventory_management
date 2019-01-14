@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            ""}, -1, System.Drawing.Color.Red, System.Drawing.Color.Empty, null);
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryForm));
             this.btn_slidePanel = new Bunifu.Framework.UI.BunifuImageButton();
@@ -76,7 +81,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.LVEXP = new System.Windows.Forms.ListView();
             this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader46 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,13 +88,10 @@
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader49 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader54 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.columnHeader76 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader96 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_prnitExpDamaged = new Bunifu.Framework.UI.BunifuTileButton();
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.lblBadge = new System.Windows.Forms.Label();
-            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.epeks = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.psearch = new System.Windows.Forms.Panel();
             this.pdate = new System.Windows.Forms.Panel();
@@ -102,8 +103,10 @@
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.slider1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_po = new Bunifu.Framework.UI.BunifuTileButton();
+            this.btn_outofstock = new Bunifu.Framework.UI.BunifuTileButton();
             this.rreturn = new Bunifu.Framework.UI.BunifuTileButton();
-            this.transact = new Bunifu.Framework.UI.BunifuTileButton();
+            this.btnrequested_items = new Bunifu.Framework.UI.BunifuTileButton();
             this.btn_unused = new Bunifu.Framework.UI.BunifuTileButton();
             this.rinventory = new Bunifu.Framework.UI.BunifuTileButton();
             this.btn_recap = new Bunifu.Framework.UI.BunifuTileButton();
@@ -120,11 +123,13 @@
             this.p_category = new System.Windows.Forms.Panel();
             this.paddproduct = new System.Windows.Forms.Panel();
             this.additem_panel = new System.Windows.Forms.Panel();
+            this.label103 = new System.Windows.Forms.Label();
             this.unitPrice = new System.Windows.Forms.NumericUpDown();
             this.label57 = new System.Windows.Forms.Label();
             this.btnsaveproduct = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.cb_suppliername = new System.Windows.Forms.ComboBox();
             this.addproductcategory = new System.Windows.Forms.ComboBox();
             this.cbaddunit = new System.Windows.Forms.ComboBox();
             this.cbaddunitmeasure = new System.Windows.Forms.ComboBox();
@@ -161,6 +166,7 @@
             this.btn_sve3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tb_setunit = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.emppanel = new System.Windows.Forms.Panel();
+            this.cb_categorySignature = new System.Windows.Forms.ComboBox();
             this.panel45 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -196,15 +202,18 @@
             this.columnHeader86 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader87 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader42 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader97 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelitemedit = new System.Windows.Forms.Panel();
-            this.editUnitPrice = new System.Windows.Forms.NumericUpDown();
             this.label58 = new System.Windows.Forms.Label();
+            this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.cbitemcat = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label63 = new System.Windows.Forms.Label();
+            this.editUnitPrice = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.tbname = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label104 = new System.Windows.Forms.Label();
             this.tbitemid = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label64 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
@@ -256,8 +265,13 @@
             this.p_rsales = new System.Windows.Forms.Panel();
             this.p_returned_med = new System.Windows.Forms.Panel();
             this.p_invmed = new System.Windows.Forms.Panel();
-            this.P_generatedLogs = new System.Windows.Forms.Panel();
+            this.p_unusedstocks = new System.Windows.Forms.Panel();
             this.p_expired = new System.Windows.Forms.Panel();
+            this.panel_recap = new System.Windows.Forms.Panel();
+            this.panel_outstock = new System.Windows.Forms.Panel();
+            this.panel_pending_item = new System.Windows.Forms.Panel();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_expiredLogs = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -323,8 +337,12 @@
             this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_PMprint = new Bunifu.Framework.UI.BunifuTileButton();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_PMprint = new Bunifu.Framework.UI.BunifuTileButton();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.tbgetyear = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dateforIM = new MetroFramework.Controls.MetroDateTime();
             this.label22 = new System.Windows.Forms.Label();
@@ -484,6 +502,7 @@
             this.columnHeader51 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader52 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader53 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader50 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.lblsecond = new System.Windows.Forms.Label();
@@ -573,6 +592,7 @@
             this.label41 = new System.Windows.Forms.Label();
             this.bunifuFormFadeTransition1 = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.epeks = new BunifuAnimatorNS.BunifuTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_slidePanel)).BeginInit();
             this.panelEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnrequiredqty)).BeginInit();
@@ -622,7 +642,6 @@
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.isearch)).BeginInit();
             this.panelitemedit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editUnitPrice)).BeginInit();
             this.panel24.SuspendLayout();
             this.panelpassword.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -640,8 +659,11 @@
             this.p_rsales.SuspendLayout();
             this.p_returned_med.SuspendLayout();
             this.p_invmed.SuspendLayout();
-            this.P_generatedLogs.SuspendLayout();
+            this.p_unusedstocks.SuspendLayout();
             this.p_expired.SuspendLayout();
+            this.panel_recap.SuspendLayout();
+            this.panel_outstock.SuspendLayout();
+            this.panel_pending_item.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -657,6 +679,8 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.PMtable.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
             this.panel7.SuspendLayout();
             this.RTable.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -740,9 +764,9 @@
             this.panelEdit.Controls.Add(this.btnx);
             this.panelEdit.Controls.Add(this.panel43);
             this.epeks.SetDecoration(this.panelEdit, BunifuAnimatorNS.DecorationType.None);
-            this.panelEdit.Location = new System.Drawing.Point(399, 166);
+            this.panelEdit.Location = new System.Drawing.Point(399, 164);
             this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(358, 312);
+            this.panelEdit.Size = new System.Drawing.Size(358, 314);
             this.panelEdit.TabIndex = 123;
             // 
             // btnupdatetbris
@@ -897,9 +921,9 @@
             this.panelsearch.Controls.Add(this.panel40);
             this.panelsearch.Controls.Add(this.LVSearch);
             this.epeks.SetDecoration(this.panelsearch, BunifuAnimatorNS.DecorationType.None);
-            this.panelsearch.Location = new System.Drawing.Point(146, 72);
+            this.panelsearch.Location = new System.Drawing.Point(479, 287);
             this.panelsearch.Name = "panelsearch";
-            this.panelsearch.Size = new System.Drawing.Size(1030, 604);
+            this.panelsearch.Size = new System.Drawing.Size(697, 373);
             this.panelsearch.TabIndex = 122;
             // 
             // label86
@@ -1022,7 +1046,7 @@
             this.btnaddsearch.IconVisible = true;
             this.btnaddsearch.IconZoom = 60D;
             this.btnaddsearch.IsTab = false;
-            this.btnaddsearch.Location = new System.Drawing.Point(285, 41);
+            this.btnaddsearch.Location = new System.Drawing.Point(285, 43);
             this.btnaddsearch.Name = "btnaddsearch";
             this.btnaddsearch.Normalcolor = System.Drawing.Color.DarkGreen;
             this.btnaddsearch.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1135,7 +1159,7 @@
             this.columnHeader39,
             this.columnHeader45});
             this.epeks.SetDecoration(this.LVSearch, BunifuAnimatorNS.DecorationType.None);
-            this.LVSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVSearch.FullRowSelect = true;
             this.LVSearch.GridLines = true;
             this.LVSearch.HideSelection = false;
@@ -1222,11 +1246,11 @@
             // 
             this.hideme.AutoSize = true;
             this.epeks.SetDecoration(this.hideme, BunifuAnimatorNS.DecorationType.None);
-            this.hideme.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideme.LinkColor = System.Drawing.Color.White;
             this.hideme.Location = new System.Drawing.Point(84, 17);
             this.hideme.Name = "hideme";
-            this.hideme.Size = new System.Drawing.Size(76, 20);
+            this.hideme.Size = new System.Drawing.Size(70, 20);
             this.hideme.TabIndex = 72;
             this.hideme.TabStop = true;
             this.hideme.Text = "Minimize";
@@ -1260,11 +1284,11 @@
             // 
             this.logout.AutoSize = true;
             this.epeks.SetDecoration(this.logout, BunifuAnimatorNS.DecorationType.None);
-            this.logout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout.LinkColor = System.Drawing.Color.White;
             this.logout.Location = new System.Drawing.Point(3, 17);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(65, 20);
+            this.logout.Size = new System.Drawing.Size(59, 20);
             this.logout.TabIndex = 71;
             this.logout.TabStop = true;
             this.logout.Text = "Logout";
@@ -1274,12 +1298,12 @@
             // 
             this.lblPM.AutoSize = true;
             this.epeks.SetDecoration(this.lblPM, BunifuAnimatorNS.DecorationType.None);
-            this.lblPM.Font = new System.Drawing.Font("Century Gothic", 27.75F);
+            this.lblPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F);
             this.lblPM.ForeColor = System.Drawing.Color.Lavender;
             this.lblPM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblPM.Location = new System.Drawing.Point(64, 2);
             this.lblPM.Name = "lblPM";
-            this.lblPM.Size = new System.Drawing.Size(413, 44);
+            this.lblPM.Size = new System.Drawing.Size(372, 42);
             this.lblPM.TabIndex = 0;
             this.lblPM.Text = "Product Maintenance";
             // 
@@ -1307,12 +1331,6 @@
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Table for Damage and Expired Medicine";
-            // 
             // LVEXP
             // 
             this.LVEXP.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1321,18 +1339,19 @@
             this.columnHeader47,
             this.columnHeader48,
             this.columnHeader49,
-            this.columnHeader54});
+            this.columnHeader54,
+            this.columnHeader76,
+            this.columnHeader96});
             this.epeks.SetDecoration(this.LVEXP, BunifuAnimatorNS.DecorationType.None);
             this.LVEXP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVEXP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVEXP.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVEXP.FullRowSelect = true;
             this.LVEXP.GridLines = true;
             this.LVEXP.HoverSelection = true;
-            this.LVEXP.Location = new System.Drawing.Point(13, 79);
+            this.LVEXP.Location = new System.Drawing.Point(13, 74);
             this.LVEXP.Name = "LVEXP";
-            this.LVEXP.Size = new System.Drawing.Size(325, 1);
+            this.LVEXP.Size = new System.Drawing.Size(1105, 444);
             this.LVEXP.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.LVEXP, resources.GetString("LVEXP.ToolTip"));
             this.LVEXP.UseCompatibleStateImageBehavior = false;
             this.LVEXP.View = System.Windows.Forms.View.Details;
             this.LVEXP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LVEXP_MouseClick);
@@ -1340,39 +1359,43 @@
             // 
             // columnHeader38
             // 
-            this.columnHeader38.Text = "ITEM ID";
-            this.columnHeader38.Width = 200;
+            this.columnHeader38.Text = "ITEM NO";
+            this.columnHeader38.Width = 100;
             // 
             // columnHeader46
             // 
-            this.columnHeader46.Text = "MEDICINE NAME";
-            this.columnHeader46.Width = 200;
+            this.columnHeader46.Text = "PO I.D.";
+            this.columnHeader46.Width = 150;
             // 
             // columnHeader47
             // 
-            this.columnHeader47.Text = "PO I.D.";
+            this.columnHeader47.Text = "PARTICULAR";
             this.columnHeader47.Width = 200;
             // 
             // columnHeader48
             // 
-            this.columnHeader48.Text = "DATE OF EXPIRATION";
-            this.columnHeader48.Width = 200;
+            this.columnHeader48.Text = "UNIT";
+            this.columnHeader48.Width = 150;
             // 
             // columnHeader49
             // 
-            this.columnHeader49.Text = "UNIT";
+            this.columnHeader49.Text = "EXPIRED DATE";
             this.columnHeader49.Width = 150;
             // 
             // columnHeader54
             // 
-            this.columnHeader54.Text = "STOCK QTY";
+            this.columnHeader54.Text = "PRICE";
             this.columnHeader54.Width = 150;
             // 
-            // toolTip2
+            // columnHeader76
             // 
-            this.toolTip2.IsBalloon = true;
-            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.ToolTipTitle = "PRINT BUTTON";
+            this.columnHeader76.Text = "QTY";
+            this.columnHeader76.Width = 150;
+            // 
+            // columnHeader96
+            // 
+            this.columnHeader96.Text = "TOTAL PRICE";
+            this.columnHeader96.Width = 150;
             // 
             // btn_prnitExpDamaged
             // 
@@ -1381,7 +1404,7 @@
             this.btn_prnitExpDamaged.colorActive = System.Drawing.Color.Green;
             this.btn_prnitExpDamaged.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_prnitExpDamaged, BunifuAnimatorNS.DecorationType.None);
-            this.btn_prnitExpDamaged.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btn_prnitExpDamaged.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.btn_prnitExpDamaged.ForeColor = System.Drawing.Color.White;
             this.btn_prnitExpDamaged.Image = ((System.Drawing.Image)(resources.GetObject("btn_prnitExpDamaged.Image")));
             this.btn_prnitExpDamaged.ImagePosition = 10;
@@ -1393,14 +1416,7 @@
             this.btn_prnitExpDamaged.Name = "btn_prnitExpDamaged";
             this.btn_prnitExpDamaged.Size = new System.Drawing.Size(40, 36);
             this.btn_prnitExpDamaged.TabIndex = 153;
-            this.toolTip2.SetToolTip(this.btn_prnitExpDamaged, "This is PRINT BUTTON.\r\n\r\nClick this to Print the Expired or Damaged Medicine.");
             this.btn_prnitExpDamaged.Click += new System.EventHandler(this.btn_prnitExpDamaged_Click);
-            // 
-            // toolTip3
-            // 
-            this.toolTip3.IsBalloon = true;
-            this.toolTip3.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip3.ToolTipTitle = "EXPIRED MEDICINE";
             // 
             // lblBadge
             // 
@@ -1409,45 +1425,11 @@
             this.epeks.SetDecoration(this.lblBadge, BunifuAnimatorNS.DecorationType.None);
             this.lblBadge.Font = new System.Drawing.Font("Tahoma", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBadge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblBadge.Location = new System.Drawing.Point(586, 2);
+            this.lblBadge.Location = new System.Drawing.Point(306, 2);
             this.lblBadge.Name = "lblBadge";
             this.lblBadge.Size = new System.Drawing.Size(89, 40);
             this.lblBadge.TabIndex = 111;
             this.lblBadge.Text = "1200";
-            this.toolTip3.SetToolTip(this.lblBadge, "There is an Expired Medicine.");
-            // 
-            // toolTip4
-            // 
-            this.toolTip4.IsBalloon = true;
-            this.toolTip4.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip4.ToolTipTitle = "MEDICINE RE-PRICE";
-            // 
-            // toolTip5
-            // 
-            this.toolTip5.IsBalloon = true;
-            this.toolTip5.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip5.ToolTipTitle = "MEDICINE AND REPRICE TABLE";
-            // 
-            // epeks
-            // 
-            this.epeks.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
-            this.epeks.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.epeks.DefaultAnimation = animation1;
             // 
             // panel5
             // 
@@ -1480,8 +1462,10 @@
             // 
             this.pdate.Controls.Add(this.pset);
             this.pdate.Controls.Add(this.slider1);
+            this.pdate.Controls.Add(this.btn_po);
+            this.pdate.Controls.Add(this.btn_outofstock);
             this.pdate.Controls.Add(this.rreturn);
-            this.pdate.Controls.Add(this.transact);
+            this.pdate.Controls.Add(this.btnrequested_items);
             this.pdate.Controls.Add(this.btn_unused);
             this.pdate.Controls.Add(this.rinventory);
             this.pdate.Controls.Add(this.btn_recap);
@@ -1502,9 +1486,10 @@
             this.pset.Controls.Add(this.bunifuFlatButton4);
             this.pset.Controls.Add(this.bunifuFlatButton1);
             this.epeks.SetDecoration(this.pset, BunifuAnimatorNS.DecorationType.None);
-            this.pset.Location = new System.Drawing.Point(1130, 0);
+            this.pset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pset.Location = new System.Drawing.Point(0, 0);
             this.pset.Name = "pset";
-            this.pset.Size = new System.Drawing.Size(47, 64);
+            this.pset.Size = new System.Drawing.Size(1177, 64);
             this.pset.TabIndex = 96;
             // 
             // btnaddproduct
@@ -1517,7 +1502,7 @@
             this.btnaddproduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btnaddproduct, BunifuAnimatorNS.DecorationType.None);
             this.btnaddproduct.DisabledColor = System.Drawing.Color.Gray;
-            this.btnaddproduct.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnaddproduct.Iconcolor = System.Drawing.Color.Transparent;
             this.btnaddproduct.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnaddproduct.Iconimage")));
             this.btnaddproduct.Iconimage_right = null;
@@ -1555,7 +1540,7 @@
             this.btncatSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btncatSettings, BunifuAnimatorNS.DecorationType.None);
             this.btncatSettings.DisabledColor = System.Drawing.Color.Gray;
-            this.btncatSettings.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncatSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncatSettings.Iconcolor = System.Drawing.Color.Transparent;
             this.btncatSettings.Iconimage = ((System.Drawing.Image)(resources.GetObject("btncatSettings.Iconimage")));
             this.btncatSettings.Iconimage_right = null;
@@ -1593,7 +1578,7 @@
             this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton2, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
             this.bunifuFlatButton2.Iconimage_right = null;
@@ -1646,7 +1631,7 @@
             this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton4, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton4.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
             this.bunifuFlatButton4.Iconimage_right = null;
@@ -1684,7 +1669,7 @@
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
             this.bunifuFlatButton1.Iconimage_right = null;
@@ -1719,13 +1704,55 @@
             this.slider1.ErrorImage = null;
             this.slider1.Image = ((System.Drawing.Image)(resources.GetObject("slider1.Image")));
             this.slider1.ImageActive = null;
-            this.slider1.Location = new System.Drawing.Point(172, 55);
+            this.slider1.Location = new System.Drawing.Point(5, 56);
             this.slider1.Name = "slider1";
-            this.slider1.Size = new System.Drawing.Size(183, 12);
+            this.slider1.Size = new System.Drawing.Size(169, 10);
             this.slider1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.slider1.TabIndex = 134;
             this.slider1.TabStop = false;
             this.slider1.Zoom = 10;
+            // 
+            // btn_po
+            // 
+            this.btn_po.BackColor = System.Drawing.Color.Green;
+            this.btn_po.color = System.Drawing.Color.Green;
+            this.btn_po.colorActive = System.Drawing.Color.DarkGreen;
+            this.btn_po.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.epeks.SetDecoration(this.btn_po, BunifuAnimatorNS.DecorationType.None);
+            this.btn_po.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_po.ForeColor = System.Drawing.Color.White;
+            this.btn_po.Image = ((System.Drawing.Image)(resources.GetObject("btn_po.Image")));
+            this.btn_po.ImagePosition = 6;
+            this.btn_po.ImageZoom = 18;
+            this.btn_po.LabelPosition = 30;
+            this.btn_po.LabelText = "PENDING ITEM";
+            this.btn_po.Location = new System.Drawing.Point(1105, -1);
+            this.btn_po.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_po.Name = "btn_po";
+            this.btn_po.Size = new System.Drawing.Size(154, 63);
+            this.btn_po.TabIndex = 137;
+            this.btn_po.Click += new System.EventHandler(this.btn_po_Click);
+            // 
+            // btn_outofstock
+            // 
+            this.btn_outofstock.BackColor = System.Drawing.Color.Green;
+            this.btn_outofstock.color = System.Drawing.Color.Green;
+            this.btn_outofstock.colorActive = System.Drawing.Color.DarkGreen;
+            this.btn_outofstock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.epeks.SetDecoration(this.btn_outofstock, BunifuAnimatorNS.DecorationType.None);
+            this.btn_outofstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_outofstock.ForeColor = System.Drawing.Color.White;
+            this.btn_outofstock.Image = ((System.Drawing.Image)(resources.GetObject("btn_outofstock.Image")));
+            this.btn_outofstock.ImagePosition = 6;
+            this.btn_outofstock.ImageZoom = 18;
+            this.btn_outofstock.LabelPosition = 30;
+            this.btn_outofstock.LabelText = "OUT OF STOCK";
+            this.btn_outofstock.Location = new System.Drawing.Point(954, 0);
+            this.btn_outofstock.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_outofstock.Name = "btn_outofstock";
+            this.btn_outofstock.Size = new System.Drawing.Size(154, 63);
+            this.btn_outofstock.TabIndex = 137;
+            this.btn_outofstock.Click += new System.EventHandler(this.btn_outofstock_Click);
             // 
             // rreturn
             // 
@@ -1734,7 +1761,7 @@
             this.rreturn.colorActive = System.Drawing.Color.DarkGreen;
             this.rreturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rreturn, BunifuAnimatorNS.DecorationType.None);
-            this.rreturn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rreturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rreturn.ForeColor = System.Drawing.Color.White;
             this.rreturn.Image = ((System.Drawing.Image)(resources.GetObject("rreturn.Image")));
             this.rreturn.ImagePosition = 6;
@@ -1748,26 +1775,26 @@
             this.rreturn.TabIndex = 137;
             this.rreturn.Click += new System.EventHandler(this.rreturn_Click);
             // 
-            // transact
+            // btnrequested_items
             // 
-            this.transact.BackColor = System.Drawing.Color.Green;
-            this.transact.color = System.Drawing.Color.Green;
-            this.transact.colorActive = System.Drawing.Color.DarkGreen;
-            this.transact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.epeks.SetDecoration(this.transact, BunifuAnimatorNS.DecorationType.None);
-            this.transact.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transact.ForeColor = System.Drawing.Color.White;
-            this.transact.Image = ((System.Drawing.Image)(resources.GetObject("transact.Image")));
-            this.transact.ImagePosition = 6;
-            this.transact.ImageZoom = 15;
-            this.transact.LabelPosition = 30;
-            this.transact.LabelText = "REQUESTED ITEMS";
-            this.transact.Location = new System.Drawing.Point(176, 0);
-            this.transact.Margin = new System.Windows.Forms.Padding(6);
-            this.transact.Name = "transact";
-            this.transact.Size = new System.Drawing.Size(179, 64);
-            this.transact.TabIndex = 137;
-            this.transact.Click += new System.EventHandler(this.transact_Click);
+            this.btnrequested_items.BackColor = System.Drawing.Color.Green;
+            this.btnrequested_items.color = System.Drawing.Color.Green;
+            this.btnrequested_items.colorActive = System.Drawing.Color.DarkGreen;
+            this.btnrequested_items.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.epeks.SetDecoration(this.btnrequested_items, BunifuAnimatorNS.DecorationType.None);
+            this.btnrequested_items.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrequested_items.ForeColor = System.Drawing.Color.White;
+            this.btnrequested_items.Image = ((System.Drawing.Image)(resources.GetObject("btnrequested_items.Image")));
+            this.btnrequested_items.ImagePosition = 6;
+            this.btnrequested_items.ImageZoom = 15;
+            this.btnrequested_items.LabelPosition = 30;
+            this.btnrequested_items.LabelText = "REQUESTED ITEMS";
+            this.btnrequested_items.Location = new System.Drawing.Point(176, 0);
+            this.btnrequested_items.Margin = new System.Windows.Forms.Padding(6);
+            this.btnrequested_items.Name = "btnrequested_items";
+            this.btnrequested_items.Size = new System.Drawing.Size(179, 64);
+            this.btnrequested_items.TabIndex = 137;
+            this.btnrequested_items.Click += new System.EventHandler(this.transact_Click);
             // 
             // btn_unused
             // 
@@ -1776,7 +1803,7 @@
             this.btn_unused.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_unused.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_unused, BunifuAnimatorNS.DecorationType.None);
-            this.btn_unused.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_unused.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_unused.ForeColor = System.Drawing.Color.White;
             this.btn_unused.Image = ((System.Drawing.Image)(resources.GetObject("btn_unused.Image")));
             this.btn_unused.ImagePosition = 6;
@@ -1797,7 +1824,7 @@
             this.rinventory.colorActive = System.Drawing.Color.DarkGreen;
             this.rinventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rinventory, BunifuAnimatorNS.DecorationType.None);
-            this.rinventory.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rinventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rinventory.ForeColor = System.Drawing.Color.White;
             this.rinventory.Image = ((System.Drawing.Image)(resources.GetObject("rinventory.Image")));
             this.rinventory.ImagePosition = 6;
@@ -1818,7 +1845,7 @@
             this.btn_recap.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_recap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_recap, BunifuAnimatorNS.DecorationType.None);
-            this.btn_recap.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_recap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_recap.ForeColor = System.Drawing.Color.White;
             this.btn_recap.Image = ((System.Drawing.Image)(resources.GetObject("btn_recap.Image")));
             this.btn_recap.ImagePosition = 6;
@@ -1830,7 +1857,7 @@
             this.btn_recap.Name = "btn_recap";
             this.btn_recap.Size = new System.Drawing.Size(125, 64);
             this.btn_recap.TabIndex = 137;
-            this.btn_recap.Click += new System.EventHandler(this.rexpired_Click);
+            this.btn_recap.Click += new System.EventHandler(this.btn_recap_Click);
             // 
             // rexpired
             // 
@@ -1839,7 +1866,7 @@
             this.rexpired.colorActive = System.Drawing.Color.DarkGreen;
             this.rexpired.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.rexpired, BunifuAnimatorNS.DecorationType.None);
-            this.rexpired.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rexpired.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rexpired.ForeColor = System.Drawing.Color.White;
             this.rexpired.Image = ((System.Drawing.Image)(resources.GetObject("rexpired.Image")));
             this.rexpired.ImagePosition = 6;
@@ -1936,9 +1963,10 @@
             this.psettings.Controls.Add(this.panelCP);
             this.psettings.Controls.Add(this.tableLayoutPanel1);
             this.epeks.SetDecoration(this.psettings, BunifuAnimatorNS.DecorationType.None);
-            this.psettings.Location = new System.Drawing.Point(874, 589);
+            this.psettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.psettings.Location = new System.Drawing.Point(0, 0);
             this.psettings.Name = "psettings";
-            this.psettings.Size = new System.Drawing.Size(303, 28);
+            this.psettings.Size = new System.Drawing.Size(1177, 617);
             this.psettings.TabIndex = 3;
             // 
             // panelCP
@@ -1948,9 +1976,10 @@
             this.panelCP.Controls.Add(this.panelpassword);
             this.panelCP.Controls.Add(this.panel16);
             this.epeks.SetDecoration(this.panelCP, BunifuAnimatorNS.DecorationType.None);
-            this.panelCP.Location = new System.Drawing.Point(564, 275);
+            this.panelCP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCP.Location = new System.Drawing.Point(0, 0);
             this.panelCP.Name = "panelCP";
-            this.panelCP.Size = new System.Drawing.Size(613, 342);
+            this.panelCP.Size = new System.Drawing.Size(1177, 617);
             this.panelCP.TabIndex = 1;
             // 
             // productset
@@ -1959,9 +1988,10 @@
             this.productset.Controls.Add(this.p_category);
             this.productset.Controls.Add(this.tableLayoutPanel26);
             this.epeks.SetDecoration(this.productset, BunifuAnimatorNS.DecorationType.None);
-            this.productset.Location = new System.Drawing.Point(40, 61);
+            this.productset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productset.Location = new System.Drawing.Point(0, 0);
             this.productset.Name = "productset";
-            this.productset.Size = new System.Drawing.Size(1137, 556);
+            this.productset.Size = new System.Drawing.Size(1177, 617);
             this.productset.TabIndex = 117;
             // 
             // p_category
@@ -1975,28 +2005,32 @@
             this.p_category.Controls.Add(this.deppanel);
             this.p_category.Controls.Add(this.panel9);
             this.epeks.SetDecoration(this.p_category, BunifuAnimatorNS.DecorationType.None);
-            this.p_category.Location = new System.Drawing.Point(433, 295);
+            this.p_category.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p_category.Location = new System.Drawing.Point(0, 0);
             this.p_category.Name = "p_category";
-            this.p_category.Size = new System.Drawing.Size(744, 322);
+            this.p_category.Size = new System.Drawing.Size(1177, 617);
             this.p_category.TabIndex = 120;
             // 
             // paddproduct
             // 
             this.paddproduct.Controls.Add(this.additem_panel);
             this.epeks.SetDecoration(this.paddproduct, BunifuAnimatorNS.DecorationType.None);
-            this.paddproduct.Location = new System.Drawing.Point(128, 234);
+            this.paddproduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.paddproduct.Location = new System.Drawing.Point(0, 0);
             this.paddproduct.Name = "paddproduct";
-            this.paddproduct.Size = new System.Drawing.Size(1049, 383);
+            this.paddproduct.Size = new System.Drawing.Size(1177, 617);
             this.paddproduct.TabIndex = 33;
             // 
             // additem_panel
             // 
             this.additem_panel.BackColor = System.Drawing.Color.PaleGreen;
             this.additem_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.additem_panel.Controls.Add(this.label103);
             this.additem_panel.Controls.Add(this.unitPrice);
             this.additem_panel.Controls.Add(this.label57);
             this.additem_panel.Controls.Add(this.btnsaveproduct);
             this.additem_panel.Controls.Add(this.panel23);
+            this.additem_panel.Controls.Add(this.cb_suppliername);
             this.additem_panel.Controls.Add(this.addproductcategory);
             this.additem_panel.Controls.Add(this.cbaddunit);
             this.additem_panel.Controls.Add(this.cbaddunitmeasure);
@@ -2011,11 +2045,23 @@
             this.additem_panel.Size = new System.Drawing.Size(563, 419);
             this.additem_panel.TabIndex = 0;
             // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.epeks.SetDecoration(this.label103, BunifuAnimatorNS.DecorationType.None);
+            this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label103.Location = new System.Drawing.Point(41, 150);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(131, 20);
+            this.label103.TabIndex = 132;
+            this.label103.Text = "Supplier Name:";
+            // 
             // unitPrice
             // 
             this.epeks.SetDecoration(this.unitPrice, BunifuAnimatorNS.DecorationType.None);
             this.unitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitPrice.Location = new System.Drawing.Point(198, 241);
+            this.unitPrice.Location = new System.Drawing.Point(198, 298);
             this.unitPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -2031,7 +2077,7 @@
             this.epeks.SetDecoration(this.label57, BunifuAnimatorNS.DecorationType.None);
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label57.Location = new System.Drawing.Point(37, 250);
+            this.label57.Location = new System.Drawing.Point(37, 307);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(92, 20);
             this.label57.TabIndex = 129;
@@ -2097,12 +2143,24 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "ADD ITEM";
             // 
+            // cb_suppliername
+            // 
+            this.epeks.SetDecoration(this.cb_suppliername, BunifuAnimatorNS.DecorationType.None);
+            this.cb_suppliername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_suppliername.FormattingEnabled = true;
+            this.cb_suppliername.Location = new System.Drawing.Point(198, 148);
+            this.cb_suppliername.Name = "cb_suppliername";
+            this.cb_suppliername.Size = new System.Drawing.Size(310, 28);
+            this.cb_suppliername.TabIndex = 119;
+            this.cb_suppliername.Text = "Select Supplier";
+            this.cb_suppliername.SelectedIndexChanged += new System.EventHandler(this.cb_suppliername_SelectedIndexChanged);
+            // 
             // addproductcategory
             // 
             this.epeks.SetDecoration(this.addproductcategory, BunifuAnimatorNS.DecorationType.None);
             this.addproductcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addproductcategory.FormattingEnabled = true;
-            this.addproductcategory.Location = new System.Drawing.Point(198, 145);
+            this.addproductcategory.Location = new System.Drawing.Point(198, 202);
             this.addproductcategory.Name = "addproductcategory";
             this.addproductcategory.Size = new System.Drawing.Size(310, 28);
             this.addproductcategory.TabIndex = 119;
@@ -2113,7 +2171,7 @@
             this.epeks.SetDecoration(this.cbaddunit, BunifuAnimatorNS.DecorationType.None);
             this.cbaddunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbaddunit.FormattingEnabled = true;
-            this.cbaddunit.Location = new System.Drawing.Point(426, 196);
+            this.cbaddunit.Location = new System.Drawing.Point(426, 253);
             this.cbaddunit.Name = "cbaddunit";
             this.cbaddunit.Size = new System.Drawing.Size(82, 28);
             this.cbaddunit.TabIndex = 119;
@@ -2124,7 +2182,7 @@
             this.epeks.SetDecoration(this.cbaddunitmeasure, BunifuAnimatorNS.DecorationType.None);
             this.cbaddunitmeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbaddunitmeasure.FormattingEnabled = true;
-            this.cbaddunitmeasure.Location = new System.Drawing.Point(338, 196);
+            this.cbaddunitmeasure.Location = new System.Drawing.Point(338, 253);
             this.cbaddunitmeasure.Name = "cbaddunitmeasure";
             this.cbaddunitmeasure.Size = new System.Drawing.Size(82, 28);
             this.cbaddunitmeasure.TabIndex = 119;
@@ -2135,7 +2193,7 @@
             this.epeks.SetDecoration(this.cbcategoryunit, BunifuAnimatorNS.DecorationType.None);
             this.cbcategoryunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbcategoryunit.FormattingEnabled = true;
-            this.cbcategoryunit.Location = new System.Drawing.Point(199, 196);
+            this.cbcategoryunit.Location = new System.Drawing.Point(199, 253);
             this.cbcategoryunit.Name = "cbcategoryunit";
             this.cbcategoryunit.Size = new System.Drawing.Size(133, 28);
             this.cbcategoryunit.TabIndex = 119;
@@ -2147,7 +2205,7 @@
             this.epeks.SetDecoration(this.label49, BunifuAnimatorNS.DecorationType.None);
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label49.Location = new System.Drawing.Point(41, 199);
+            this.label49.Location = new System.Drawing.Point(41, 256);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(47, 20);
             this.label49.TabIndex = 126;
@@ -2162,7 +2220,7 @@
             this.ProductName.BorderThickness = 3;
             this.ProductName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.ProductName, BunifuAnimatorNS.DecorationType.None);
-            this.ProductName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductName.ForeColor = System.Drawing.Color.DarkGreen;
             this.ProductName.isPassword = false;
             this.ProductName.Location = new System.Drawing.Point(198, 78);
@@ -2178,7 +2236,7 @@
             this.epeks.SetDecoration(this.label80, BunifuAnimatorNS.DecorationType.None);
             this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label80.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label80.Location = new System.Drawing.Point(41, 149);
+            this.label80.Location = new System.Drawing.Point(41, 206);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(86, 20);
             this.label80.TabIndex = 123;
@@ -2207,7 +2265,7 @@
             this.catpanel.Controls.Add(this.btnsave4);
             this.catpanel.Controls.Add(this.tbcat);
             this.epeks.SetDecoration(this.catpanel, BunifuAnimatorNS.DecorationType.None);
-            this.catpanel.Location = new System.Drawing.Point(221, 10);
+            this.catpanel.Location = new System.Drawing.Point(201, 3);
             this.catpanel.Name = "catpanel";
             this.catpanel.Size = new System.Drawing.Size(374, 285);
             this.catpanel.TabIndex = 27;
@@ -2258,6 +2316,7 @@
             this.cbcat.TabIndex = 20;
             this.cbcat.Text = "Select Category";
             this.cbcat.SelectedIndexChanged += new System.EventHandler(this.cbcat_SelectedIndexChanged);
+            this.cbcat.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbcat_MouseClick);
             // 
             // btnupdate4
             // 
@@ -2340,11 +2399,11 @@
             this.tbcat.BorderThickness = 3;
             this.tbcat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbcat, BunifuAnimatorNS.DecorationType.None);
-            this.tbcat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbcat.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbcat.isPassword = false;
             this.tbcat.Location = new System.Drawing.Point(24, 153);
-            this.tbcat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbcat.Margin = new System.Windows.Forms.Padding(5);
             this.tbcat.Name = "tbcat";
             this.tbcat.Size = new System.Drawing.Size(328, 41);
             this.tbcat.TabIndex = 21;
@@ -2361,7 +2420,7 @@
             this.supppanel.Controls.Add(this.btn_update2);
             this.supppanel.Controls.Add(this.btn_sve2);
             this.epeks.SetDecoration(this.supppanel, BunifuAnimatorNS.DecorationType.None);
-            this.supppanel.Location = new System.Drawing.Point(221, 10);
+            this.supppanel.Location = new System.Drawing.Point(203, 2);
             this.supppanel.Name = "supppanel";
             this.supppanel.Size = new System.Drawing.Size(373, 285);
             this.supppanel.TabIndex = 25;
@@ -2395,7 +2454,7 @@
             this.lblsupname.AutoSize = true;
             this.epeks.SetDecoration(this.lblsupname, BunifuAnimatorNS.DecorationType.None);
             this.lblsupname.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsupname.Location = new System.Drawing.Point(34, 126);
+            this.lblsupname.Location = new System.Drawing.Point(28, 126);
             this.lblsupname.Name = "lblsupname";
             this.lblsupname.Size = new System.Drawing.Size(105, 20);
             this.lblsupname.TabIndex = 27;
@@ -2410,13 +2469,13 @@
             this.supnametxt.BorderThickness = 3;
             this.supnametxt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.supnametxt, BunifuAnimatorNS.DecorationType.None);
-            this.supnametxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supnametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supnametxt.ForeColor = System.Drawing.Color.DarkGreen;
             this.supnametxt.isPassword = false;
-            this.supnametxt.Location = new System.Drawing.Point(33, 150);
-            this.supnametxt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.supnametxt.Location = new System.Drawing.Point(31, 150);
+            this.supnametxt.Margin = new System.Windows.Forms.Padding(5);
             this.supnametxt.Name = "supnametxt";
-            this.supnametxt.Size = new System.Drawing.Size(304, 41);
+            this.supnametxt.Size = new System.Drawing.Size(306, 41);
             this.supnametxt.TabIndex = 25;
             this.supnametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -2425,12 +2484,13 @@
             this.epeks.SetDecoration(this.cb_set_supplier, BunifuAnimatorNS.DecorationType.None);
             this.cb_set_supplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_set_supplier.FormattingEnabled = true;
-            this.cb_set_supplier.Location = new System.Drawing.Point(38, 76);
+            this.cb_set_supplier.Location = new System.Drawing.Point(31, 76);
             this.cb_set_supplier.Name = "cb_set_supplier";
-            this.cb_set_supplier.Size = new System.Drawing.Size(299, 32);
+            this.cb_set_supplier.Size = new System.Drawing.Size(306, 32);
             this.cb_set_supplier.TabIndex = 20;
             this.cb_set_supplier.Text = "Select Supplier";
             this.cb_set_supplier.SelectedIndexChanged += new System.EventHandler(this.cb_set_catUnit_SelectedIndexChanged);
+            this.cb_set_supplier.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cb_set_supplier_MouseClick);
             // 
             // btn_update2
             // 
@@ -2518,7 +2578,7 @@
             this.unitpanel.Controls.Add(this.btn_sve3);
             this.unitpanel.Controls.Add(this.tb_setunit);
             this.epeks.SetDecoration(this.unitpanel, BunifuAnimatorNS.DecorationType.None);
-            this.unitpanel.Location = new System.Drawing.Point(221, 11);
+            this.unitpanel.Location = new System.Drawing.Point(203, 2);
             this.unitpanel.Name = "unitpanel";
             this.unitpanel.Size = new System.Drawing.Size(373, 348);
             this.unitpanel.TabIndex = 25;
@@ -2560,6 +2620,7 @@
             this.cbunitSelector.TabIndex = 30;
             this.cbunitSelector.Text = "select";
             this.cbunitSelector.SelectedIndexChanged += new System.EventHandler(this.cbunitSelector_SelectedIndexChanged);
+            this.cbunitSelector.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbunitSelector_MouseClick);
             // 
             // panel31
             // 
@@ -2689,11 +2750,11 @@
             this.tb_setunit.BorderThickness = 3;
             this.tb_setunit.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_setunit, BunifuAnimatorNS.DecorationType.None);
-            this.tb_setunit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_setunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_setunit.ForeColor = System.Drawing.Color.DarkGreen;
             this.tb_setunit.isPassword = false;
             this.tb_setunit.Location = new System.Drawing.Point(29, 227);
-            this.tb_setunit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_setunit.Margin = new System.Windows.Forms.Padding(5);
             this.tb_setunit.Name = "tb_setunit";
             this.tb_setunit.Size = new System.Drawing.Size(304, 41);
             this.tb_setunit.TabIndex = 21;
@@ -2703,6 +2764,7 @@
             // 
             this.emppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.emppanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.emppanel.Controls.Add(this.cb_categorySignature);
             this.emppanel.Controls.Add(this.panel45);
             this.emppanel.Controls.Add(this.label6);
             this.emppanel.Controls.Add(this.cbfullname);
@@ -2710,10 +2772,26 @@
             this.emppanel.Controls.Add(this.btnsavefn);
             this.emppanel.Controls.Add(this.tbfullname);
             this.epeks.SetDecoration(this.emppanel, BunifuAnimatorNS.DecorationType.None);
-            this.emppanel.Location = new System.Drawing.Point(221, 10);
+            this.emppanel.Location = new System.Drawing.Point(203, 2);
             this.emppanel.Name = "emppanel";
-            this.emppanel.Size = new System.Drawing.Size(373, 285);
+            this.emppanel.Size = new System.Drawing.Size(373, 355);
             this.emppanel.TabIndex = 35;
+            // 
+            // cb_categorySignature
+            // 
+            this.epeks.SetDecoration(this.cb_categorySignature, BunifuAnimatorNS.DecorationType.None);
+            this.cb_categorySignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_categorySignature.FormattingEnabled = true;
+            this.cb_categorySignature.Items.AddRange(new object[] {
+            "Approved by",
+            "Issued by",
+            "Prepared by",
+            "Received by"});
+            this.cb_categorySignature.Location = new System.Drawing.Point(25, 217);
+            this.cb_categorySignature.Name = "cb_categorySignature";
+            this.cb_categorySignature.Size = new System.Drawing.Size(312, 32);
+            this.cb_categorySignature.TabIndex = 33;
+            this.cb_categorySignature.Text = "Select Category";
             // 
             // panel45
             // 
@@ -2761,6 +2839,7 @@
             this.cbfullname.TabIndex = 20;
             this.cbfullname.Text = "Select Employee";
             this.cbfullname.SelectedIndexChanged += new System.EventHandler(this.cbfullname_SelectedIndexChanged_1);
+            this.cbfullname.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbfullname_MouseClick);
             // 
             // btnupdatefn
             // 
@@ -2784,7 +2863,7 @@
             this.btnupdatefn.IconVisible = true;
             this.btnupdatefn.IconZoom = 60D;
             this.btnupdatefn.IsTab = false;
-            this.btnupdatefn.Location = new System.Drawing.Point(215, 218);
+            this.btnupdatefn.Location = new System.Drawing.Point(215, 285);
             this.btnupdatefn.Name = "btnupdatefn";
             this.btnupdatefn.Normalcolor = System.Drawing.Color.DarkGreen;
             this.btnupdatefn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -2820,7 +2899,7 @@
             this.btnsavefn.IconVisible = true;
             this.btnsavefn.IconZoom = 60D;
             this.btnsavefn.IsTab = false;
-            this.btnsavefn.Location = new System.Drawing.Point(32, 218);
+            this.btnsavefn.Location = new System.Drawing.Point(32, 285);
             this.btnsavefn.Name = "btnsavefn";
             this.btnsavefn.Normalcolor = System.Drawing.Color.DarkGreen;
             this.btnsavefn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -2843,11 +2922,11 @@
             this.tbfullname.BorderThickness = 3;
             this.tbfullname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbfullname, BunifuAnimatorNS.DecorationType.None);
-            this.tbfullname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbfullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbfullname.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbfullname.isPassword = false;
             this.tbfullname.Location = new System.Drawing.Point(24, 149);
-            this.tbfullname.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbfullname.Margin = new System.Windows.Forms.Padding(5);
             this.tbfullname.Name = "tbfullname";
             this.tbfullname.Size = new System.Drawing.Size(313, 41);
             this.tbfullname.TabIndex = 21;
@@ -2864,7 +2943,7 @@
             this.deppanel.Controls.Add(this.btnsave5);
             this.deppanel.Controls.Add(this.tbdepartment);
             this.epeks.SetDecoration(this.deppanel, BunifuAnimatorNS.DecorationType.None);
-            this.deppanel.Location = new System.Drawing.Point(221, 10);
+            this.deppanel.Location = new System.Drawing.Point(202, 2);
             this.deppanel.Name = "deppanel";
             this.deppanel.Size = new System.Drawing.Size(373, 285);
             this.deppanel.TabIndex = 32;
@@ -2915,6 +2994,7 @@
             this.cbdepartment.TabIndex = 20;
             this.cbdepartment.Text = "Select Department";
             this.cbdepartment.SelectedIndexChanged += new System.EventHandler(this.cbdepartment_SelectedIndexChanged_1);
+            this.cbdepartment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbdepartment_MouseClick);
             // 
             // btnupdate5
             // 
@@ -2997,11 +3077,11 @@
             this.tbdepartment.BorderThickness = 3;
             this.tbdepartment.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbdepartment, BunifuAnimatorNS.DecorationType.None);
-            this.tbdepartment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbdepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdepartment.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbdepartment.isPassword = false;
             this.tbdepartment.Location = new System.Drawing.Point(26, 148);
-            this.tbdepartment.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbdepartment.Margin = new System.Windows.Forms.Padding(5);
             this.tbdepartment.Name = "tbdepartment";
             this.tbdepartment.Size = new System.Drawing.Size(310, 41);
             this.tbdepartment.TabIndex = 21;
@@ -3016,9 +3096,9 @@
             this.panel9.Controls.Add(this.btnsup);
             this.panel9.Controls.Add(this.btncat);
             this.epeks.SetDecoration(this.panel9, BunifuAnimatorNS.DecorationType.None);
-            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Location = new System.Drawing.Point(-1, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(205, 687);
+            this.panel9.Size = new System.Drawing.Size(182, 676);
             this.panel9.TabIndex = 34;
             // 
             // btndep
@@ -3054,7 +3134,7 @@
             this.btndep.Text = "     Department";
             this.btndep.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndep.Textcolor = System.Drawing.Color.White;
-            this.btndep.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndep.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndep.Click += new System.EventHandler(this.btndep_Click);
             // 
             // btnemp
@@ -3090,7 +3170,7 @@
             this.btnemp.Text = "     Employee";
             this.btnemp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnemp.Textcolor = System.Drawing.Color.White;
-            this.btnemp.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnemp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnemp.Click += new System.EventHandler(this.btnemp_Click);
             // 
             // btnunit
@@ -3126,7 +3206,7 @@
             this.btnunit.Text = "     Unit";
             this.btnunit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnunit.Textcolor = System.Drawing.Color.White;
-            this.btnunit.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnunit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnunit.Click += new System.EventHandler(this.btnunit_Click);
             // 
             // btnsup
@@ -3162,7 +3242,7 @@
             this.btnsup.Text = "     Supplier";
             this.btnsup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnsup.Textcolor = System.Drawing.Color.White;
-            this.btnsup.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsup.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsup.Click += new System.EventHandler(this.btnsup_Click);
             // 
             // btncat
@@ -3198,14 +3278,14 @@
             this.btncat.Text = "     Category";
             this.btncat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncat.Textcolor = System.Drawing.Color.White;
-            this.btncat.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncat.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncat.Click += new System.EventHandler(this.btncat_Click);
             // 
             // tableLayoutPanel26
             // 
             this.tableLayoutPanel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tableLayoutPanel26.ColumnCount = 4;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -3216,14 +3296,15 @@
             this.tableLayoutPanel26.Controls.Add(this.panelitemedit, 2, 2);
             this.tableLayoutPanel26.Controls.Add(this.panel24, 2, 1);
             this.epeks.SetDecoration(this.tableLayoutPanel26, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(43, 33);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 4;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(1134, 584);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(1177, 617);
             this.tableLayoutPanel26.TabIndex = 118;
             this.tableLayoutPanel26.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel26_Paint);
             // 
@@ -3234,9 +3315,9 @@
             this.panel26.Controls.Add(this.btn_update);
             this.epeks.SetDecoration(this.panel26, BunifuAnimatorNS.DecorationType.None);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(23, 529);
+            this.panel26.Location = new System.Drawing.Point(11, 562);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(676, 52);
+            this.panel26.Size = new System.Drawing.Size(731, 52);
             this.panel26.TabIndex = 111;
             // 
             // btn_update
@@ -3281,7 +3362,7 @@
             this.panel2.Controls.Add(this.bunifuFlatButton3);
             this.epeks.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(705, 529);
+            this.panel2.Location = new System.Drawing.Point(748, 562);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(406, 52);
             this.panel2.TabIndex = 140;
@@ -3330,9 +3411,9 @@
             this.panel19.Controls.Add(this.isearch);
             this.epeks.SetDecoration(this.panel19, BunifuAnimatorNS.DecorationType.None);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(23, 12);
+            this.panel19.Location = new System.Drawing.Point(11, 12);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(676, 52);
+            this.panel19.Size = new System.Drawing.Size(731, 52);
             this.panel19.TabIndex = 111;
             // 
             // tb_search
@@ -3373,16 +3454,17 @@
             this.columnHeader85,
             this.columnHeader86,
             this.columnHeader87,
-            this.columnHeader42});
+            this.columnHeader42,
+            this.columnHeader97});
             this.epeks.SetDecoration(this.LVitem, BunifuAnimatorNS.DecorationType.None);
             this.LVitem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LVitem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVitem.FullRowSelect = true;
             this.LVitem.GridLines = true;
             this.LVitem.HideSelection = false;
-            this.LVitem.Location = new System.Drawing.Point(23, 70);
+            this.LVitem.Location = new System.Drawing.Point(11, 70);
             this.LVitem.Name = "LVitem";
-            this.LVitem.Size = new System.Drawing.Size(676, 453);
+            this.LVitem.Size = new System.Drawing.Size(731, 486);
             this.LVitem.TabIndex = 113;
             this.LVitem.UseCompatibleStateImageBehavior = false;
             this.LVitem.View = System.Windows.Forms.View.Details;
@@ -3396,59 +3478,52 @@
             // 
             // columnHeader85
             // 
-            this.columnHeader85.Text = "ITEM NAME";
+            this.columnHeader85.Text = "DESCRIPTION";
             this.columnHeader85.Width = 170;
             // 
             // columnHeader86
             // 
-            this.columnHeader86.Text = "CATEGORY";
+            this.columnHeader86.Text = "SUPPLIER";
             this.columnHeader86.Width = 170;
             // 
             // columnHeader87
             // 
-            this.columnHeader87.Text = "UNIT";
+            this.columnHeader87.Text = "CATEGORY";
             this.columnHeader87.Width = 170;
             // 
             // columnHeader42
             // 
-            this.columnHeader42.Text = "UNIT PRICE";
-            this.columnHeader42.Width = 100;
+            this.columnHeader42.Text = "UNIT";
+            this.columnHeader42.Width = 170;
+            // 
+            // columnHeader97
+            // 
+            this.columnHeader97.Text = "UNIT PRICE";
+            this.columnHeader97.Width = 100;
             // 
             // panelitemedit
             // 
             this.panelitemedit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panelitemedit.Controls.Add(this.editUnitPrice);
             this.panelitemedit.Controls.Add(this.label58);
+            this.panelitemedit.Controls.Add(this.cbSupplier);
             this.panelitemedit.Controls.Add(this.cbitemcat);
             this.panelitemedit.Controls.Add(this.comboBox2);
             this.panelitemedit.Controls.Add(this.comboBox3);
             this.panelitemedit.Controls.Add(this.comboBox4);
             this.panelitemedit.Controls.Add(this.label63);
+            this.panelitemedit.Controls.Add(this.editUnitPrice);
             this.panelitemedit.Controls.Add(this.tbname);
+            this.panelitemedit.Controls.Add(this.label104);
             this.panelitemedit.Controls.Add(this.tbitemid);
             this.panelitemedit.Controls.Add(this.label64);
             this.panelitemedit.Controls.Add(this.label65);
             this.panelitemedit.Controls.Add(this.label66);
             this.epeks.SetDecoration(this.panelitemedit, BunifuAnimatorNS.DecorationType.None);
             this.panelitemedit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelitemedit.Location = new System.Drawing.Point(705, 70);
+            this.panelitemedit.Location = new System.Drawing.Point(748, 70);
             this.panelitemedit.Name = "panelitemedit";
-            this.panelitemedit.Size = new System.Drawing.Size(406, 453);
+            this.panelitemedit.Size = new System.Drawing.Size(406, 486);
             this.panelitemedit.TabIndex = 114;
-            // 
-            // editUnitPrice
-            // 
-            this.epeks.SetDecoration(this.editUnitPrice, BunifuAnimatorNS.DecorationType.None);
-            this.editUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUnitPrice.Location = new System.Drawing.Point(49, 380);
-            this.editUnitPrice.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.editUnitPrice.Name = "editUnitPrice";
-            this.editUnitPrice.Size = new System.Drawing.Size(120, 30);
-            this.editUnitPrice.TabIndex = 140;
             // 
             // label58
             // 
@@ -3456,18 +3531,29 @@
             this.epeks.SetDecoration(this.label58, BunifuAnimatorNS.DecorationType.None);
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label58.Location = new System.Drawing.Point(43, 356);
+            this.label58.Location = new System.Drawing.Point(45, 416);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(92, 20);
             this.label58.TabIndex = 139;
             this.label58.Text = "Unit Price:";
+            // 
+            // cbSupplier
+            // 
+            this.epeks.SetDecoration(this.cbSupplier, BunifuAnimatorNS.DecorationType.None);
+            this.cbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSupplier.FormattingEnabled = true;
+            this.cbSupplier.Location = new System.Drawing.Point(46, 231);
+            this.cbSupplier.Name = "cbSupplier";
+            this.cbSupplier.Size = new System.Drawing.Size(310, 28);
+            this.cbSupplier.TabIndex = 129;
+            this.cbSupplier.Text = "Select Supplier";
             // 
             // cbitemcat
             // 
             this.epeks.SetDecoration(this.cbitemcat, BunifuAnimatorNS.DecorationType.None);
             this.cbitemcat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbitemcat.FormattingEnabled = true;
-            this.cbitemcat.Location = new System.Drawing.Point(45, 234);
+            this.cbitemcat.Location = new System.Drawing.Point(47, 305);
             this.cbitemcat.Name = "cbitemcat";
             this.cbitemcat.Size = new System.Drawing.Size(310, 28);
             this.cbitemcat.TabIndex = 129;
@@ -3478,7 +3564,7 @@
             this.epeks.SetDecoration(this.comboBox2, BunifuAnimatorNS.DecorationType.None);
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(274, 300);
+            this.comboBox2.Location = new System.Drawing.Point(276, 371);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(82, 28);
             this.comboBox2.TabIndex = 130;
@@ -3489,7 +3575,7 @@
             this.epeks.SetDecoration(this.comboBox3, BunifuAnimatorNS.DecorationType.None);
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(186, 300);
+            this.comboBox3.Location = new System.Drawing.Point(188, 371);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(82, 28);
             this.comboBox3.TabIndex = 131;
@@ -3500,7 +3586,7 @@
             this.epeks.SetDecoration(this.comboBox4, BunifuAnimatorNS.DecorationType.None);
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(47, 300);
+            this.comboBox4.Location = new System.Drawing.Point(49, 371);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(133, 28);
             this.comboBox4.TabIndex = 132;
@@ -3512,11 +3598,30 @@
             this.epeks.SetDecoration(this.label63, BunifuAnimatorNS.DecorationType.None);
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label63.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label63.Location = new System.Drawing.Point(44, 277);
+            this.label63.Location = new System.Drawing.Point(46, 348);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(47, 20);
             this.label63.TabIndex = 138;
             this.label63.Text = "Unit:";
+            // 
+            // editUnitPrice
+            // 
+            this.editUnitPrice.BackColor = System.Drawing.Color.White;
+            this.editUnitPrice.BorderColorFocused = System.Drawing.Color.Lime;
+            this.editUnitPrice.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.editUnitPrice.BorderColorMouseHover = System.Drawing.Color.Lime;
+            this.editUnitPrice.BorderThickness = 3;
+            this.editUnitPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.epeks.SetDecoration(this.editUnitPrice, BunifuAnimatorNS.DecorationType.None);
+            this.editUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUnitPrice.ForeColor = System.Drawing.Color.DarkGreen;
+            this.editUnitPrice.isPassword = false;
+            this.editUnitPrice.Location = new System.Drawing.Point(46, 442);
+            this.editUnitPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.editUnitPrice.Name = "editUnitPrice";
+            this.editUnitPrice.Size = new System.Drawing.Size(314, 44);
+            this.editUnitPrice.TabIndex = 134;
+            this.editUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbname
             // 
@@ -3527,7 +3632,7 @@
             this.tbname.BorderThickness = 3;
             this.tbname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbname, BunifuAnimatorNS.DecorationType.None);
-            this.tbname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbname.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbname.isPassword = false;
             this.tbname.Location = new System.Drawing.Point(46, 144);
@@ -3536,6 +3641,18 @@
             this.tbname.Size = new System.Drawing.Size(310, 44);
             this.tbname.TabIndex = 134;
             this.tbname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.epeks.SetDecoration(this.label104, BunifuAnimatorNS.DecorationType.None);
+            this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label104.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label104.Location = new System.Drawing.Point(41, 207);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(80, 20);
+            this.label104.TabIndex = 135;
+            this.label104.Text = "Supplier:";
             // 
             // tbitemid
             // 
@@ -3546,7 +3663,7 @@
             this.tbitemid.BorderThickness = 3;
             this.tbitemid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemid, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemid.ForeColor = System.Drawing.Color.DarkGreen;
             this.tbitemid.isPassword = false;
             this.tbitemid.Location = new System.Drawing.Point(46, 55);
@@ -3562,7 +3679,7 @@
             this.epeks.SetDecoration(this.label64, BunifuAnimatorNS.DecorationType.None);
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label64.Location = new System.Drawing.Point(40, 210);
+            this.label64.Location = new System.Drawing.Point(42, 281);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(86, 20);
             this.label64.TabIndex = 135;
@@ -3598,7 +3715,7 @@
             this.panel24.Controls.Add(this.label67);
             this.epeks.SetDecoration(this.panel24, BunifuAnimatorNS.DecorationType.None);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(705, 12);
+            this.panel24.Location = new System.Drawing.Point(748, 12);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(406, 52);
             this.panel24.TabIndex = 115;
@@ -3621,7 +3738,7 @@
             this.panelpassword.Controls.Add(this.cshow);
             this.panelpassword.Controls.Add(this.Blog);
             this.epeks.SetDecoration(this.panelpassword, BunifuAnimatorNS.DecorationType.None);
-            this.panelpassword.Location = new System.Drawing.Point(25, 362);
+            this.panelpassword.Location = new System.Drawing.Point(25, 361);
             this.panelpassword.Name = "panelpassword";
             this.panelpassword.Size = new System.Drawing.Size(484, 244);
             this.panelpassword.TabIndex = 116;
@@ -3630,11 +3747,11 @@
             // 
             this.cshow.AutoSize = true;
             this.epeks.SetDecoration(this.cshow, BunifuAnimatorNS.DecorationType.None);
-            this.cshow.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cshow.ForeColor = System.Drawing.Color.Lavender;
             this.cshow.Location = new System.Drawing.Point(88, 16);
             this.cshow.Name = "cshow";
-            this.cshow.Size = new System.Drawing.Size(110, 20);
+            this.cshow.Size = new System.Drawing.Size(99, 17);
             this.cshow.TabIndex = 34;
             this.cshow.Text = "show password";
             this.cshow.ThreeState = true;
@@ -3675,7 +3792,7 @@
             this.Blog.Text = "Verify";
             this.Blog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Blog.Textcolor = System.Drawing.Color.White;
-            this.Blog.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Blog.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Blog.Click += new System.EventHandler(this.Blog_Click);
             // 
             // panel16
@@ -3734,7 +3851,7 @@
             this.savePassword.Text = "Save";
             this.savePassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.savePassword.Textcolor = System.Drawing.Color.White;
-            this.savePassword.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savePassword.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savePassword.Click += new System.EventHandler(this.savePassword_Click);
             // 
             // label10
@@ -3757,9 +3874,9 @@
             this.tcpw.BorderThickness = 3;
             this.tcpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tcpw, BunifuAnimatorNS.DecorationType.None);
-            this.tcpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcpw.ForeColor = System.Drawing.Color.Lavender;
-            this.tcpw.isPassword = false;
+            this.tcpw.isPassword = true;
             this.tcpw.Location = new System.Drawing.Point(123, 435);
             this.tcpw.Margin = new System.Windows.Forms.Padding(4);
             this.tcpw.Name = "tcpw";
@@ -3779,9 +3896,9 @@
             this.tnpw.BorderThickness = 3;
             this.tnpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tnpw, BunifuAnimatorNS.DecorationType.None);
-            this.tnpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tnpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tnpw.ForeColor = System.Drawing.Color.Lavender;
-            this.tnpw.isPassword = false;
+            this.tnpw.isPassword = true;
             this.tnpw.Location = new System.Drawing.Point(125, 348);
             this.tnpw.Margin = new System.Windows.Forms.Padding(4);
             this.tnpw.Name = "tnpw";
@@ -3812,7 +3929,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(168, 49);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(147, 150);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 38;
             this.pictureBox4.TabStop = false;
             // 
@@ -3857,7 +3974,7 @@
             this.tpw.BorderThickness = 3;
             this.tpw.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tpw, BunifuAnimatorNS.DecorationType.None);
-            this.tpw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpw.ForeColor = System.Drawing.Color.Lavender;
             this.tpw.isPassword = false;
             this.tpw.Location = new System.Drawing.Point(124, 287);
@@ -3880,7 +3997,7 @@
             this.tun.BorderThickness = 3;
             this.tun.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tun, BunifuAnimatorNS.DecorationType.None);
-            this.tun.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tun.ForeColor = System.Drawing.Color.Lavender;
             this.tun.isPassword = false;
             this.tun.Location = new System.Drawing.Point(124, 226);
@@ -3898,11 +4015,11 @@
             // 
             this.shownew.AutoSize = true;
             this.epeks.SetDecoration(this.shownew, BunifuAnimatorNS.DecorationType.None);
-            this.shownew.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shownew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shownew.ForeColor = System.Drawing.Color.Lavender;
             this.shownew.Location = new System.Drawing.Point(88, 404);
             this.shownew.Name = "shownew";
-            this.shownew.Size = new System.Drawing.Size(137, 20);
+            this.shownew.Size = new System.Drawing.Size(122, 17);
             this.shownew.TabIndex = 34;
             this.shownew.Text = "show new password";
             this.shownew.ThreeState = true;
@@ -3928,16 +4045,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
             this.epeks.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(43, 42);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.680067F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.31993F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 575);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1177, 617);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -3946,9 +4064,9 @@
             this.panel1.Controls.Add(this.tableLayoutPanel9);
             this.epeks.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(68, 17);
+            this.panel1.Location = new System.Drawing.Point(68, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(634, 537);
+            this.panel1.Size = new System.Drawing.Size(658, 577);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -3969,7 +4087,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.197134F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.80286F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(634, 537);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(658, 577);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -3981,11 +4099,11 @@
             this.tableLayoutPanel10.Controls.Add(this.panel15, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel10, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 40);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 42);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.11215F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(626, 492);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(650, 530);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // panel12
@@ -4003,20 +4121,20 @@
             this.panel12.Controls.Add(this.saveUser);
             this.epeks.SetDecoration(this.panel12, BunifuAnimatorNS.DecorationType.None);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(238, 3);
+            this.panel12.Location = new System.Drawing.Point(247, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(385, 486);
+            this.panel12.Size = new System.Drawing.Size(400, 524);
             this.panel12.TabIndex = 0;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.epeks.SetDecoration(this.checkBox1, BunifuAnimatorNS.DecorationType.None);
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.checkBox1.Location = new System.Drawing.Point(33, 173);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 20);
+            this.checkBox1.Size = new System.Drawing.Size(99, 17);
             this.checkBox1.TabIndex = 18;
             this.checkBox1.Text = "show password";
             this.checkBox1.ThreeState = true;
@@ -4066,7 +4184,7 @@
             this.tempid.BorderThickness = 3;
             this.tempid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tempid, BunifuAnimatorNS.DecorationType.None);
-            this.tempid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tempid.ForeColor = System.Drawing.Color.DarkGreen;
             this.tempid.isPassword = false;
             this.tempid.Location = new System.Drawing.Point(33, 16);
@@ -4086,7 +4204,7 @@
             this.tfn.BorderThickness = 3;
             this.tfn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tfn, BunifuAnimatorNS.DecorationType.None);
-            this.tfn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tfn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tfn.ForeColor = System.Drawing.Color.DarkGreen;
             this.tfn.isPassword = false;
             this.tfn.Location = new System.Drawing.Point(33, 200);
@@ -4109,7 +4227,7 @@
             this.tusername.BorderThickness = 3;
             this.tusername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tusername, BunifuAnimatorNS.DecorationType.None);
-            this.tusername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tusername.ForeColor = System.Drawing.Color.DarkGreen;
             this.tusername.isPassword = false;
             this.tusername.Location = new System.Drawing.Point(33, 70);
@@ -4132,7 +4250,7 @@
             this.tln.BorderThickness = 3;
             this.tln.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tln, BunifuAnimatorNS.DecorationType.None);
-            this.tln.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tln.ForeColor = System.Drawing.Color.DarkGreen;
             this.tln.isPassword = false;
             this.tln.Location = new System.Drawing.Point(33, 305);
@@ -4155,7 +4273,7 @@
             this.tpassword.BorderThickness = 3;
             this.tpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tpassword, BunifuAnimatorNS.DecorationType.None);
-            this.tpassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpassword.ForeColor = System.Drawing.Color.DarkGreen;
             this.tpassword.isPassword = true;
             this.tpassword.Location = new System.Drawing.Point(33, 123);
@@ -4178,7 +4296,7 @@
             this.tmn.BorderThickness = 3;
             this.tmn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tmn, BunifuAnimatorNS.DecorationType.None);
-            this.tmn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tmn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tmn.ForeColor = System.Drawing.Color.DarkGreen;
             this.tmn.isPassword = false;
             this.tmn.Location = new System.Drawing.Point(33, 252);
@@ -4243,7 +4361,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(3, 3);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(229, 486);
+            this.panel15.Size = new System.Drawing.Size(238, 524);
             this.panel15.TabIndex = 1;
             // 
             // label26
@@ -4378,7 +4496,7 @@
             // 
             // p_invmed
             // 
-            this.p_invmed.Controls.Add(this.P_generatedLogs);
+            this.p_invmed.Controls.Add(this.p_unusedstocks);
             this.p_invmed.Controls.Add(this.PMtable);
             this.epeks.SetDecoration(this.p_invmed, BunifuAnimatorNS.DecorationType.None);
             this.p_invmed.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4387,26 +4505,78 @@
             this.p_invmed.Size = new System.Drawing.Size(1177, 617);
             this.p_invmed.TabIndex = 143;
             // 
-            // P_generatedLogs
+            // p_unusedstocks
             // 
-            this.P_generatedLogs.Controls.Add(this.p_expired);
-            this.P_generatedLogs.Controls.Add(this.tb_generatedLogs);
-            this.epeks.SetDecoration(this.P_generatedLogs, BunifuAnimatorNS.DecorationType.None);
-            this.P_generatedLogs.Location = new System.Drawing.Point(694, 396);
-            this.P_generatedLogs.Name = "P_generatedLogs";
-            this.P_generatedLogs.Size = new System.Drawing.Size(483, 221);
-            this.P_generatedLogs.TabIndex = 144;
+            this.p_unusedstocks.Controls.Add(this.p_expired);
+            this.p_unusedstocks.Controls.Add(this.tb_generatedLogs);
+            this.epeks.SetDecoration(this.p_unusedstocks, BunifuAnimatorNS.DecorationType.None);
+            this.p_unusedstocks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p_unusedstocks.Location = new System.Drawing.Point(0, 0);
+            this.p_unusedstocks.Name = "p_unusedstocks";
+            this.p_unusedstocks.Size = new System.Drawing.Size(1177, 617);
+            this.p_unusedstocks.TabIndex = 144;
             // 
             // p_expired
             // 
+            this.p_expired.Controls.Add(this.panel_recap);
             this.p_expired.Controls.Add(this.tableLayoutPanel22);
             this.p_expired.Controls.Add(this.p_HistoryLogs);
             this.p_expired.Controls.Add(this.p_damageMed);
             this.epeks.SetDecoration(this.p_expired, BunifuAnimatorNS.DecorationType.None);
-            this.p_expired.Location = new System.Drawing.Point(436, 215);
+            this.p_expired.Location = new System.Drawing.Point(1048, 516);
             this.p_expired.Name = "p_expired";
-            this.p_expired.Size = new System.Drawing.Size(741, 402);
+            this.p_expired.Size = new System.Drawing.Size(129, 101);
             this.p_expired.TabIndex = 147;
+            // 
+            // panel_recap
+            // 
+            this.panel_recap.Controls.Add(this.panel_outstock);
+            this.epeks.SetDecoration(this.panel_recap, BunifuAnimatorNS.DecorationType.None);
+            this.panel_recap.Location = new System.Drawing.Point(899, 474);
+            this.panel_recap.Name = "panel_recap";
+            this.panel_recap.Size = new System.Drawing.Size(278, 143);
+            this.panel_recap.TabIndex = 148;
+            // 
+            // panel_outstock
+            // 
+            this.panel_outstock.Controls.Add(this.panel_pending_item);
+            this.panel_outstock.Controls.Add(this.label94);
+            this.epeks.SetDecoration(this.panel_outstock, BunifuAnimatorNS.DecorationType.None);
+            this.panel_outstock.Location = new System.Drawing.Point(46, 84);
+            this.panel_outstock.Name = "panel_outstock";
+            this.panel_outstock.Size = new System.Drawing.Size(1131, 533);
+            this.panel_outstock.TabIndex = 0;
+            // 
+            // panel_pending_item
+            // 
+            this.panel_pending_item.Controls.Add(this.label102);
+            this.epeks.SetDecoration(this.panel_pending_item, BunifuAnimatorNS.DecorationType.None);
+            this.panel_pending_item.Location = new System.Drawing.Point(71, 87);
+            this.panel_pending_item.Name = "panel_pending_item";
+            this.panel_pending_item.Size = new System.Drawing.Size(1106, 530);
+            this.panel_pending_item.TabIndex = 1;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.epeks.SetDecoration(this.label102, BunifuAnimatorNS.DecorationType.None);
+            this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label102.Location = new System.Drawing.Point(388, 97);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(110, 31);
+            this.label102.TabIndex = 0;
+            this.label102.Text = "pending";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.epeks.SetDecoration(this.label94, BunifuAnimatorNS.DecorationType.None);
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(381, 115);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(154, 31);
+            this.label94.TabIndex = 0;
+            this.label94.Text = "out of stock";
             // 
             // tableLayoutPanel22
             // 
@@ -4418,31 +4588,31 @@
             this.tableLayoutPanel22.Controls.Add(this.tableLayoutPanel23, 1, 3);
             this.tableLayoutPanel22.Controls.Add(this.panel22, 1, 1);
             this.epeks.SetDecoration(this.tableLayoutPanel22, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(824, 559);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(46, 43);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 4;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.46396F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.53604F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(351, 55);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(1131, 574);
             this.tableLayoutPanel22.TabIndex = 145;
             // 
             // tableLayoutPanel23
             // 
             this.tableLayoutPanel23.ColumnCount = 3;
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.05882F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.94118F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 694F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.53897F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.46103F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 723F));
             this.tableLayoutPanel23.Controls.Add(this.btn_expiredLogs, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.btnExpired, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel23, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(13, 61);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(13, 524);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(325, 1);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(1105, 47);
             this.tableLayoutPanel23.TabIndex = 3;
             // 
             // btn_expiredLogs
@@ -4470,14 +4640,14 @@
             this.btn_expiredLogs.IconVisible = true;
             this.btn_expiredLogs.IconZoom = 50D;
             this.btn_expiredLogs.IsTab = false;
-            this.btn_expiredLogs.Location = new System.Drawing.Point(-125, 4);
+            this.btn_expiredLogs.Location = new System.Drawing.Point(166, 4);
             this.btn_expiredLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_expiredLogs.Name = "btn_expiredLogs";
             this.btn_expiredLogs.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_expiredLogs.OnHovercolor = System.Drawing.Color.ForestGreen;
             this.btn_expiredLogs.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_expiredLogs.selected = false;
-            this.btn_expiredLogs.Size = new System.Drawing.Size(1, 1);
+            this.btn_expiredLogs.Size = new System.Drawing.Size(1, 39);
             this.btn_expiredLogs.TabIndex = 141;
             this.btn_expiredLogs.Text = "         Expired Medicine Logs";
             this.btn_expiredLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4517,7 +4687,7 @@
             this.btnExpired.OnHovercolor = System.Drawing.Color.ForestGreen;
             this.btnExpired.OnHoverTextColor = System.Drawing.Color.White;
             this.btnExpired.selected = false;
-            this.btnExpired.Size = new System.Drawing.Size(1, 1);
+            this.btnExpired.Size = new System.Drawing.Size(154, 39);
             this.btnExpired.TabIndex = 140;
             this.btnExpired.Text = "         Expired";
             this.btnExpired.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4533,14 +4703,14 @@
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel22.Location = new System.Drawing.Point(13, 11);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(325, 62);
+            this.panel22.Size = new System.Drawing.Size(1105, 57);
             this.panel22.TabIndex = 4;
             // 
             // tableLayoutPanel25
             // 
             this.tableLayoutPanel25.ColumnCount = 12;
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.87878F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
@@ -4550,7 +4720,7 @@
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.tableLayoutPanel25.Controls.Add(this.cb_expBatch, 2, 1);
             this.tableLayoutPanel25.Controls.Add(this.label61, 1, 1);
             this.tableLayoutPanel25.Controls.Add(this.cb_dateExp, 5, 1);
@@ -4561,10 +4731,10 @@
             this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 3;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(325, 62);
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(1105, 57);
             this.tableLayoutPanel25.TabIndex = 103;
             // 
             // cb_expBatch
@@ -4572,12 +4742,13 @@
             this.epeks.SetDecoration(this.cb_expBatch, BunifuAnimatorNS.DecorationType.None);
             this.cb_expBatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_expBatch.FormattingEnabled = true;
-            this.cb_expBatch.Location = new System.Drawing.Point(-753, 17);
+            this.cb_expBatch.Location = new System.Drawing.Point(3, 11);
             this.cb_expBatch.Name = "cb_expBatch";
             this.cb_expBatch.Size = new System.Drawing.Size(179, 32);
             this.cb_expBatch.TabIndex = 100;
             this.cb_expBatch.Text = "----BATCH----";
             this.cb_expBatch.SelectedIndexChanged += new System.EventHandler(this.cb_expBatch_SelectedIndexChanged);
+            this.cb_expBatch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cb_expBatch_MouseClick);
             // 
             // label61
             // 
@@ -4586,10 +4757,10 @@
             this.label61.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label61.ForeColor = System.Drawing.Color.White;
-            this.label61.Location = new System.Drawing.Point(-148, 14);
+            this.label61.Location = new System.Drawing.Point(3, 8);
             this.label61.Name = "label61";
             this.label61.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label61.Size = new System.Drawing.Size(1, 38);
+            this.label61.Size = new System.Drawing.Size(1, 41);
             this.label61.TabIndex = 101;
             this.label61.Text = "Available batch:";
             // 
@@ -4599,7 +4770,7 @@
             this.cb_dateExp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cb_dateExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_dateExp.FormattingEnabled = true;
-            this.cb_dateExp.Location = new System.Drawing.Point(-384, 17);
+            this.cb_dateExp.Location = new System.Drawing.Point(372, 11);
             this.cb_dateExp.Name = "cb_dateExp";
             this.cb_dateExp.Size = new System.Drawing.Size(161, 32);
             this.cb_dateExp.TabIndex = 102;
@@ -4611,7 +4782,7 @@
             this.epeks.SetDecoration(this.label62, BunifuAnimatorNS.DecorationType.None);
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.ForeColor = System.Drawing.Color.White;
-            this.label62.Location = new System.Drawing.Point(-551, 14);
+            this.label62.Location = new System.Drawing.Point(205, 8);
             this.label62.Name = "label62";
             this.label62.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.label62.Size = new System.Drawing.Size(153, 34);
@@ -4641,13 +4812,13 @@
             this.btnfetchexp.IconVisible = true;
             this.btnfetchexp.IconZoom = 90D;
             this.btnfetchexp.IsTab = false;
-            this.btnfetchexp.Location = new System.Drawing.Point(-209, 17);
+            this.btnfetchexp.Location = new System.Drawing.Point(547, 11);
             this.btnfetchexp.Name = "btnfetchexp";
             this.btnfetchexp.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnfetchexp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnfetchexp.OnHoverTextColor = System.Drawing.Color.White;
             this.btnfetchexp.selected = false;
-            this.btnfetchexp.Size = new System.Drawing.Size(180, 32);
+            this.btnfetchexp.Size = new System.Drawing.Size(180, 35);
             this.btnfetchexp.TabIndex = 99;
             this.btnfetchexp.Text = "Fetch Record";
             this.btnfetchexp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4668,7 +4839,7 @@
             this.p_HistoryLogs.Controls.Add(this.MedLOGS);
             this.p_HistoryLogs.Controls.Add(this.btn_prnitExpDamaged);
             this.epeks.SetDecoration(this.p_HistoryLogs, BunifuAnimatorNS.DecorationType.None);
-            this.p_HistoryLogs.Location = new System.Drawing.Point(28, 16);
+            this.p_HistoryLogs.Location = new System.Drawing.Point(106, 16);
             this.p_HistoryLogs.Name = "p_HistoryLogs";
             this.p_HistoryLogs.Size = new System.Drawing.Size(1142, 583);
             this.p_HistoryLogs.TabIndex = 147;
@@ -4692,7 +4863,7 @@
             this.bunifuMetroTextbox1.BorderThickness = 3;
             this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.bunifuMetroTextbox1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.White;
             this.bunifuMetroTextbox1.isPassword = false;
             this.bunifuMetroTextbox1.Location = new System.Drawing.Point(194, 714);
@@ -4753,7 +4924,7 @@
             this.columnHeader68,
             this.columnHeader44});
             this.epeks.SetDecoration(this.LVLogs, BunifuAnimatorNS.DecorationType.None);
-            this.LVLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVLogs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVLogs.FullRowSelect = true;
             this.LVLogs.GridLines = true;
             this.LVLogs.HoverSelection = true;
@@ -4808,11 +4979,11 @@
             // 
             this.MedLOGS.AutoSize = true;
             this.epeks.SetDecoration(this.MedLOGS, BunifuAnimatorNS.DecorationType.None);
-            this.MedLOGS.Font = new System.Drawing.Font("Microsoft NeoGothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MedLOGS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MedLOGS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.MedLOGS.Location = new System.Drawing.Point(1, 4);
             this.MedLOGS.Name = "MedLOGS";
-            this.MedLOGS.Size = new System.Drawing.Size(251, 36);
+            this.MedLOGS.Size = new System.Drawing.Size(291, 31);
             this.MedLOGS.TabIndex = 101;
             this.MedLOGS.Text = "MEDICINE EXPIRED";
             // 
@@ -4987,21 +5158,21 @@
             // tb_generatedLogs
             // 
             this.tb_generatedLogs.ColumnCount = 3;
-            this.tb_generatedLogs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tb_generatedLogs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tb_generatedLogs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tb_generatedLogs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tb_generatedLogs.Controls.Add(this.GLLV, 1, 2);
             this.tb_generatedLogs.Controls.Add(this.tableLayoutPanel16, 1, 3);
             this.tb_generatedLogs.Controls.Add(this.panel18, 1, 1);
             this.epeks.SetDecoration(this.tb_generatedLogs, BunifuAnimatorNS.DecorationType.None);
-            this.tb_generatedLogs.Location = new System.Drawing.Point(36, 36);
+            this.tb_generatedLogs.Location = new System.Drawing.Point(32, 24);
             this.tb_generatedLogs.Name = "tb_generatedLogs";
             this.tb_generatedLogs.RowCount = 4;
             this.tb_generatedLogs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tb_generatedLogs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tb_generatedLogs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tb_generatedLogs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.44444F));
             this.tb_generatedLogs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.55556F));
-            this.tb_generatedLogs.Size = new System.Drawing.Size(1141, 581);
+            this.tb_generatedLogs.Size = new System.Drawing.Size(1145, 593);
             this.tb_generatedLogs.TabIndex = 144;
             // 
             // GLLV
@@ -5014,13 +5185,13 @@
             this.columnHeader37});
             this.epeks.SetDecoration(this.GLLV, BunifuAnimatorNS.DecorationType.None);
             this.GLLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GLLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GLLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GLLV.FullRowSelect = true;
             this.GLLV.GridLines = true;
             this.GLLV.HoverSelection = true;
-            this.GLLV.Location = new System.Drawing.Point(13, 80);
+            this.GLLV.Location = new System.Drawing.Point(12, 74);
             this.GLLV.Name = "GLLV";
-            this.GLLV.Size = new System.Drawing.Size(1115, 444);
+            this.GLLV.Size = new System.Drawing.Size(1120, 460);
             this.GLLV.TabIndex = 2;
             this.GLLV.UseCompatibleStateImageBehavior = false;
             this.GLLV.View = System.Windows.Forms.View.Details;
@@ -5058,11 +5229,11 @@
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel19, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel16, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(13, 530);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(12, 540);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(1115, 48);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1120, 50);
             this.tableLayoutPanel16.TabIndex = 3;
             // 
             // tableLayoutPanel19
@@ -5072,11 +5243,11 @@
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.6328F));
             this.epeks.SetDecoration(this.tableLayoutPanel19, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(567, 3);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(569, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(545, 42);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(548, 44);
             this.tableLayoutPanel19.TabIndex = 139;
             // 
             // panel18
@@ -5085,9 +5256,9 @@
             this.panel18.Controls.Add(this.tableLayoutPanel4);
             this.epeks.SetDecoration(this.panel18, BunifuAnimatorNS.DecorationType.None);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(13, 11);
+            this.panel18.Location = new System.Drawing.Point(12, 11);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(1115, 63);
+            this.panel18.Size = new System.Drawing.Size(1120, 57);
             this.panel18.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -5103,7 +5274,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel4.Controls.Add(this.GLfromdate, 5, 1);
             this.tableLayoutPanel4.Controls.Add(this.btn_fetchrecordGL, 9, 1);
             this.tableLayoutPanel4.Controls.Add(this.cb_batchGL, 2, 1);
@@ -5116,10 +5287,10 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1115, 63);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1120, 57);
             this.tableLayoutPanel4.TabIndex = 103;
             // 
             // GLfromdate
@@ -5128,7 +5299,7 @@
             this.epeks.SetDecoration(this.GLfromdate, BunifuAnimatorNS.DecorationType.None);
             this.GLfromdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GLfromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.GLfromdate.Location = new System.Drawing.Point(314, 17);
+            this.GLfromdate.Location = new System.Drawing.Point(309, 12);
             this.GLfromdate.MinimumSize = new System.Drawing.Size(4, 29);
             this.GLfromdate.Name = "GLfromdate";
             this.GLfromdate.Size = new System.Drawing.Size(192, 29);
@@ -5157,13 +5328,13 @@
             this.btn_fetchrecordGL.IconVisible = true;
             this.btn_fetchrecordGL.IconZoom = 90D;
             this.btn_fetchrecordGL.IsTab = false;
-            this.btn_fetchrecordGL.Location = new System.Drawing.Point(806, 17);
+            this.btn_fetchrecordGL.Location = new System.Drawing.Point(801, 12);
             this.btn_fetchrecordGL.Name = "btn_fetchrecordGL";
             this.btn_fetchrecordGL.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_fetchrecordGL.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_fetchrecordGL.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_fetchrecordGL.selected = false;
-            this.btn_fetchrecordGL.Size = new System.Drawing.Size(179, 33);
+            this.btn_fetchrecordGL.Size = new System.Drawing.Size(179, 32);
             this.btn_fetchrecordGL.TabIndex = 99;
             this.btn_fetchrecordGL.Text = "Fetch Record";
             this.btn_fetchrecordGL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5177,7 +5348,7 @@
             this.cb_batchGL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cb_batchGL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_batchGL.FormattingEnabled = true;
-            this.cb_batchGL.Location = new System.Drawing.Point(58, 17);
+            this.cb_batchGL.Location = new System.Drawing.Point(53, 12);
             this.cb_batchGL.Name = "cb_batchGL";
             this.cb_batchGL.Size = new System.Drawing.Size(140, 32);
             this.cb_batchGL.TabIndex = 100;
@@ -5191,10 +5362,10 @@
             this.label54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.ForeColor = System.Drawing.Color.White;
-            this.label54.Location = new System.Drawing.Point(14, 14);
+            this.label54.Location = new System.Drawing.Point(13, 9);
             this.label54.Name = "label54";
             this.label54.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label54.Size = new System.Drawing.Size(38, 39);
+            this.label54.Size = new System.Drawing.Size(34, 38);
             this.label54.TabIndex = 101;
             this.label54.Text = "Available batch:";
             // 
@@ -5205,10 +5376,10 @@
             this.label55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label55.ForeColor = System.Drawing.Color.White;
-            this.label55.Location = new System.Drawing.Point(224, 14);
+            this.label55.Location = new System.Drawing.Point(219, 9);
             this.label55.Name = "label55";
             this.label55.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label55.Size = new System.Drawing.Size(84, 39);
+            this.label55.Size = new System.Drawing.Size(84, 38);
             this.label55.TabIndex = 101;
             this.label55.Text = "FROM:";
             // 
@@ -5219,10 +5390,10 @@
             this.label56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.Color.White;
-            this.label56.Location = new System.Drawing.Point(512, 14);
+            this.label56.Location = new System.Drawing.Point(507, 9);
             this.label56.Name = "label56";
             this.label56.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label56.Size = new System.Drawing.Size(76, 39);
+            this.label56.Size = new System.Drawing.Size(76, 38);
             this.label56.TabIndex = 101;
             this.label56.Text = "TO:";
             // 
@@ -5232,7 +5403,7 @@
             this.epeks.SetDecoration(this.GLtodate, BunifuAnimatorNS.DecorationType.None);
             this.GLtodate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GLtodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.GLtodate.Location = new System.Drawing.Point(594, 17);
+            this.GLtodate.Location = new System.Drawing.Point(589, 12);
             this.GLtodate.MinimumSize = new System.Drawing.Size(4, 29);
             this.GLtodate.Name = "GLtodate";
             this.GLtodate.Size = new System.Drawing.Size(180, 29);
@@ -5241,22 +5412,21 @@
             // PMtable
             // 
             this.PMtable.ColumnCount = 3;
-            this.PMtable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.PMtable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PMtable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.PMtable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PMtable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.PMtable.Controls.Add(this.PMLV, 1, 2);
             this.PMtable.Controls.Add(this.tableLayoutPanel17, 1, 3);
             this.PMtable.Controls.Add(this.panel7, 1, 1);
             this.epeks.SetDecoration(this.PMtable, BunifuAnimatorNS.DecorationType.None);
-            this.PMtable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PMtable.Location = new System.Drawing.Point(0, 0);
+            this.PMtable.Location = new System.Drawing.Point(20, 43);
             this.PMtable.Name = "PMtable";
             this.PMtable.RowCount = 4;
             this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.56987F));
-            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.43013F));
-            this.PMtable.Size = new System.Drawing.Size(1177, 617);
+            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.01099F));
+            this.PMtable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.98901F));
+            this.PMtable.Size = new System.Drawing.Size(1157, 574);
             this.PMtable.TabIndex = 143;
             // 
             // PMLV
@@ -5272,13 +5442,13 @@
             this.columnHeader41});
             this.epeks.SetDecoration(this.PMLV, BunifuAnimatorNS.DecorationType.None);
             this.PMLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PMLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PMLV.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PMLV.FullRowSelect = true;
             this.PMLV.GridLines = true;
             this.PMLV.HideSelection = false;
-            this.PMLV.Location = new System.Drawing.Point(13, 79);
+            this.PMLV.Location = new System.Drawing.Point(12, 74);
             this.PMLV.Name = "PMLV";
-            this.PMLV.Size = new System.Drawing.Size(1152, 462);
+            this.PMLV.Size = new System.Drawing.Size(1134, 441);
             this.PMLV.TabIndex = 2;
             this.PMLV.UseCompatibleStateImageBehavior = false;
             this.PMLV.View = System.Windows.Forms.View.Details;
@@ -5301,78 +5471,158 @@
             // columnHeader31
             // 
             this.columnHeader31.Text = "BEGINNING";
+            this.columnHeader31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader31.Width = 150;
             // 
             // columnHeader32
             // 
             this.columnHeader32.Text = "OUT MEDICINE";
+            this.columnHeader32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader32.Width = 150;
             // 
             // columnHeader90
             // 
             this.columnHeader90.Text = "ENDING";
+            this.columnHeader90.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader90.Width = 150;
             // 
             // columnHeader40
             // 
             this.columnHeader40.Text = "UNIT PRICE";
+            this.columnHeader40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader40.Width = 150;
             // 
             // columnHeader41
             // 
             this.columnHeader41.Text = "TOTAL AMOUNT";
+            this.columnHeader41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader41.Width = 150;
             // 
             // tableLayoutPanel17
             // 
+            this.tableLayoutPanel17.BackColor = System.Drawing.Color.Green;
             this.tableLayoutPanel17.ColumnCount = 2;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.60691F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.39309F));
-            this.tableLayoutPanel17.Controls.Add(this.btn_PMprint, 0, 0);
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.17361F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.82639F));
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel18, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel17, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(13, 547);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(12, 521);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(1152, 67);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(1134, 50);
             this.tableLayoutPanel17.TabIndex = 3;
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 3;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.68316F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.31684F));
+            this.tableLayoutPanel18.Controls.Add(this.btn_PMprint, 2, 0);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel21, 1, 0);
+            this.epeks.SetDecoration(this.tableLayoutPanel18, BunifuAnimatorNS.DecorationType.None);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(288, 3);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(843, 44);
+            this.tableLayoutPanel18.TabIndex = 139;
             // 
             // btn_PMprint
             // 
-            this.btn_PMprint.BackColor = System.Drawing.Color.Green;
-            this.btn_PMprint.color = System.Drawing.Color.Green;
+            this.btn_PMprint.BackColor = System.Drawing.Color.DarkGreen;
+            this.btn_PMprint.color = System.Drawing.Color.DarkGreen;
             this.btn_PMprint.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_PMprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_PMprint, BunifuAnimatorNS.DecorationType.None);
-            this.btn_PMprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PMprint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_PMprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PMprint.ForeColor = System.Drawing.Color.White;
             this.btn_PMprint.Image = ((System.Drawing.Image)(resources.GetObject("btn_PMprint.Image")));
             this.btn_PMprint.ImagePosition = 6;
             this.btn_PMprint.ImageZoom = 20;
             this.btn_PMprint.LabelPosition = 27;
             this.btn_PMprint.LabelText = "PRINT";
-            this.btn_PMprint.Location = new System.Drawing.Point(5, 6);
+            this.btn_PMprint.Location = new System.Drawing.Point(686, 6);
             this.btn_PMprint.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_PMprint.Name = "btn_PMprint";
-            this.btn_PMprint.Size = new System.Drawing.Size(150, 47);
+            this.btn_PMprint.Size = new System.Drawing.Size(152, 32);
             this.btn_PMprint.TabIndex = 138;
             this.btn_PMprint.Click += new System.EventHandler(this.btn_PMprint_Click);
             // 
-            // tableLayoutPanel18
+            // tableLayoutPanel21
             // 
-            this.tableLayoutPanel18.ColumnCount = 2;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.3672F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.6328F));
-            this.epeks.SetDecoration(this.tableLayoutPanel18, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(585, 3);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 1;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(564, 61);
-            this.tableLayoutPanel18.TabIndex = 139;
+            this.tableLayoutPanel21.ColumnCount = 3;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.99214F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.00786F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tableLayoutPanel21.Controls.Add(this.comboBox1, 1, 1);
+            this.tableLayoutPanel21.Controls.Add(this.label60, 0, 1);
+            this.tableLayoutPanel21.Controls.Add(this.tbgetyear, 2, 1);
+            this.epeks.SetDecoration(this.tableLayoutPanel21, BunifuAnimatorNS.DecorationType.None);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(11, 3);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 3;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.93023F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.06977F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(667, 38);
+            this.tableLayoutPanel21.TabIndex = 140;
+            // 
+            // comboBox1
+            // 
+            this.epeks.SetDecoration(this.comboBox1, BunifuAnimatorNS.DecorationType.None);
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.comboBox1.Location = new System.Drawing.Point(285, 8);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(215, 32);
+            this.comboBox1.TabIndex = 100;
+            this.comboBox1.Text = "----Select Month----";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.epeks.SetDecoration(this.label60, BunifuAnimatorNS.DecorationType.None);
+            this.label60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.White;
+            this.label60.Location = new System.Drawing.Point(3, 5);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(276, 22);
+            this.label60.TabIndex = 101;
+            this.label60.Text = "Select Month:";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbgetyear
+            // 
+            this.epeks.SetDecoration(this.tbgetyear, BunifuAnimatorNS.DecorationType.None);
+            this.tbgetyear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbgetyear.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbgetyear.Location = new System.Drawing.Point(506, 8);
+            this.tbgetyear.Name = "tbgetyear";
+            this.tbgetyear.Size = new System.Drawing.Size(158, 33);
+            this.tbgetyear.TabIndex = 102;
+            this.tbgetyear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel7
             // 
@@ -5383,10 +5633,10 @@
             this.panel7.Controls.Add(this.cb_batchno);
             this.epeks.SetDecoration(this.panel7, BunifuAnimatorNS.DecorationType.None);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(13, 11);
+            this.panel7.Location = new System.Drawing.Point(12, 11);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(0, 20, 20, 20);
-            this.panel7.Size = new System.Drawing.Size(1152, 62);
+            this.panel7.Size = new System.Drawing.Size(1134, 57);
             this.panel7.TabIndex = 4;
             // 
             // dateforIM
@@ -5395,8 +5645,8 @@
             this.epeks.SetDecoration(this.dateforIM, BunifuAnimatorNS.DecorationType.None);
             this.dateforIM.Dock = System.Windows.Forms.DockStyle.Right;
             this.dateforIM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateforIM.Location = new System.Drawing.Point(963, 20);
-            this.dateforIM.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateforIM.Location = new System.Drawing.Point(945, 20);
+            this.dateforIM.MinimumSize = new System.Drawing.Size(4, 29);
             this.dateforIM.Name = "dateforIM";
             this.dateforIM.Size = new System.Drawing.Size(169, 29);
             this.dateforIM.TabIndex = 152;
@@ -5407,7 +5657,7 @@
             this.epeks.SetDecoration(this.label22, BunifuAnimatorNS.DecorationType.None);
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(31, 25);
+            this.label22.Location = new System.Drawing.Point(9, 17);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(160, 24);
             this.label22.TabIndex = 101;
@@ -5435,7 +5685,7 @@
             this.PMfetchbtn.IconVisible = true;
             this.PMfetchbtn.IconZoom = 90D;
             this.PMfetchbtn.IsTab = false;
-            this.PMfetchbtn.Location = new System.Drawing.Point(475, 17);
+            this.PMfetchbtn.Location = new System.Drawing.Point(438, 10);
             this.PMfetchbtn.Name = "PMfetchbtn";
             this.PMfetchbtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.PMfetchbtn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -5454,32 +5704,32 @@
             this.epeks.SetDecoration(this.cb_batchno, BunifuAnimatorNS.DecorationType.None);
             this.cb_batchno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_batchno.FormattingEnabled = true;
-            this.cb_batchno.Location = new System.Drawing.Point(198, 19);
+            this.cb_batchno.Location = new System.Drawing.Point(179, 13);
             this.cb_batchno.Name = "cb_batchno";
             this.cb_batchno.Size = new System.Drawing.Size(253, 32);
             this.cb_batchno.TabIndex = 100;
             this.cb_batchno.Text = "----P.O. I.D.----";
             this.cb_batchno.SelectedIndexChanged += new System.EventHandler(this.cb_batchno_SelectedIndexChanged_1);
+            this.cb_batchno.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cb_batchno_MouseClick);
             // 
             // RTable
             // 
             this.RTable.ColumnCount = 3;
-            this.RTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.RTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.RTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.RTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.RTable.Controls.Add(this.tableLayoutPanel7, 1, 1);
             this.RTable.Controls.Add(this.rlistview, 1, 2);
             this.RTable.Controls.Add(this.tableLayoutPanel14, 1, 3);
             this.epeks.SetDecoration(this.RTable, BunifuAnimatorNS.DecorationType.None);
-            this.RTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RTable.Location = new System.Drawing.Point(0, 0);
+            this.RTable.Location = new System.Drawing.Point(19, 28);
             this.RTable.Name = "RTable";
             this.RTable.RowCount = 4;
             this.RTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.RTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.RTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.RTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.56987F));
             this.RTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.43013F));
-            this.RTable.Size = new System.Drawing.Size(1177, 617);
+            this.RTable.Size = new System.Drawing.Size(1158, 589);
             this.RTable.TabIndex = 142;
             // 
             // tableLayoutPanel7
@@ -5497,7 +5747,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 278F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
             this.tableLayoutPanel7.Controls.Add(this.label50, 4, 1);
             this.tableLayoutPanel7.Controls.Add(this.label51, 3, 1);
             this.tableLayoutPanel7.Controls.Add(this.label52, 7, 1);
@@ -5507,13 +5757,13 @@
             this.tableLayoutPanel7.Controls.Add(this.label53, 1, 1);
             this.epeks.SetDecoration(this.tableLayoutPanel7, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(13, 12);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.40425F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.59574F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.40816F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.59184F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1151, 59);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1133, 58);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // label50
@@ -5522,7 +5772,7 @@
             this.epeks.SetDecoration(this.label50, BunifuAnimatorNS.DecorationType.None);
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(116, 11);
+            this.label50.Location = new System.Drawing.Point(66, 10);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(85, 31);
             this.label50.TabIndex = 0;
@@ -5534,7 +5784,7 @@
             this.epeks.SetDecoration(this.label51, BunifuAnimatorNS.DecorationType.None);
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(108, 11);
+            this.label51.Location = new System.Drawing.Point(58, 10);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(2, 39);
             this.label51.TabIndex = 0;
@@ -5546,7 +5796,7 @@
             this.epeks.SetDecoration(this.label52, BunifuAnimatorNS.DecorationType.None);
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(406, 11);
+            this.label52.Location = new System.Drawing.Point(356, 10);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(54, 31);
             this.label52.TabIndex = 0;
@@ -5558,7 +5808,7 @@
             this.epeks.SetDecoration(this.rfrom, BunifuAnimatorNS.DecorationType.None);
             this.rfrom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rfrom.Location = new System.Drawing.Point(219, 14);
+            this.rfrom.Location = new System.Drawing.Point(169, 13);
             this.rfrom.MinimumSize = new System.Drawing.Size(4, 29);
             this.rfrom.Name = "rfrom";
             this.rfrom.Size = new System.Drawing.Size(169, 29);
@@ -5570,7 +5820,7 @@
             this.epeks.SetDecoration(this.rto, BunifuAnimatorNS.DecorationType.None);
             this.rto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rto.Location = new System.Drawing.Point(477, 14);
+            this.rto.Location = new System.Drawing.Point(427, 13);
             this.rto.MinimumSize = new System.Drawing.Size(4, 29);
             this.rto.Name = "rto";
             this.rto.Size = new System.Drawing.Size(170, 29);
@@ -5599,7 +5849,7 @@
             this.btn_rfetch.IconVisible = true;
             this.btn_rfetch.IconZoom = 90D;
             this.btn_rfetch.IsTab = false;
-            this.btn_rfetch.Location = new System.Drawing.Point(672, 14);
+            this.btn_rfetch.Location = new System.Drawing.Point(622, 13);
             this.btn_rfetch.Name = "btn_rfetch";
             this.btn_rfetch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_rfetch.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -5620,9 +5870,9 @@
             this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.ForeColor = System.Drawing.Color.White;
-            this.label53.Location = new System.Drawing.Point(6, 11);
+            this.label53.Location = new System.Drawing.Point(4, 10);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(78, 39);
+            this.label53.Size = new System.Drawing.Size(30, 39);
             this.label53.TabIndex = 0;
             this.label53.Text = "Returned Med:";
             // 
@@ -5638,13 +5888,13 @@
             this.columnHeader27});
             this.epeks.SetDecoration(this.rlistview, BunifuAnimatorNS.DecorationType.None);
             this.rlistview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rlistview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rlistview.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rlistview.FullRowSelect = true;
             this.rlistview.GridLines = true;
             this.rlistview.HoverSelection = true;
-            this.rlistview.Location = new System.Drawing.Point(13, 77);
+            this.rlistview.Location = new System.Drawing.Point(12, 76);
             this.rlistview.Name = "rlistview";
-            this.rlistview.Size = new System.Drawing.Size(1151, 464);
+            this.rlistview.Size = new System.Drawing.Size(1133, 440);
             this.rlistview.TabIndex = 2;
             this.rlistview.UseCompatibleStateImageBehavior = false;
             this.rlistview.View = System.Windows.Forms.View.Details;
@@ -5693,11 +5943,11 @@
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel14, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(13, 547);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(12, 522);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1151, 67);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1133, 64);
             this.tableLayoutPanel14.TabIndex = 3;
             // 
             // btn_rprint
@@ -5707,7 +5957,7 @@
             this.btn_rprint.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_rprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_rprint, BunifuAnimatorNS.DecorationType.None);
-            this.btn_rprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rprint.ForeColor = System.Drawing.Color.White;
             this.btn_rprint.Image = ((System.Drawing.Image)(resources.GetObject("btn_rprint.Image")));
             this.btn_rprint.ImagePosition = 6;
@@ -5728,39 +5978,38 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.6328F));
             this.epeks.SetDecoration(this.tableLayoutPanel15, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(585, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(576, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(563, 61);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(554, 58);
             this.tableLayoutPanel15.TabIndex = 139;
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 3;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel5, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.LVsales, 1, 2);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel11, 1, 3);
             this.epeks.SetDecoration(this.tableLayoutPanel8, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(27, 43);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.56987F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.43013F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1177, 617);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1150, 574);
             this.tableLayoutPanel8.TabIndex = 141;
             // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.BackColor = System.Drawing.Color.Green;
             this.tableLayoutPanel5.ColumnCount = 12;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
@@ -5781,13 +6030,13 @@
             this.tableLayoutPanel5.Controls.Add(this.cb_category, 1, 1);
             this.epeks.SetDecoration(this.tableLayoutPanel5, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(31, 11);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(12, 11);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.40425F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.59575F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1119, 59);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1126, 59);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label11
@@ -5796,7 +6045,7 @@
             this.epeks.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(287, 11);
+            this.label11.Location = new System.Drawing.Point(294, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 31);
             this.label11.TabIndex = 0;
@@ -5808,7 +6057,7 @@
             this.epeks.SetDecoration(this.label12, BunifuAnimatorNS.DecorationType.None);
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(188, 11);
+            this.label12.Location = new System.Drawing.Point(195, 8);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 31);
             this.label12.TabIndex = 0;
@@ -5820,7 +6069,7 @@
             this.epeks.SetDecoration(this.label13, BunifuAnimatorNS.DecorationType.None);
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(577, 11);
+            this.label13.Location = new System.Drawing.Point(584, 8);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 31);
             this.label13.TabIndex = 0;
@@ -5832,7 +6081,7 @@
             this.epeks.SetDecoration(this.from, BunifuAnimatorNS.DecorationType.None);
             this.from.Dock = System.Windows.Forms.DockStyle.Fill;
             this.from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.from.Location = new System.Drawing.Point(390, 14);
+            this.from.Location = new System.Drawing.Point(397, 11);
             this.from.MinimumSize = new System.Drawing.Size(4, 29);
             this.from.Name = "from";
             this.from.Size = new System.Drawing.Size(169, 29);
@@ -5844,7 +6093,7 @@
             this.epeks.SetDecoration(this.to, BunifuAnimatorNS.DecorationType.None);
             this.to.Dock = System.Windows.Forms.DockStyle.Fill;
             this.to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.to.Location = new System.Drawing.Point(648, 14);
+            this.to.Location = new System.Drawing.Point(655, 11);
             this.to.MinimumSize = new System.Drawing.Size(4, 29);
             this.to.Name = "to";
             this.to.Size = new System.Drawing.Size(170, 29);
@@ -5873,13 +6122,13 @@
             this.btnfetch.IconVisible = true;
             this.btnfetch.IconZoom = 90D;
             this.btnfetch.IsTab = false;
-            this.btnfetch.Location = new System.Drawing.Point(843, 14);
+            this.btnfetch.Location = new System.Drawing.Point(850, 11);
             this.btnfetch.Name = "btnfetch";
             this.btnfetch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnfetch.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnfetch.OnHoverTextColor = System.Drawing.Color.White;
             this.btnfetch.selected = false;
-            this.btnfetch.Size = new System.Drawing.Size(197, 33);
+            this.btnfetch.Size = new System.Drawing.Size(197, 36);
             this.btnfetch.TabIndex = 97;
             this.btnfetch.Text = "Fetch Record";
             this.btnfetch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5896,9 +6145,9 @@
             this.cb_category.Items.AddRange(new object[] {
             "IN PATIENT",
             "OUT PATIENT"});
-            this.cb_category.Location = new System.Drawing.Point(33, 14);
+            this.cb_category.Location = new System.Drawing.Point(11, 11);
             this.cb_category.Name = "cb_category";
-            this.cb_category.Size = new System.Drawing.Size(116, 32);
+            this.cb_category.Size = new System.Drawing.Size(145, 32);
             this.cb_category.TabIndex = 98;
             this.cb_category.Text = "-------SELECT SALES------";
             this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
@@ -5917,13 +6166,13 @@
             this.columnHeader20});
             this.epeks.SetDecoration(this.LVsales, BunifuAnimatorNS.DecorationType.None);
             this.LVsales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVsales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVsales.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVsales.FullRowSelect = true;
             this.LVsales.GridLines = true;
             this.LVsales.HoverSelection = true;
-            this.LVsales.Location = new System.Drawing.Point(31, 76);
+            this.LVsales.Location = new System.Drawing.Point(12, 76);
             this.LVsales.Name = "LVsales";
-            this.LVsales.Size = new System.Drawing.Size(1119, 464);
+            this.LVsales.Size = new System.Drawing.Size(1126, 427);
             this.LVsales.TabIndex = 2;
             this.LVsales.UseCompatibleStateImageBehavior = false;
             this.LVsales.View = System.Windows.Forms.View.Details;
@@ -5982,11 +6231,11 @@
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel24, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel11, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(31, 546);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(12, 509);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1119, 68);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1126, 62);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // tableLayoutPanel12
@@ -5998,11 +6247,11 @@
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 0, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel12, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(569, 3);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(572, 3);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(547, 62);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(551, 56);
             this.tableLayoutPanel12.TabIndex = 139;
             // 
             // total_monthly
@@ -6015,13 +6264,13 @@
             this.total_monthly.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.total_monthly, BunifuAnimatorNS.DecorationType.None);
             this.total_monthly.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total_monthly.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_monthly.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.total_monthly.ForeColor = System.Drawing.Color.DarkGreen;
             this.total_monthly.isPassword = false;
-            this.total_monthly.Location = new System.Drawing.Point(304, 7);
+            this.total_monthly.Location = new System.Drawing.Point(306, 7);
             this.total_monthly.Margin = new System.Windows.Forms.Padding(7);
             this.total_monthly.Name = "total_monthly";
-            this.total_monthly.Size = new System.Drawing.Size(236, 48);
+            this.total_monthly.Size = new System.Drawing.Size(238, 42);
             this.total_monthly.TabIndex = 140;
             this.total_monthly.Text = "0.00";
             this.total_monthly.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -6040,17 +6289,17 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.09434F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.90566F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(291, 56);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(293, 50);
             this.tableLayoutPanel13.TabIndex = 141;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.epeks.SetDecoration(this.label23, BunifuAnimatorNS.DecorationType.None);
-            this.label23.Font = new System.Drawing.Font("Microsoft MHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(142, 7);
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(143, 6);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(128, 32);
+            this.label23.Size = new System.Drawing.Size(140, 29);
             this.label23.TabIndex = 0;
             this.label23.Text = "Total Sale:";
             // 
@@ -6067,7 +6316,7 @@
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(560, 62);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(563, 56);
             this.tableLayoutPanel24.TabIndex = 1;
             // 
             // btn_Charge
@@ -6077,17 +6326,17 @@
             this.btn_Charge.colorActive = System.Drawing.Color.DarkGreen;
             this.btn_Charge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btn_Charge, BunifuAnimatorNS.DecorationType.None);
-            this.btn_Charge.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Charge.ForeColor = System.Drawing.Color.White;
             this.btn_Charge.Image = ((System.Drawing.Image)(resources.GetObject("btn_Charge.Image")));
             this.btn_Charge.ImagePosition = 6;
             this.btn_Charge.ImageZoom = 20;
             this.btn_Charge.LabelPosition = 27;
             this.btn_Charge.LabelText = "Search charge";
-            this.btn_Charge.Location = new System.Drawing.Point(192, 6);
+            this.btn_Charge.Location = new System.Drawing.Point(193, 6);
             this.btn_Charge.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_Charge.Name = "btn_Charge";
-            this.btn_Charge.Size = new System.Drawing.Size(150, 42);
+            this.btn_Charge.Size = new System.Drawing.Size(150, 44);
             this.btn_Charge.TabIndex = 139;
             this.btn_Charge.Click += new System.EventHandler(this.btn_Charge_Click);
             // 
@@ -6098,7 +6347,7 @@
             this.sprint.colorActive = System.Drawing.Color.DarkGreen;
             this.sprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.sprint, BunifuAnimatorNS.DecorationType.None);
-            this.sprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sprint.ForeColor = System.Drawing.Color.White;
             this.sprint.Image = ((System.Drawing.Image)(resources.GetObject("sprint.Image")));
             this.sprint.ImagePosition = 6;
@@ -6108,7 +6357,7 @@
             this.sprint.Location = new System.Drawing.Point(5, 6);
             this.sprint.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.sprint.Name = "sprint";
-            this.sprint.Size = new System.Drawing.Size(150, 42);
+            this.sprint.Size = new System.Drawing.Size(150, 44);
             this.sprint.TabIndex = 138;
             this.sprint.Click += new System.EventHandler(this.sprint_Click);
             // 
@@ -6123,15 +6372,14 @@
             this.tableLayoutPanel3.Controls.Add(this.LVreport, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.panel47, 2, 3);
             this.epeks.SetDecoration(this.tableLayoutPanel3, BunifuAnimatorNS.DecorationType.None);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(21, 54);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1177, 617);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1156, 563);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -6149,7 +6397,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel6.Controls.Add(this.label8, 4, 1);
             this.tableLayoutPanel6.Controls.Add(this.label7, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.label9, 7, 1);
@@ -6163,10 +6411,10 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(13, 11);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1151, 64);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1130, 58);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label8
@@ -6175,7 +6423,7 @@
             this.epeks.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(385, 10);
+            this.label8.Location = new System.Drawing.Point(334, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 31);
             this.label8.TabIndex = 0;
@@ -6187,7 +6435,7 @@
             this.epeks.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(285, 10);
+            this.label7.Location = new System.Drawing.Point(234, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 31);
             this.label7.TabIndex = 0;
@@ -6199,7 +6447,7 @@
             this.epeks.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(664, 10);
+            this.label9.Location = new System.Drawing.Point(613, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 31);
             this.label9.TabIndex = 0;
@@ -6211,9 +6459,9 @@
             this.epeks.SetDecoration(this.label15, BunifuAnimatorNS.DecorationType.None);
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(8, 10);
+            this.label15.Location = new System.Drawing.Point(3, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 44);
+            this.label15.Size = new System.Drawing.Size(1, 29);
             this.label15.TabIndex = 0;
             this.label15.Text = "R.I.S LOG";
             // 
@@ -6223,7 +6471,7 @@
             this.epeks.SetDecoration(this.fromdate, BunifuAnimatorNS.DecorationType.None);
             this.fromdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fromdate.Location = new System.Drawing.Point(477, 13);
+            this.fromdate.Location = new System.Drawing.Point(426, 12);
             this.fromdate.MinimumSize = new System.Drawing.Size(4, 29);
             this.fromdate.Name = "fromdate";
             this.fromdate.Size = new System.Drawing.Size(173, 29);
@@ -6235,7 +6483,7 @@
             this.epeks.SetDecoration(this.todate, BunifuAnimatorNS.DecorationType.None);
             this.todate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.todate.Location = new System.Drawing.Point(724, 13);
+            this.todate.Location = new System.Drawing.Point(673, 12);
             this.todate.MinimumSize = new System.Drawing.Size(4, 29);
             this.todate.Name = "todate";
             this.todate.Size = new System.Drawing.Size(170, 29);
@@ -6250,7 +6498,7 @@
             this.cbdepreport.Items.AddRange(new object[] {
             "IN PATIENT",
             "OUT PATIENT"});
-            this.cbdepreport.Location = new System.Drawing.Point(54, 13);
+            this.cbdepreport.Location = new System.Drawing.Point(3, 12);
             this.cbdepreport.Name = "cbdepreport";
             this.cbdepreport.Size = new System.Drawing.Size(225, 32);
             this.cbdepreport.TabIndex = 98;
@@ -6281,13 +6529,13 @@
             this.fetch.IconVisible = true;
             this.fetch.IconZoom = 90D;
             this.fetch.IsTab = false;
-            this.fetch.Location = new System.Drawing.Point(909, 13);
+            this.fetch.Location = new System.Drawing.Point(858, 12);
             this.fetch.Name = "fetch";
             this.fetch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.fetch.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.fetch.OnHoverTextColor = System.Drawing.Color.White;
             this.fetch.selected = false;
-            this.fetch.Size = new System.Drawing.Size(187, 38);
+            this.fetch.Size = new System.Drawing.Size(187, 31);
             this.fetch.TabIndex = 97;
             this.fetch.Text = "Fetch Record";
             this.fetch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -6313,13 +6561,13 @@
             this.columnHeader95});
             this.epeks.SetDecoration(this.LVreport, BunifuAnimatorNS.DecorationType.None);
             this.LVreport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVreport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVreport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVreport.FullRowSelect = true;
             this.LVreport.GridLines = true;
             this.LVreport.HoverSelection = true;
-            this.LVreport.Location = new System.Drawing.Point(13, 81);
+            this.LVreport.Location = new System.Drawing.Point(13, 75);
             this.LVreport.Name = "LVreport";
-            this.LVreport.Size = new System.Drawing.Size(1151, 460);
+            this.LVreport.Size = new System.Drawing.Size(1130, 412);
             this.LVreport.TabIndex = 138;
             this.LVreport.UseCompatibleStateImageBehavior = false;
             this.LVreport.View = System.Windows.Forms.View.Details;
@@ -6396,9 +6644,9 @@
             this.panel47.Controls.Add(this.cblogreq);
             this.epeks.SetDecoration(this.panel47, BunifuAnimatorNS.DecorationType.None);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel47.Location = new System.Drawing.Point(13, 547);
+            this.panel47.Location = new System.Drawing.Point(13, 493);
             this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(1151, 67);
+            this.panel47.Size = new System.Drawing.Size(1130, 67);
             this.panel47.TabIndex = 139;
             // 
             // label101
@@ -6452,7 +6700,7 @@
             this.panel50.Controls.Add(this.btnprint);
             this.epeks.SetDecoration(this.panel50, BunifuAnimatorNS.DecorationType.None);
             this.panel50.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel50.Location = new System.Drawing.Point(943, 0);
+            this.panel50.Location = new System.Drawing.Point(922, 0);
             this.panel50.Name = "panel50";
             this.panel50.Size = new System.Drawing.Size(208, 67);
             this.panel50.TabIndex = 140;
@@ -6464,7 +6712,7 @@
             this.btnprint.colorActive = System.Drawing.Color.Lime;
             this.btnprint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.epeks.SetDecoration(this.btnprint, BunifuAnimatorNS.DecorationType.None);
-            this.btnprint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnprint.ForeColor = System.Drawing.Color.White;
             this.btnprint.Image = ((System.Drawing.Image)(resources.GetObject("btnprint.Image")));
             this.btnprint.ImagePosition = 6;
@@ -6514,10 +6762,10 @@
             // tableLayoutPanel27
             // 
             this.tableLayoutPanel27.ColumnCount = 4;
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 407F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 410F));
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel27.Controls.Add(this.LVRIS, 2, 2);
             this.tableLayoutPanel27.Controls.Add(this.panel41, 2, 3);
             this.tableLayoutPanel27.Controls.Add(this.panel37, 2, 1);
@@ -6547,13 +6795,13 @@
             this.columnHeader89});
             this.epeks.SetDecoration(this.LVRIS, BunifuAnimatorNS.DecorationType.None);
             this.LVRIS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVRIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVRIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVRIS.FullRowSelect = true;
             this.LVRIS.GridLines = true;
             this.LVRIS.HideSelection = false;
             this.LVRIS.Location = new System.Drawing.Point(422, 83);
             this.LVRIS.Name = "LVRIS";
-            this.LVRIS.Size = new System.Drawing.Size(740, 470);
+            this.LVRIS.Size = new System.Drawing.Size(741, 470);
             this.LVRIS.TabIndex = 111;
             this.LVRIS.UseCompatibleStateImageBehavior = false;
             this.LVRIS.View = System.Windows.Forms.View.Details;
@@ -6598,7 +6846,7 @@
             this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel41.Location = new System.Drawing.Point(422, 559);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(740, 55);
+            this.panel41.Size = new System.Drawing.Size(741, 55);
             this.panel41.TabIndex = 117;
             // 
             // btnPrintRIS
@@ -6681,7 +6929,7 @@
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel37.Location = new System.Drawing.Point(422, 11);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(740, 66);
+            this.panel37.Size = new System.Drawing.Size(741, 66);
             this.panel37.TabIndex = 115;
             // 
             // tableLayoutPanel28
@@ -6703,7 +6951,7 @@
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(740, 66);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(741, 66);
             this.tableLayoutPanel28.TabIndex = 0;
             // 
             // btndeleteris
@@ -6730,7 +6978,7 @@
             this.btndeleteris.IconVisible = true;
             this.btndeleteris.IconZoom = 50D;
             this.btndeleteris.IsTab = false;
-            this.btndeleteris.Location = new System.Drawing.Point(574, 6);
+            this.btndeleteris.Location = new System.Drawing.Point(575, 6);
             this.btndeleteris.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btndeleteris.Name = "btndeleteris";
             this.btndeleteris.Normalcolor = System.Drawing.Color.DarkGreen;
@@ -6769,7 +7017,7 @@
             this.btnsearch.IconVisible = true;
             this.btnsearch.IconZoom = 50D;
             this.btnsearch.IsTab = false;
-            this.btnsearch.Location = new System.Drawing.Point(234, 6);
+            this.btnsearch.Location = new System.Drawing.Point(235, 6);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Normalcolor = System.Drawing.Color.DarkGreen;
@@ -6808,7 +7056,7 @@
             this.btneditris.IconVisible = true;
             this.btneditris.IconZoom = 50D;
             this.btneditris.IsTab = false;
-            this.btneditris.Location = new System.Drawing.Point(404, 6);
+            this.btneditris.Location = new System.Drawing.Point(405, 6);
             this.btneditris.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btneditris.Name = "btneditris";
             this.btneditris.Normalcolor = System.Drawing.Color.DarkGreen;
@@ -6836,7 +7084,7 @@
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(224, 56);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(225, 56);
             this.tableLayoutPanel31.TabIndex = 115;
             // 
             // tbRisID
@@ -6849,13 +7097,13 @@
             this.tbRisID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbRisID, BunifuAnimatorNS.DecorationType.None);
             this.tbRisID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbRisID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRisID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRisID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbRisID.isPassword = false;
             this.tbRisID.Location = new System.Drawing.Point(62, 4);
             this.tbRisID.Margin = new System.Windows.Forms.Padding(4);
             this.tbRisID.Name = "tbRisID";
-            this.tbRisID.Size = new System.Drawing.Size(158, 48);
+            this.tbRisID.Size = new System.Drawing.Size(159, 48);
             this.tbRisID.TabIndex = 122;
             this.tbRisID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -6894,9 +7142,9 @@
             this.panel38.Controls.Add(this.label20);
             this.epeks.SetDecoration(this.panel38, BunifuAnimatorNS.DecorationType.None);
             this.panel38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel38.Location = new System.Drawing.Point(15, 11);
+            this.panel38.Location = new System.Drawing.Point(12, 11);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(401, 66);
+            this.panel38.Size = new System.Drawing.Size(404, 66);
             this.panel38.TabIndex = 116;
             // 
             // label20
@@ -6929,7 +7177,7 @@
             this.tableLayoutPanel29.Controls.Add(this.dtrisdate, 1, 0);
             this.epeks.SetDecoration(this.tableLayoutPanel29, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(15, 83);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(12, 83);
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel29.RowCount = 6;
@@ -6939,7 +7187,7 @@
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(401, 470);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(404, 470);
             this.tableLayoutPanel29.TabIndex = 113;
             // 
             // cbissued
@@ -6950,7 +7198,7 @@
             this.cbissued.FormattingEnabled = true;
             this.cbissued.Location = new System.Drawing.Point(131, 184);
             this.cbissued.Name = "cbissued";
-            this.cbissued.Size = new System.Drawing.Size(257, 32);
+            this.cbissued.Size = new System.Drawing.Size(260, 32);
             this.cbissued.TabIndex = 120;
             this.cbissued.Text = "Select";
             // 
@@ -6974,7 +7222,7 @@
             this.cbreceived.FormattingEnabled = true;
             this.cbreceived.Location = new System.Drawing.Point(131, 142);
             this.cbreceived.Name = "cbreceived";
-            this.cbreceived.Size = new System.Drawing.Size(257, 32);
+            this.cbreceived.Size = new System.Drawing.Size(260, 32);
             this.cbreceived.TabIndex = 118;
             this.cbreceived.Text = "Select";
             // 
@@ -6998,7 +7246,7 @@
             this.cbdept.FormattingEnabled = true;
             this.cbdept.Location = new System.Drawing.Point(131, 100);
             this.cbdept.Name = "cbdept";
-            this.cbdept.Size = new System.Drawing.Size(257, 32);
+            this.cbdept.Size = new System.Drawing.Size(260, 32);
             this.cbdept.TabIndex = 116;
             this.cbdept.Text = "Select";
             // 
@@ -7057,7 +7305,7 @@
             this.dtrisdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtrisdate.Location = new System.Drawing.Point(131, 13);
             this.dtrisdate.Name = "dtrisdate";
-            this.dtrisdate.Size = new System.Drawing.Size(257, 30);
+            this.dtrisdate.Size = new System.Drawing.Size(260, 30);
             this.dtrisdate.TabIndex = 142;
             // 
             // panel42
@@ -7066,9 +7314,9 @@
             this.panel42.Controls.Add(this.RisLogs);
             this.epeks.SetDecoration(this.panel42, BunifuAnimatorNS.DecorationType.None);
             this.panel42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel42.Location = new System.Drawing.Point(15, 559);
+            this.panel42.Location = new System.Drawing.Point(12, 559);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(401, 55);
+            this.panel42.Size = new System.Drawing.Size(404, 55);
             this.panel42.TabIndex = 118;
             // 
             // RisLogs
@@ -7128,9 +7376,9 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(27, 19);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(505, 33);
+            this.label19.Size = new System.Drawing.Size(231, 33);
             this.label19.TabIndex = 110;
-            this.label19.Text = "Notification Logs for Expired Medicine";
+            this.label19.Text = "Notification Logs";
             // 
             // btnNotifExpired
             // 
@@ -7138,7 +7386,7 @@
             this.epeks.SetDecoration(this.btnNotifExpired, BunifuAnimatorNS.DecorationType.None);
             this.btnNotifExpired.Image = ((System.Drawing.Image)(resources.GetObject("btnNotifExpired.Image")));
             this.btnNotifExpired.ImageActive = null;
-            this.btnNotifExpired.Location = new System.Drawing.Point(544, 4);
+            this.btnNotifExpired.Location = new System.Drawing.Point(264, 4);
             this.btnNotifExpired.Name = "btnNotifExpired";
             this.btnNotifExpired.Size = new System.Drawing.Size(59, 54);
             this.btnNotifExpired.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -7187,7 +7435,7 @@
             this.columnHeader83});
             this.epeks.SetDecoration(this.LVPO, BunifuAnimatorNS.DecorationType.None);
             this.LVPO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LVPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVPO.FullRowSelect = true;
             this.LVPO.GridLines = true;
             this.LVPO.HideSelection = false;
@@ -7677,24 +7925,29 @@
             this.LVnotification.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader51,
             this.columnHeader52,
-            this.columnHeader53});
+            this.columnHeader53,
+            this.columnHeader50});
             this.epeks.SetDecoration(this.LVnotification, BunifuAnimatorNS.DecorationType.None);
             this.LVnotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVnotification.FullRowSelect = true;
             this.LVnotification.HideSelection = false;
-            this.LVnotification.HoverSelection = true;
-            this.LVnotification.Location = new System.Drawing.Point(40, 98);
+            this.LVnotification.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
+            this.LVnotification.Location = new System.Drawing.Point(21, 98);
             this.LVnotification.Name = "LVnotification";
             this.LVnotification.ShowItemToolTips = true;
-            this.LVnotification.Size = new System.Drawing.Size(472, 568);
+            this.LVnotification.Size = new System.Drawing.Size(574, 568);
             this.LVnotification.TabIndex = 8;
             this.LVnotification.UseCompatibleStateImageBehavior = false;
             this.LVnotification.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader51
             // 
-            this.columnHeader51.Text = "MEDICINE";
-            this.columnHeader51.Width = 150;
+            this.columnHeader51.Text = "NAME";
+            this.columnHeader51.Width = 120;
             // 
             // columnHeader52
             // 
@@ -7706,6 +7959,11 @@
             this.columnHeader53.Text = "P.O. I.D.";
             this.columnHeader53.Width = 150;
             // 
+            // columnHeader50
+            // 
+            this.columnHeader50.Text = "REMARKS";
+            this.columnHeader50.Width = 150;
+            // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.Green;
@@ -7713,9 +7971,9 @@
             this.panel17.Controls.Add(this.panel14);
             this.panel17.Controls.Add(this.pictureBox7);
             this.epeks.SetDecoration(this.panel17, BunifuAnimatorNS.DecorationType.None);
-            this.panel17.Location = new System.Drawing.Point(537, 90);
+            this.panel17.Location = new System.Drawing.Point(611, 90);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(734, 588);
+            this.panel17.Size = new System.Drawing.Size(660, 588);
             this.panel17.TabIndex = 10;
             // 
             // panel27
@@ -7726,9 +7984,9 @@
             this.panel27.Controls.Add(this.lbltime);
             this.panel27.Controls.Add(this.lblDate);
             this.epeks.SetDecoration(this.panel27, BunifuAnimatorNS.DecorationType.None);
-            this.panel27.Location = new System.Drawing.Point(61, 321);
+            this.panel27.Location = new System.Drawing.Point(6, 321);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(620, 245);
+            this.panel27.Size = new System.Drawing.Size(675, 255);
             this.panel27.TabIndex = 12;
             // 
             // lblsecond
@@ -7749,7 +8007,7 @@
             this.epeks.SetDecoration(this.lblDay, BunifuAnimatorNS.DecorationType.None);
             this.lblDay.Font = new System.Drawing.Font("Consolas", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDay.ForeColor = System.Drawing.Color.White;
-            this.lblDay.Location = new System.Drawing.Point(352, 152);
+            this.lblDay.Location = new System.Drawing.Point(28, 188);
             this.lblDay.Name = "lblDay";
             this.lblDay.Size = new System.Drawing.Size(268, 64);
             this.lblDay.TabIndex = 11;
@@ -7773,7 +8031,7 @@
             this.epeks.SetDecoration(this.lblDate, BunifuAnimatorNS.DecorationType.None);
             this.lblDate.Font = new System.Drawing.Font("Consolas", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(32, 166);
+            this.lblDate.Location = new System.Drawing.Point(32, 154);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(245, 40);
             this.lblDate.TabIndex = 11;
@@ -7783,18 +8041,18 @@
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.epeks.SetDecoration(this.panel14, BunifuAnimatorNS.DecorationType.None);
-            this.panel14.Location = new System.Drawing.Point(47, 337);
+            this.panel14.Location = new System.Drawing.Point(3, 337);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(620, 245);
+            this.panel14.Size = new System.Drawing.Size(664, 245);
             this.panel14.TabIndex = 13;
             // 
             // pictureBox7
             // 
             this.epeks.SetDecoration(this.pictureBox7, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(-1, 9);
+            this.pictureBox7.Location = new System.Drawing.Point(29, 9);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(728, 335);
+            this.pictureBox7.Size = new System.Drawing.Size(633, 335);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 9;
             this.pictureBox7.TabStop = false;
@@ -7803,9 +8061,9 @@
             // 
             this.panel28.BackColor = System.Drawing.Color.Green;
             this.epeks.SetDecoration(this.panel28, BunifuAnimatorNS.DecorationType.None);
-            this.panel28.Location = new System.Drawing.Point(33, 90);
+            this.panel28.Location = new System.Drawing.Point(13, 90);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(505, 588);
+            this.panel28.Size = new System.Drawing.Size(592, 588);
             this.panel28.TabIndex = 11;
             // 
             // phome
@@ -7858,7 +8116,7 @@
             this.btnPOS.Text = "     R.I.S";
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPOS.Textcolor = System.Drawing.Color.White;
-            this.btnPOS.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPOS.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // panel3
@@ -7943,7 +8201,7 @@
             this.b3.Text = "     Settings";
             this.b3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b3.Textcolor = System.Drawing.Color.White;
-            this.b3.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b3.Click += new System.EventHandler(this.b3_Click);
             // 
             // b2
@@ -7979,7 +8237,7 @@
             this.b2.Text = "      Report";
             this.b2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b2.Textcolor = System.Drawing.Color.White;
-            this.b2.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2.Click += new System.EventHandler(this.b2_Click);
             // 
             // btnhome
@@ -8015,7 +8273,7 @@
             this.btnhome.Text = "     Home";
             this.btnhome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhome.Textcolor = System.Drawing.Color.White;
-            this.btnhome.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhome.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhome.Click += new System.EventHandler(this.btnhome_Click);
             // 
             // b1
@@ -8051,7 +8309,7 @@
             this.b1.Text = "     Purchase Order";
             this.b1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b1.Textcolor = System.Drawing.Color.White;
-            this.b1.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1.Click += new System.EventHandler(this.b1_Click);
             // 
             // ppoedit
@@ -8061,9 +8319,9 @@
             this.ppoedit.Controls.Add(this.panel30);
             this.ppoedit.Controls.Add(this.label73);
             this.epeks.SetDecoration(this.ppoedit, BunifuAnimatorNS.DecorationType.None);
-            this.ppoedit.Location = new System.Drawing.Point(224, 100);
+            this.ppoedit.Location = new System.Drawing.Point(219, 106);
             this.ppoedit.Name = "ppoedit";
-            this.ppoedit.Size = new System.Drawing.Size(796, 593);
+            this.ppoedit.Size = new System.Drawing.Size(801, 595);
             this.ppoedit.TabIndex = 30;
             // 
             // btnclosepoedit
@@ -8113,9 +8371,9 @@
             this.panel30.Controls.Add(this.label72);
             this.panel30.Controls.Add(this.panel34);
             this.epeks.SetDecoration(this.panel30, BunifuAnimatorNS.DecorationType.None);
-            this.panel30.Location = new System.Drawing.Point(4, 38);
+            this.panel30.Location = new System.Drawing.Point(7, 43);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(789, 551);
+            this.panel30.Size = new System.Drawing.Size(786, 546);
             this.panel30.TabIndex = 119;
             // 
             // hideMeEditPanel
@@ -8213,7 +8471,7 @@
             this.tbitemnameupdate.BorderThickness = 3;
             this.tbitemnameupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemnameupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemnameupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemnameupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemnameupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbitemnameupdate.isPassword = false;
             this.tbitemnameupdate.Location = new System.Drawing.Point(27, 223);
@@ -8244,7 +8502,7 @@
             this.tbitemidupate.BorderThickness = 3;
             this.tbitemidupate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbitemidupate, BunifuAnimatorNS.DecorationType.None);
-            this.tbitemidupate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbitemidupate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbitemidupate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbitemidupate.isPassword = false;
             this.tbitemidupate.Location = new System.Drawing.Point(27, 134);
@@ -8275,7 +8533,7 @@
             this.tbpoidupdate.BorderThickness = 3;
             this.tbpoidupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbpoidupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbpoidupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpoidupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpoidupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbpoidupdate.isPassword = false;
             this.tbpoidupdate.Location = new System.Drawing.Point(27, 52);
@@ -8348,7 +8606,7 @@
             this.tbreorderup.BorderThickness = 3;
             this.tbreorderup.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbreorderup, BunifuAnimatorNS.DecorationType.None);
-            this.tbreorderup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbreorderup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbreorderup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbreorderup.isPassword = false;
             this.tbreorderup.Location = new System.Drawing.Point(609, 56);
@@ -8379,7 +8637,7 @@
             this.tbamountup.BorderThickness = 3;
             this.tbamountup.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbamountup, BunifuAnimatorNS.DecorationType.None);
-            this.tbamountup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbamountup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbamountup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbamountup.isPassword = false;
             this.tbamountup.Location = new System.Drawing.Point(439, 56);
@@ -8422,7 +8680,7 @@
             this.tbupriceupdate.BorderThickness = 3;
             this.tbupriceupdate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbupriceupdate, BunifuAnimatorNS.DecorationType.None);
-            this.tbupriceupdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbupriceupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbupriceupdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbupriceupdate.isPassword = false;
             this.tbupriceupdate.Location = new System.Drawing.Point(202, 306);
@@ -8473,9 +8731,9 @@
             this.panel34.Controls.Add(this.btnupdatepo);
             this.epeks.SetDecoration(this.panel34, BunifuAnimatorNS.DecorationType.None);
             this.panel34.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel34.Location = new System.Drawing.Point(0, 488);
+            this.panel34.Location = new System.Drawing.Point(0, 483);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(789, 63);
+            this.panel34.Size = new System.Drawing.Size(786, 63);
             this.panel34.TabIndex = 144;
             // 
             // btnupdatepo
@@ -8552,17 +8810,17 @@
             this.columnHeader94,
             this.columnHeader43});
             this.epeks.SetDecoration(this.LVPOSEARCH, BunifuAnimatorNS.DecorationType.None);
-            this.LVPOSEARCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVPOSEARCH.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVPOSEARCH.FullRowSelect = true;
             this.LVPOSEARCH.GridLines = true;
             this.LVPOSEARCH.HideSelection = false;
-            this.LVPOSEARCH.Location = new System.Drawing.Point(3, 84);
+            this.LVPOSEARCH.Location = new System.Drawing.Point(3, 90);
             this.LVPOSEARCH.Name = "LVPOSEARCH";
-            this.LVPOSEARCH.Size = new System.Drawing.Size(751, 548);
+            this.LVPOSEARCH.Size = new System.Drawing.Size(751, 542);
             this.LVPOSEARCH.TabIndex = 116;
             this.LVPOSEARCH.UseCompatibleStateImageBehavior = false;
             this.LVPOSEARCH.View = System.Windows.Forms.View.Details;
-            this.LVPOSEARCH.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LVPOSEARCH_MouseClick);
+            this.LVPOSEARCH.SelectedIndexChanged += new System.EventHandler(this.LVPOSEARCH_SelectedIndexChanged);
             // 
             // columnHeader91
             // 
@@ -8649,7 +8907,7 @@
             this.btn_ADD.IconVisible = true;
             this.btn_ADD.IconZoom = 50D;
             this.btn_ADD.IsTab = false;
-            this.btn_ADD.Location = new System.Drawing.Point(17, 540);
+            this.btn_ADD.Location = new System.Drawing.Point(19, 540);
             this.btn_ADD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_ADD.Name = "btn_ADD";
             this.btn_ADD.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -8721,7 +8979,7 @@
             this.tb_poid.BorderThickness = 3;
             this.tb_poid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_poid, BunifuAnimatorNS.DecorationType.None);
-            this.tb_poid.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_poid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_poid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tb_poid.isPassword = false;
             this.tb_poid.Location = new System.Drawing.Point(15, 96);
@@ -8803,7 +9061,7 @@
             this.tb_poreorderedlvl.BorderThickness = 3;
             this.tb_poreorderedlvl.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tb_poreorderedlvl, BunifuAnimatorNS.DecorationType.None);
-            this.tb_poreorderedlvl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_poreorderedlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_poreorderedlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tb_poreorderedlvl.isPassword = false;
             this.tb_poreorderedlvl.Location = new System.Drawing.Point(184, 343);
@@ -8836,7 +9094,7 @@
             this.tbamount.BorderThickness = 3;
             this.tbamount.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbamount, BunifuAnimatorNS.DecorationType.None);
-            this.tbamount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbamount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbamount.isPassword = false;
             this.tbamount.Location = new System.Drawing.Point(16, 344);
@@ -8880,7 +9138,7 @@
             this.tbunitprice.BorderThickness = 3;
             this.tbunitprice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.epeks.SetDecoration(this.tbunitprice, BunifuAnimatorNS.DecorationType.None);
-            this.tbunitprice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbunitprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbunitprice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tbunitprice.isPassword = false;
             this.tbunitprice.Location = new System.Drawing.Point(14, 259);
@@ -8935,7 +9193,7 @@
             this.panel36.Controls.Add(this.tbsearchpoitem);
             this.panel36.Controls.Add(this.pictureBox10);
             this.epeks.SetDecoration(this.panel36, BunifuAnimatorNS.DecorationType.None);
-            this.panel36.Location = new System.Drawing.Point(2, 28);
+            this.panel36.Location = new System.Drawing.Point(2, 32);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(751, 54);
             this.panel36.TabIndex = 115;
@@ -9016,6 +9274,27 @@
             this.notifyIcon2.Text = "notifyIcon2";
             this.notifyIcon2.Visible = true;
             // 
+            // epeks
+            // 
+            this.epeks.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.epeks.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.epeks.DefaultAnimation = animation1;
+            // 
             // InventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9027,8 +9306,8 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.ppoedit);
             this.Controls.Add(this.panelEdit);
-            this.Controls.Add(this.psearchpo);
             this.Controls.Add(this.panelsearch);
+            this.Controls.Add(this.psearchpo);
             this.epeks.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -9111,7 +9390,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.isearch)).EndInit();
             this.panelitemedit.ResumeLayout(false);
             this.panelitemedit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editUnitPrice)).EndInit();
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panelpassword.ResumeLayout(false);
@@ -9135,8 +9413,13 @@
             this.p_rsales.ResumeLayout(false);
             this.p_returned_med.ResumeLayout(false);
             this.p_invmed.ResumeLayout(false);
-            this.P_generatedLogs.ResumeLayout(false);
+            this.p_unusedstocks.ResumeLayout(false);
             this.p_expired.ResumeLayout(false);
+            this.panel_recap.ResumeLayout(false);
+            this.panel_outstock.ResumeLayout(false);
+            this.panel_outstock.PerformLayout();
+            this.panel_pending_item.ResumeLayout(false);
+            this.panel_pending_item.PerformLayout();
             this.tableLayoutPanel22.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
@@ -9156,6 +9439,9 @@
             this.tableLayoutPanel4.PerformLayout();
             this.PMtable.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.RTable.ResumeLayout(false);
@@ -9242,11 +9528,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTip3;
-        private System.Windows.Forms.ToolTip toolTip4;
-        private System.Windows.Forms.ToolTip toolTip5;
         private System.Windows.Forms.Panel panelsearch;
         private Bunifu.Framework.UI.BunifuImageButton btncloseme;
         private System.Windows.Forms.Panel panel40;
@@ -9273,7 +9554,6 @@
         private System.Windows.Forms.NumericUpDown currentqty;
         private Bunifu.Framework.UI.BunifuFlatButton btnupdatetbris;
         private System.Windows.Forms.Panel panel43;
-        private BunifuAnimatorNS.BunifuTransition epeks;
         private System.Windows.Forms.Label tbselecteditem;
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.LinkLabel hideme;
@@ -9292,7 +9572,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuImageButton slider1;
         private Bunifu.Framework.UI.BunifuTileButton rreturn;
-        private Bunifu.Framework.UI.BunifuTileButton transact;
+        private Bunifu.Framework.UI.BunifuTileButton btnrequested_items;
         private Bunifu.Framework.UI.BunifuTileButton btn_unused;
         private Bunifu.Framework.UI.BunifuTileButton rinventory;
         private Bunifu.Framework.UI.BunifuTileButton rexpired;
@@ -9422,7 +9702,7 @@
         private System.Windows.Forms.Panel p_rsales;
         private System.Windows.Forms.Panel p_returned_med;
         private System.Windows.Forms.Panel p_invmed;
-        private System.Windows.Forms.Panel P_generatedLogs;
+        private System.Windows.Forms.Panel p_unusedstocks;
         private System.Windows.Forms.Panel p_expired;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.ListView LVEXP;
@@ -9650,10 +9930,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private System.Windows.Forms.Label label63;
         private Bunifu.Framework.UI.BunifuMetroTextbox tbname;
-        private Bunifu.Framework.UI.BunifuMetroTextbox tbitemid;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
         private System.Windows.Forms.ComboBox cbitemcat;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -9761,7 +10039,6 @@
         private System.Windows.Forms.NumericUpDown unitPrice;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.ColumnHeader columnHeader42;
-        private System.Windows.Forms.NumericUpDown editUnitPrice;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.ColumnHeader columnHeader43;
         private System.Windows.Forms.Panel hideDate;
@@ -9774,5 +10051,29 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.ColumnHeader columnHeader45;
         private Bunifu.Framework.UI.BunifuTileButton btn_recap;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox tbgetyear;
+        private System.Windows.Forms.ColumnHeader columnHeader50;
+        private System.Windows.Forms.ColumnHeader columnHeader76;
+        private System.Windows.Forms.ColumnHeader columnHeader96;
+        private Bunifu.Framework.UI.BunifuTileButton btn_outofstock;
+        private Bunifu.Framework.UI.BunifuTileButton btn_po;
+        private BunifuAnimatorNS.BunifuTransition epeks;
+        private System.Windows.Forms.Panel panel_recap;
+        private System.Windows.Forms.Panel panel_outstock;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Panel panel_pending_item;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.ComboBox cb_suppliername;
+        private System.Windows.Forms.ComboBox cb_categorySignature;
+        private System.Windows.Forms.ColumnHeader columnHeader97;
+        private System.Windows.Forms.ComboBox cbSupplier;
+        private System.Windows.Forms.Label label104;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbitemid;
+        private System.Windows.Forms.Label label66;
+        private Bunifu.Framework.UI.BunifuMetroTextbox editUnitPrice;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRIGHTSIDE_IDEA_POS", "WindowsFormsApplication1\BRIGHTSIDE_IDEA_POS.csproj", "{C573A462-AD51-4C80-8E60-515F74A9367C}"
 EndProject
