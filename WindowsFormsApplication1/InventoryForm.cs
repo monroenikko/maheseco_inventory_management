@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
     
     public partial class InventoryForm : Form
     {
-        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=mahesecoinventory; port= 3306; username=root;password=");
+        MySqlConnection connection = new MySqlConnection("datasource=localhost; Database=maheseco_inventory; port= 3306; username=root;password=");
         
         private MySqlDataAdapter Adapter;
         private DataSet ds = new DataSet();
@@ -108,6 +108,149 @@ namespace WindowsFormsApplication1
             //btn_unused.Visible = false;
             tbamountup.Enabled = false;
 
+            DateTime date = DateTime.Now;
+            string MySQLFormatDate = date.ToString("yyyy");
+            tbgetyear.Text = MySQLFormatDate.ToString();
+            ////Reorder();
+
+            tbitemid.Enabled = false;
+
+        }
+
+
+        int ybadge;
+        private void notify_running_out()
+        {
+            try
+            {
+                connection.Close();
+                //Adapter.Dispose();
+
+                Adapter = new MySqlDataAdapter("SELECT * FROM inventory_logs WHERE status = 0 && ending != 0 && ending <= reorder_lvl ", connection);
+                ds.Reset();
+                Adapter.Fill(ds);
+
+                //LVnotification.Items.Clear();
+                //LVEXP.Items.Clear();
+                string running = "running out!";
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        
+                        LVnotification.Items.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
+                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_unit"].ToString());
+                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["po_id"].ToString());
+                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["remarks"].ToString());
+
+                    }
+
+                    connection.Close();
+                    
+
+                    for (int x = 0; x < ds.Tables[0].Rows.Count; x++)
+                    {
+                        
+                        if (x < 0)
+                        {
+
+                        }
+                        else
+                        {
+                            ybadge = x + 1;
+                            lblBadge.Text = Convert.ToString(ybadge);
+                            lblBadge.Show();
+                        }
+
+                    }
+                }
+
+                //  AutoExpired();
+                //AutoExpired1();
+                //generateExpiredMeds();
+                updateRemarks();
+                //Inventorymed_total();
+                //  notify_running_out();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            Adapter.Dispose();
+
+            connection.Close();
+        }
+
+        
+
+        void updateRemarks()
+        {
+            string update = "UPDATE inventory_logs SET remarks ='RUNNING OUT!' WHERE status = 0 && ending != 0  ";
+            connection.Close();
+            connection.Open();
+            try
+            {
+                Cmd = new MySqlCommand(update, connection);
+                if (Cmd.ExecuteNonQuery() == 1)
+                {
+                    // MessageBox.Show("Medicine is now Expired!", "MEDICINE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // MessageBox.Show("Medicine is not Updated!", "MEDICINE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            connection.Close();
+        }
+
+        public void Reorder()
+        {
+
+            string sql = "SELECT * FROM inventory_logs WHERE status = 0 && ending != 0 ";
+            Cmd = new MySqlCommand(sql, connection);
+
+            connection.Close();
+            connection.Open();
+            //execute reader
+            Reader = Cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                reordered_num = Reader.GetInt32("");
+                rstock = Reader.GetInt32("ending");
+                string item_name = Reader.GetString("item_name");
+                //MessageBox.Show("The po_id is selected", "FOUND", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // samplestock.Text = Convert.ToString(rstock);
+
+                //condition for reOrdered vs. stock
+                if (reordered_num < rstock)
+                {
+                    MessageBox.Show("your stock is Good", "INFORMATION", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Your stock " + item_name + " has " + rstock + " pc(s) and it's running out!", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    updateRemarks();
+                }
+
+            }
+            else
+            {
+
+                MessageBox.Show("NO DATA FILL");
+            }
+            Reader.Close();
+
+            connection.Close();
         }
 
         
@@ -131,6 +274,8 @@ namespace WindowsFormsApplication1
             //lblPM.Text = "HOME";
 
             fillNotification();
+            updateRemarks();
+            updateRemarksExpired();
             MessageBoxNotif();
             expiredNow();
 
@@ -210,9 +355,7 @@ namespace WindowsFormsApplication1
         }
 
         void AutoExpired1()
-        {           
-
-           
+        {        
             connection.Close();
             connection.Open();
             Cmd = new MySqlCommand("UPDATE inventory_logs SET status=1 WHERE setmonthdateExp ='" + atime + "' ", connection);
@@ -229,40 +372,36 @@ namespace WindowsFormsApplication1
             connection.Close();
         }
 
+        
         private void generateExpiredMeds()
         {
             try
             {
-
                 // MySqlCommand command = new MySqlCommand();
-                connection.Open();
+                
 
-                Cmd = new MySqlCommand();
+                Adapter = new MySqlDataAdapter("SELECT *, FORMAT(unit_price, 2) as price, FORMAT(total_amt, 2) as total  FROM inventory_logs WHERE pocategory='Medicine' && setmonthdateExp <='" + atime + "' &&  status = 0 ORDER BY item_name ASC", connection);
+                ds.Reset();
+                Adapter.Fill(ds);
 
-                Cmd.Connection = connection;
+                LVEXP.Items.Clear();
 
-
-                Cmd.CommandText = "SELECT *  FROM inventory_logs WHERE pocategory='Medicine' && setmonthdateExp ='" + atime + "' &&  status = 1 ORDER BY item_name ASC";
-
-                Adapter = new MySqlDataAdapter();
-
-                Adapter.SelectCommand = Cmd;
-
-                dt = new DataTable();
-                Adapter.Fill(dt);
-
-                LVLogs.Items.Clear();
-                foreach (DataRow r in dt.Rows)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ListViewItem list = LVLogs.Items.Add(r["inventory_num"].ToString());
-                    list.SubItems.Add(r["po_id"].ToString());
-                    list.SubItems.Add(r["item_name"].ToString());
-                    list.SubItems.Add(r["item_unit"].ToString());
-                    list.SubItems.Add(r["dateExp"].ToString());
-                    list.SubItems.Add(r["unit_price"].ToString());
-                    list.SubItems.Add(r["ending"].ToString());
-                    list.SubItems.Add(r[7].ToString());                                       
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+
+                        LVEXP.Items.Add(ds.Tables[0].Rows[i]["inventory_num"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["po_id"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_unit"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["dateExp"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "price")].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["ending"].ToString());
+                        LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "total")].ToString());
+                    }
                 }
+
             }
             catch (Exception ex)
             {
@@ -275,6 +414,37 @@ namespace WindowsFormsApplication1
             connection.Close();
         }
 
+        void updateRemarksExpired()
+        {
+            DateTime date = DateTime.Now;
+            string MySQLFormatDate = date.ToString("yyyy-MM-dd");
+            atime = MySQLFormatDate.ToString();
+
+            string update = "UPDATE inventory_logs SET remarks ='EXPIRED!' WHERE pocategory='Medicine' && setmonthdateExp <='" + atime + "'  ";
+            connection.Close();
+            connection.Open();
+            try
+            {
+                Cmd = new MySqlCommand(update, connection);
+                if (Cmd.ExecuteNonQuery() == 1)
+                {
+                    // MessageBox.Show("Medicine is now Expired!", "MEDICINE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // MessageBox.Show("Medicine is not Updated!", "MEDICINE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            connection.Close();
+        }
+
+        int ybadge2;
         void fillNotification()
         {
             DateTime date = DateTime.Now;
@@ -285,45 +455,38 @@ namespace WindowsFormsApplication1
             {
                 connection.Close();
 
-                Adapter = new MySqlDataAdapter("SELECT * from purchase_order_logs where pocategory='Medicine' && before_expire ='" + atime + "' ", connection);
+                Adapter = new MySqlDataAdapter("SELECT * from inventory_logs where pocategory='Medicine' && setmonthdateExp <='" + atime + "' ", connection);
                 ds.Reset();
                 Adapter.Fill(ds);
 
                 LVnotification.Items.Clear();
-                LVEXP.Items.Clear();
+                LVEXP.Items.Clear();               
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
-                        LVnotification.Items.Add(ds.Tables[0].Rows[i]["poitem"].ToString());
-                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["pounit"].ToString());
+                       // LVnotification.ForeColor = System.Drawing.Color.Red;
+                        LVnotification.Items.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
+                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_unit"].ToString());
                         LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["po_id"].ToString());
-
+                        LVnotification.Items[LVnotification.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["remarks"].ToString());
+                        //LVnotification.ForeColor = System.Drawing.Color.Red;
                     }
 
-
-
-
                     connection.Close();
-
-
-
                     //int cnt = 0;
 
                     for (int x = 0; x < ds.Tables[0].Rows.Count; x++)
                     {
-                        int y;
-
-
                         if (x < 0)
                         {
 
                         }
                         else
                         {
-                            y = x + 1;
-                            lblBadge.Text = Convert.ToString(y);
+                            ybadge2 = x + 1;
+                            lblBadge.Text = Convert.ToString(ybadge2);
                             lblBadge.Show();
                         }
 
@@ -331,15 +494,17 @@ namespace WindowsFormsApplication1
                         //cnt++;
 
                     }
-
-
-
+                    
                 }
 
                 AutoExpired();
                 AutoExpired1();
                 generateExpiredMeds();
+                notify_running_out();
 
+
+                lblBadge.Text = Convert.ToString(ybadge2 + ybadge);
+                lblBadge.Show();
                 //Inventorymed_total();
 
             }
@@ -363,8 +528,7 @@ namespace WindowsFormsApplication1
         }
 
         private void retrive()
-        {
-            
+        {            
             string insert = "INSERT INTO log (username ,password)"
             + "VALUES('" + tun.Text + "', '" + tpw.Text + "');";
 
@@ -424,7 +588,7 @@ namespace WindowsFormsApplication1
             connection.Open();
             try
             {
-                Cmd = new MySqlCommand("SELECT max(uid)+1 FROM log", connection);
+                Cmd = new MySqlCommand("SELECT max(id)+1 FROM user", connection);
                 tempid.Text = Cmd.ExecuteScalar().ToString();
             }
             finally
@@ -625,9 +789,9 @@ namespace WindowsFormsApplication1
             cbcategoryitem.Items.Clear();
             categorySettings();
 
-            unitFormedicine();
-            unitcat();
-            unitMeasure();
+           // unitFormedicine();
+           // unitcat();
+           // unitMeasure();
 
             cbreqbypo.Items.Clear();
             cbapprovedpo.Items.Clear();
@@ -686,12 +850,24 @@ namespace WindowsFormsApplication1
             clearcb();
             depfillclear();
 
+
+           
             //false
             psettings.Visible = false;
             pset.Visible = false;
 
             paneltitleris.Visible = false;
             panelRIS.Visible = false;
+
+            preports.Visible = true;
+            p_rsales.Visible = true;
+            p_returned_med.Visible = true;
+            p_invmed.Visible = true;
+            p_unusedstocks.Visible = false;
+
+            PMLV.Items.Clear();
+            retrieveInventory();
+            tbgetyear.Enabled = false;
 
         }
 
@@ -803,7 +979,7 @@ namespace WindowsFormsApplication1
             unitcat();
             unitMeasure();
 
-            tbitemid.Enabled = false;
+            
 
 
         }
@@ -907,12 +1083,12 @@ namespace WindowsFormsApplication1
 
 
                     //save the item
-                    string insert = "INSERT INTO log (uid ,username ,password ,position)"
+                    string insert = "INSERT INTO user (id ,username ,password ,position)"
                     + "VALUES('" + tempid.Text + "', '" + tusername.Text + "', '" + tpassword.Text + "','" + ctitle.Text + "');";
 
-
-                    string insert1 = "INSERT INTO " + ctitle.Text + " (emp_no ,username ,Firstname ,Middlename ,Lastname,  gender)"
-                    + "VALUES('" + tempid.Text + "','" + tusername.Text + "', '" + tfn.Text + "', '" + tmn.Text + "','" + tln.Text + "', '" + cgender.Text + "');";
+                    //modified_ton
+                    string insert1 = "INSERT INTO user_information (user_id ,firstname ,middlename ,lastname,  gender)"
+                    + "VALUES('" + tempid.Text + "', '" + tfn.Text + "', '" + tmn.Text + "','" + tln.Text + "', '" + cgender.Text + "');";
                     //connection.Open();
                     connection.Close();
                     connection.Open();
@@ -1020,7 +1196,7 @@ namespace WindowsFormsApplication1
 
         void password()
         {
-            if (MessageBox.Show("Are you done?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string Username = tun.Text.Trim();
                 string Password = tpw.Text.Trim();
@@ -1048,7 +1224,7 @@ namespace WindowsFormsApplication1
                         {
                             getid.Text = user.pos_id;
 
-                            string query1 = "SELECT * FROM cashier WHERE  emp_no='" + getid.Text + "' ";
+                            string query1 = "SELECT * FROM user_information WHERE  user_id ='" + getid.Text + "' ";
                             Cmd = new MySqlCommand(query1, connection);
 
                             connection.Close();
@@ -1080,7 +1256,7 @@ namespace WindowsFormsApplication1
 
                             getid.Text = user.pos_id;
 
-                            string query1 = "SELECT * FROM admin WHERE  emp_no='" + getid.Text + "' ";
+                            string query1 = "SELECT * FROM user_information WHERE  user_id ='" + getid.Text + "' ";
 
 
                             Cmd = new MySqlCommand(query1, connection);
@@ -1093,11 +1269,34 @@ namespace WindowsFormsApplication1
 
                             if (Reader.Read())
                             {
-                                getid.Text = Reader.GetString("username").ToString();
+                                //getid.Text = Reader.GetString("username").ToString();
+                                string query_user = "SELECT * FROM user WHERE  id ='" + getid.Text + "' ";
 
-                                MessageBox.Show("Correct Password!", "Information", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
-                                panelpassword.Visible = false;
+
+                                Cmd = new MySqlCommand(query_user, connection);
+
                                 connection.Close();
+                                connection.Open();
+
+                                //execute reader
+                                Reader = Cmd.ExecuteReader();
+
+                                     if (Reader.Read())
+                                        {
+                                        getid.Text = Reader.GetString("username").ToString();
+
+                                        MessageBox.Show("Correct Password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        panelpassword.Visible = false;
+                                        connection.Close();
+                                        }
+                                    else
+                                    {
+
+                                        MessageBox.Show("NO DATA FILL");
+                                    }
+                                //MessageBox.Show("Correct Password!", "Information", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
+                                //panelpassword.Visible = false;
+                                //connection.Close();
                             }
                             else
                             {
@@ -1150,9 +1349,9 @@ namespace WindowsFormsApplication1
             {
                 try
                 {
-                    if(MessageBox.Show("Are you done?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)== DialogResult.OK)
+                    if(MessageBox.Show("Are you sure?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)== DialogResult.OK)
                     {
-                        string sql = "UPDATE log SET password='" + tnpw.Text + "'  WHERE username= '" + tun.Text + "'  ";
+                        string sql = "UPDATE user SET password='" + tnpw.Text + "'  WHERE username= '" + tun.Text + "'  ";
 
                         connection.Close();
                         connection.Open();
@@ -1761,15 +1960,11 @@ namespace WindowsFormsApplication1
 
         private void rsales_Click(object sender, EventArgs e)
         {
-
             slider1.Left = ((Bunifu.Framework.UI.BunifuTileButton)sender).Left;
             slider1.Width = ((Bunifu.Framework.UI.BunifuTileButton)sender).Width;
-
-
+            
             p_returned_med.Visible = false;
             p_rsales.Visible = true;
-            
-
         }
 
 
@@ -1781,9 +1976,8 @@ namespace WindowsFormsApplication1
             preports.Visible = true;
             p_rsales.Visible = true;
             p_returned_med.Visible = true;
-            p_invmed.Visible = false;
-            
 
+            p_invmed.Visible = false;
         }
 
         private void rArStaff_Click(object sender, EventArgs e)
@@ -1791,13 +1985,14 @@ namespace WindowsFormsApplication1
             slider1.Left = ((Bunifu.Framework.UI.BunifuTileButton)sender).Left;
             slider1.Width = ((Bunifu.Framework.UI.BunifuTileButton)sender).Width;
 
+            p_unusedstocks.Visible = true;
             preports.Visible = true;
             p_rsales.Visible = true;
             p_returned_med.Visible = true;
             p_invmed.Visible = true;
-            P_generatedLogs.Visible = true;
+            p_unusedstocks.Visible = true;
+            p_expired.Visible = false;
            // p_medicine.Visible = false;
-
         }
 
         private void rexpired_Click(object sender, EventArgs e)
@@ -1809,9 +2004,10 @@ namespace WindowsFormsApplication1
             p_rsales.Visible = true;
             p_returned_med.Visible = true;
             p_invmed.Visible = true;
-            P_generatedLogs.Visible = true;
+            p_unusedstocks.Visible = true;
          //   p_medicine.Visible = true;
             p_expired.Visible = true;
+            panel_recap.Visible = false;
         }
 
         private void rinventory_Click(object sender, EventArgs e)
@@ -1823,7 +2019,11 @@ namespace WindowsFormsApplication1
             p_rsales.Visible = true;
             p_returned_med.Visible = true;
             p_invmed.Visible = true;
-            P_generatedLogs.Visible = false;
+            p_unusedstocks.Visible = false;
+
+            PMLV.Items.Clear();
+            retrieveInventory();
+            tbgetyear.Enabled = false;
         }
 
         private void bunifuTileButton1_Click(object sender, EventArgs e)
@@ -1835,11 +2035,61 @@ namespace WindowsFormsApplication1
             p_rsales.Visible = true;
             p_returned_med.Visible = true;
             p_invmed.Visible = true;
-            P_generatedLogs.Visible = true;
+            p_unusedstocks.Visible = true;
         //    p_medicine.Visible = true;
             p_expired.Visible = false;
         }
 
+    
+        private void btn_recap_Click(object sender, EventArgs e)
+        {
+            slider1.Left = ((Bunifu.Framework.UI.BunifuTileButton)sender).Left;
+            slider1.Width = ((Bunifu.Framework.UI.BunifuTileButton)sender).Width;
+
+            preports.Visible = true;
+            p_rsales.Visible = true;
+            p_returned_med.Visible = true;
+            p_invmed.Visible = true;
+            p_unusedstocks.Visible = true;
+            //   p_medicine.Visible = true;
+            p_expired.Visible = true;
+            panel_recap.Visible = true;
+            panel_outstock.Visible = false;
+        }
+
+        private void btn_outofstock_Click(object sender, EventArgs e)
+        {
+            slider1.Left = ((Bunifu.Framework.UI.BunifuTileButton)sender).Left;
+            slider1.Width = ((Bunifu.Framework.UI.BunifuTileButton)sender).Width;
+
+            preports.Visible = true;
+            p_rsales.Visible = true;
+            p_returned_med.Visible = true;
+            p_invmed.Visible = true;
+            p_unusedstocks.Visible = true;
+            //   p_medicine.Visible = true;
+            p_expired.Visible = true;
+            panel_recap.Visible = true;
+            panel_outstock.Visible = true;
+            panel_pending_item.Visible = false;
+        }
+
+        private void btn_po_Click(object sender, EventArgs e)
+        {
+            slider1.Left = ((Bunifu.Framework.UI.BunifuTileButton)sender).Left;
+            slider1.Width = ((Bunifu.Framework.UI.BunifuTileButton)sender).Width;
+
+            preports.Visible = true;
+            p_rsales.Visible = true;
+            p_returned_med.Visible = true;
+            p_invmed.Visible = true;
+            p_unusedstocks.Visible = true;
+            //   p_medicine.Visible = true;
+            p_expired.Visible = true;
+            panel_recap.Visible = true;
+            panel_outstock.Visible = true;
+            panel_pending_item.Visible = true;
+        }
 
         private void tusername_KeyDown(object sender, KeyEventArgs e)
         {
@@ -2088,10 +2338,52 @@ namespace WindowsFormsApplication1
             connection.Close();
         }
 
-
+        
         private void retrieveInventory()
         {
+            try
+            {
+                Adapter = new MySqlDataAdapter("SELECT DISTINCT *, FORMAT(unit_price, 2) as price, FORMAT(total_amt, 2) as total From inventory_logs WHERE ending != 0 && status = 0;", connection);
+                ds.Reset();
+                Adapter.Fill(ds);
 
+                PMLV.Items.Clear();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+
+                        PMLV.Items.Add(ds.Tables[0].Rows[i]["item_num"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_unit"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["bqty"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["oqty"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["ending"].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "price")].ToString());
+                        PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "total")].ToString());
+                    }
+
+                    if (!System.IO.Directory.Exists(@"C:\ProgramData\Crystal_Report_Data_Source"))
+                    {
+                        System.IO.Directory.CreateDirectory(@"C:\ProgramData\Crystal_Report_Data_Source");
+                    }
+
+                    ds.WriteXml(@"C:\ProgramData\Crystal_Report_Data_Source\inventoryMED.xml");
+                }
+
+                Inventorymed_total();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            Adapter.Dispose();
+
+            connection.Close();
         }
        
 
@@ -2117,8 +2409,7 @@ namespace WindowsFormsApplication1
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                        {
-                            
+                        {                          
 
                             PMLV.Items.Add(ds.Tables[0].Rows[i]["item_num"].ToString());
                             PMLV.Items[PMLV.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
@@ -2159,6 +2450,8 @@ namespace WindowsFormsApplication1
             stock_IM = 0;
             //cb_batchno.Items.Clear();
             //fillcombo();
+            //PMLV.Items.Clear();
+            //retrieveInventory();
         }
 
         int stock_IM = 0;
@@ -2205,9 +2498,9 @@ namespace WindowsFormsApplication1
                     fillcomboToGL();
                     PMLV.Items.Clear();
                     cb_batchno.Items.Clear();
-                    
 
-                
+
+                    fillcombo();
             }
         }
 
@@ -2374,11 +2667,6 @@ namespace WindowsFormsApplication1
 
         }*/
 
-        private void LVmedicine_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }      
-
        
         
 
@@ -2461,6 +2749,7 @@ namespace WindowsFormsApplication1
             fillcomboToEXPdate();
             LVLogs.Items.Clear(); 
         }
+        
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
@@ -2480,7 +2769,7 @@ namespace WindowsFormsApplication1
                     try
                     {
                         
-                        Adapter = new MySqlDataAdapter("SELECT * FROM inventory_logs WHERE po_id='"+ cb_expBatch.Text + "' && setmonthdateExp ='" + cb_dateExp.Text + "' && pocategory = 'Medicine' ;", connection);
+                        Adapter = new MySqlDataAdapter("SELECT *, FORMAT(unit_price, 2) as price, FORMAT(total_amt, 2) as total  FROM inventory_logs WHERE po_id='" + cb_expBatch.Text + "' && setmonthdateExp ='" + cb_dateExp.Text + "' && pocategory = 'Medicine' ;", connection);
                         ds.Reset();
                         Adapter.Fill(ds);
 
@@ -2490,12 +2779,16 @@ namespace WindowsFormsApplication1
                         {
                             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                             {
-                                LVEXP.Items.Add(ds.Tables[0].Rows[i]["item_num"].ToString());
-                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
+                               
+
+                                LVEXP.Items.Add(ds.Tables[0].Rows[i]["inventory_num"].ToString());
                                 LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["po_id"].ToString());
-                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["setmonthdateExp"].ToString());
+                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_name"].ToString());
                                 LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["item_unit"].ToString());
+                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["dateExp"].ToString());
+                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "price")].ToString());
                                 LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i]["ending"].ToString());
+                                LVEXP.Items[LVEXP.Items.Count - 1].SubItems.Add(ds.Tables[0].Rows[i][string.Format("{0:#,##0.##}", "total")].ToString());
                             }
 
                             expiredNow();
@@ -2617,13 +2910,13 @@ namespace WindowsFormsApplication1
 
         private void LVEXP_MouseClick(object sender, MouseEventArgs e)
         {
-            textID = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[0].Text);
-            expname = LVEXP.SelectedItems[0].SubItems[1].Text;
-            expiredBatchNo = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[2].Text);
-            expdate = LVEXP.SelectedItems[0].SubItems[3].Text;
-            expunit = LVEXP.SelectedItems[0].SubItems[4].Text;
-            expPrice = Convert.ToDouble(LVEXP.SelectedItems[0].SubItems[5].Text);
-            expstock = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[6].Text);
+            //textID = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[0].Text);
+            //expname = LVEXP.SelectedItems[0].SubItems[1].Text;
+            //expiredBatchNo = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[2].Text);
+            //expdate = LVEXP.SelectedItems[0].SubItems[3].Text;
+            //expunit = LVEXP.SelectedItems[0].SubItems[4].Text;
+            //expPrice = Convert.ToDouble(LVEXP.SelectedItems[0].SubItems[5].Text);
+            //expstock = Convert.ToInt32(LVEXP.SelectedItems[0].SubItems[6].Text);
 
         }
 
@@ -2634,7 +2927,7 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < LVEXP.Items.Count; i++)
             {
-                ColumnAvg += int.Parse(LVEXP.Items[i].SubItems[5].Text);
+               // ColumnAvg += int.Parse(LVEXP.Items[i].SubItems[5].Text);
             }
 
             exp = Convert.ToInt32(ColumnAvg.ToString());
@@ -3332,7 +3625,7 @@ namespace WindowsFormsApplication1
 
         void categorySettings()
         {
-            Cmd = new MySqlCommand("SELECT * from item_category where catNum", connection);
+            Cmd = new MySqlCommand("SELECT * from item_category where id", connection);
 
             try
             {
@@ -3344,7 +3637,7 @@ namespace WindowsFormsApplication1
 
                 while (Reader.Read())
                 {
-                    string sid = Reader.GetString("catName");
+                    string sid = Reader.GetString("category_name");
 
 
                     cbcat.Items.Add(sid);                   
@@ -3367,7 +3660,7 @@ namespace WindowsFormsApplication1
 
         void unitCat()
         {
-            Cmd = new MySqlCommand("SELECT * from supplier where supid", connection);
+            Cmd = new MySqlCommand("SELECT * from supplier where id", connection);
 
             try
             {
@@ -3379,7 +3672,7 @@ namespace WindowsFormsApplication1
 
                 while (Reader.Read())
                 {
-                    string sid = Reader.GetString("SupName");
+                    string sid = Reader.GetString("sup_name");
                     // string sid1 = Reader.GetString("SuppAd");
 
 
@@ -3388,6 +3681,7 @@ namespace WindowsFormsApplication1
                     cb_set_supplier.Items.Add(sid);
                     tbsupplier.Items.Add(sid);
                     cbsupup.Items.Add(sid);
+                    cb_suppliername.Items.Add(sid);
                 }
             }
             catch (Exception ex)
@@ -3429,7 +3723,7 @@ namespace WindowsFormsApplication1
 
         void unitMeasure()
         {
-            Cmd = new MySqlCommand("SELECT * from unitmeasure where unitNum", connection);
+            Cmd = new MySqlCommand("SELECT * from unit_measure where id", connection);
 
             try
             {
@@ -3441,7 +3735,7 @@ namespace WindowsFormsApplication1
 
                 while (Reader.Read())
                 {
-                    string sid = Reader.GetString("unit");
+                    string sid = Reader.GetString("unit_name");
 
                     //unit2.Items.Add(sid);
                     cb_set_unit.Items.Add(sid);
@@ -3462,7 +3756,7 @@ namespace WindowsFormsApplication1
 
         void getitemunit()
         {
-            Cmd = new MySqlCommand("SELECT * from item_unit where unit_id", connection);
+            Cmd = new MySqlCommand("SELECT * from item_unit where id", connection);
 
             try
             {
@@ -3534,7 +3828,7 @@ namespace WindowsFormsApplication1
             {
                 connection.Close();
                 connection.Open();
-                string sql = "SELECT *  FROM supplier WHERE SupName LIKE  '" + cb_set_supplier.Text + "' ";
+                string sql = "SELECT *  FROM supplier WHERE sup_name LIKE  '" + cb_set_supplier.Text + "' ";
                 Cmd = new MySqlCommand(sql, connection);
                 //  connection.Open();
                 Reader = Cmd.ExecuteReader();
@@ -3542,7 +3836,7 @@ namespace WindowsFormsApplication1
               
                 if (Reader.Read())
                 {
-                    supnametxt.Text = Reader.GetString("SupName");
+                    supnametxt.Text = Reader.GetString("sup_name");
                     //supaddtxt.Text = Reader.GetString("SuppAd");
 
                 }
@@ -3584,7 +3878,7 @@ namespace WindowsFormsApplication1
             //        string insert = "INSERT INTO log (username ,password)"
             //+ "VALUES('" + tun.Text + "', '" + tpw.Text + "');";
 
-                    Cmd = new MySqlCommand("INSERT into supplier (SupName)"
+                    Cmd = new MySqlCommand("INSERT into supplier (sup_name)"
                                             + "values('" + supnametxt.Text + "')", connection);
                     try
                     {
@@ -3593,13 +3887,17 @@ namespace WindowsFormsApplication1
                             cb_set_supplier.Items.Clear();
                             tbsupplier.Items.Clear();
                             cbsupup.Items.Clear();
+                            cb_suppliername.Items.Clear();
                             unitCat();
                             cb_set_supplier.Text = "Select Supplier";
                             tbsupplier.Text = "Select";
                             cbsupup.Text = "Select";
-                            
+                            cb_suppliername.Text = "Select Supplier";
 
-                            MessageBox.Show("Adding " + supnametxt.Text + "as New Supplier is succesfully added", "CATEGORY UNIT SETTINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+                            MessageBox.Show("Adding " + supnametxt.Text + " as New Supplier is succesfully added", "CATEGORY UNIT SETTINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             supnametxt.Text = "";
                         }
 
@@ -3637,7 +3935,7 @@ namespace WindowsFormsApplication1
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("Update supplier set SupName = '" + supnametxt.Text + "' where Supname = '" + cb_set_supplier.Text + "'", connection);
+                    Cmd = new MySqlCommand("Update supplier set sup_name = '" + supnametxt.Text + "' where sup_name = '" + cb_set_supplier.Text + "'", connection);
                     try
                     {
                         if (Cmd.ExecuteNonQuery() == 1)
@@ -3645,14 +3943,16 @@ namespace WindowsFormsApplication1
                             cb_set_supplier.Items.Clear();
                             cbsupup.Items.Clear();
                             tbsupplier.Items.Clear();
+                            cb_suppliername.Items.Clear();
                             unitCat();
-                            cb_set_supplier.Text = "select category";
+                            cb_set_supplier.Text = "Select Supplier";
                             cbsupup.Text = "Select";
                             tbsupplier.Text = "Select";
-                            
+                            cb_suppliername.Text = "Select Supplier";
+
 
                           //  MessageBox.Show("Supplier" + tb_prod.Text + " is Successfuly Updated", "CATEGORY UNIT SETTINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                           // tb_prod.Text = "";
+                          // tb_prod.Text = "";
                         }
 
                     }
@@ -3690,7 +3990,7 @@ namespace WindowsFormsApplication1
                         connection.Close();
                         connection.Open();
 
-                        Cmd = new MySqlCommand("INSERT into unitmeasure (unit)"
+                        Cmd = new MySqlCommand("INSERT into unit_measure (unit_name)"
                                                 + "values('" + tb_setunit.Text + "')", connection);
                         try
                         {
@@ -3727,7 +4027,7 @@ namespace WindowsFormsApplication1
                         connection.Close();
                         connection.Open();
 
-                        Cmd = new MySqlCommand("INSERT into unitcategory (ucatName)"
+                        Cmd = new MySqlCommand("INSERT into unit_category (category_name)"
                                                 + "values('" + tb_setunit.Text + "')", connection);
                         try
                         {
@@ -3834,7 +4134,7 @@ namespace WindowsFormsApplication1
                         connection.Close();
                         connection.Open();
 
-                        Cmd = new MySqlCommand("Update unitmeasure set unit = '" + tb_setunit.Text + "' where unit = '" + cb_set_unit.Text + "'", connection);
+                        Cmd = new MySqlCommand("Update unit_measure set unit_name = '" + tb_setunit.Text + "' where unit_name = '" + cb_set_unit.Text + "'", connection);
                         try
                         {
                             if (Cmd.ExecuteNonQuery() == 1)
@@ -3868,7 +4168,7 @@ namespace WindowsFormsApplication1
                         connection.Close();
                         connection.Open();
 
-                        Cmd = new MySqlCommand("Update unitcategory set ucatName = '" + tb_setunit.Text + "' where ucatName = '" + cb_set_unit.Text + "'", connection);
+                        Cmd = new MySqlCommand("Update unit_category set category_name = '" + tb_setunit.Text + "' where category_name = '" + cb_set_unit.Text + "'", connection);
                         try
                         {
                             if (Cmd.ExecuteNonQuery() == 1)
@@ -4318,48 +4618,7 @@ namespace WindowsFormsApplication1
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != '.');
         }
 
-        //reordered lvl notif
-        string sampleID;
-        int rstock = 0;
-        int reordered_num = 0;
-        void reOrdered_level()
-        {
-
-            string sql = "SELECT * FROM drug WHERE ItemID ='" + sampleID + "' ";
-            Cmd = new MySqlCommand(sql, connection);
-
-            connection.Open();
-            //execute reader
-            Reader = Cmd.ExecuteReader();
-
-            if (Reader.Read())
-            {
-                reordered_num = Reader.GetInt32("reOrdered");
-                rstock = Reader.GetInt32("stockQty");
-
-                // samplestock.Text = Convert.ToString(rstock);
-
-                //condition for reOrdered vs. stock
-                if (reordered_num < rstock)
-                {
-                    // MessageBox.Show("your stock is Good", "INFORMATION", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("your stock is " + rstock + " and it's running out!", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                }
-
-            }
-            else
-            {
-
-                MessageBox.Show("NO DATA FILL");
-            }
-            Reader.Close();
-
-            connection.Close();
-        }
-
+        
         //this is for po save item
 
         string iid;
@@ -4688,7 +4947,7 @@ namespace WindowsFormsApplication1
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("INSERT into item_category (catName)"
+                    Cmd = new MySqlCommand("INSERT into item_category (category_name)"
                                             + "values('" + tbcat.Text + "')", connection);
                     try
                     {
@@ -4748,7 +5007,7 @@ namespace WindowsFormsApplication1
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("Update item_category set catName = '" + tbcat.Text + "' where catName = '" + cbcat.Text + "'", connection);
+                    Cmd = new MySqlCommand("Update item_category set category_name = '" + tbcat.Text + "' where category_name = '" + cbcat.Text + "'", connection);
                     try
                     {
                         if (Cmd.ExecuteNonQuery() == 1)
@@ -4859,7 +5118,7 @@ namespace WindowsFormsApplication1
         {
           // Cmd = new MySqlCommand("SELECT po_id, item_num, pocategory, poitem, pounit, poqty1, Date FROM purchase_order WHERE poqty1 !=0 ORDER BY poitem ASC", connection);
 
-           Cmd = new MySqlCommand("SELECT po_id, item_num, pocategory, item_name, item_unit, ending, date FROM inventory_logs WHERE ending !=0 && status = 0 ORDER BY item_name ASC", connection);
+           Cmd = new MySqlCommand("SELECT po_id, id, category, item_name, unit, ending_qty, created_at FROM po_section WHERE ending_qty !=0 && status = 0 ORDER BY item_name ASC", connection);
 
             try
             {
@@ -4908,7 +5167,89 @@ namespace WindowsFormsApplication1
             unitris = LVSearch.SelectedItems[0].SubItems[4].Text;
             poqtyris = LVSearch.SelectedItems[0].SubItems[5].Text;
 
+
+
             qtysearch.Value = 0;
+            //notify_reorder_lvl();
+            reOrdered_level();
+        }
+
+        //reordered lvl notif
+        string sampleID;
+        int rstock = 0;
+        int reordered_num = 0;
+        
+        void reOrdered_level()
+        {
+
+            string sql = "SELECT * FROM inventory_logs WHERE item_num ='" + idris + "' && po_id = '"+ poidsearch + "' ";
+            Cmd = new MySqlCommand(sql, connection);
+
+            connection.Close();
+            connection.Open();
+            //execute reader
+            Reader = Cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                reordered_num = Reader.GetInt32("reorder_lvl");
+                rstock = Reader.GetInt32("ending");
+                string item_name = Reader.GetString("item_name");
+                //MessageBox.Show("The po_id is selected", "FOUND", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // samplestock.Text = Convert.ToString(rstock);
+
+                //condition for reOrdered vs. stock
+                if (reordered_num < rstock)
+                {
+                    MessageBox.Show("your stock is Good", "INFORMATION", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Your stock "+ item_name + " has " + rstock + " pc(s) and it's running out!", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+
+            }
+            else
+            {
+
+                MessageBox.Show("NO DATA FILL");
+            }
+            Reader.Close();
+
+            connection.Close();
+        }
+
+
+        void notify_reorder_lvl()
+        {
+            //poidsearch
+            //if (poqtyris<)
+
+            try
+            {
+                string sql = "SELECT *  FROM inventory_logs WHERE item_num LIKE  '" + idris + "' ";
+                Cmd = new MySqlCommand(sql, connection);
+
+                connection.Close();
+                connection.Open();
+                Reader = Cmd.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    MessageBox.Show("The po_id is selected", "FOUND", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("po id not found", "FOUND", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //panelsearch.BringToFront();
+                    //panelsearch.Visible = true;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         
@@ -5638,7 +5979,7 @@ namespace WindowsFormsApplication1
 
         void depFill()
         {
-            Cmd = new MySqlCommand("SELECT * from Department where depnum", connection);
+            Cmd = new MySqlCommand("SELECT * from department where id", connection);
 
             try
             {
@@ -5650,7 +5991,7 @@ namespace WindowsFormsApplication1
 
                 while (Reader.Read())
                 {
-                    string sid = Reader.GetString("depname");
+                    string sid = Reader.GetString("dep_name");
 
 
                     cbdepartment.Items.Add(sid);
@@ -5672,23 +6013,29 @@ namespace WindowsFormsApplication1
 
         void nameFill()
         {
-            Cmd = new MySqlCommand("SELECT * from employee where empnum", connection);
+            Cmd = new MySqlCommand("SELECT * from signature where id", connection);
 
             try
             {
                 connection.Close();
-
                 connection.Open();
                 Reader = Cmd.ExecuteReader();
-
 
                 while (Reader.Read())
                 {
                     string sid = Reader.GetString("fullname");
+                    string category = Reader.GetString("category");
 
 
                     cbfullname.Items.Add(sid);
                     cbrequest.Items.Add(sid);
+
+                    //cb_categorySignature.Items.Clear();
+                    
+                    //cb_categorySignature.Text = category.ToString();
+                   // cb_categorySignature.Items.Add(category);
+
+
                     cbreceived.Items.Add(sid);
                     cbissued.Items.Add(sid);
                     cbreqbypo.Items.Add(sid);
@@ -5867,7 +6214,7 @@ namespace WindowsFormsApplication1
         private void btnsaveproduct_Click(object sender, EventArgs e)
         {
            
-            if (ProductName.Text == "" && addproductcategory.Text == "Select Item Category" && unitPrice.Value == 0)
+            if (ProductName.Text == "" && cb_suppliername.Text =="" && addproductcategory.Text == "Select Item Category" && unitPrice.Value == 0)
             {
                 MessageBox.Show("Pls. Input the required Information.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -5875,7 +6222,7 @@ namespace WindowsFormsApplication1
             {
                 if(cbcategoryunit.Text=="Select" && cbaddunitmeasure.Text=="Select" && cbaddunit.Text== "Select")
                 {
-                    getunitforitem = "N/A";
+                    getunitforitem = "N/A N/A N/A";
                 }
                 else
                 {
@@ -5886,11 +6233,11 @@ namespace WindowsFormsApplication1
                 connection.Close();
                 connection.Open();
 
-                Cmd = new MySqlCommand("INSERT into item_product (Product_name, Category, Unit_id, unitPrice)" + 
-                "values('" + ProductName.Text + "', '" + addproductcategory.Text + "', '" + getunitforitem + "', '"+ unitPrice.Value + "')", connection);
+                Cmd = new MySqlCommand("INSERT into item_product (item_name, category, supplier, unit, unit_price)" + 
+                "values('" + ProductName.Text + "', '" + addproductcategory.Text + "', '"+ cb_suppliername.Text + "', '" + getunitforitem + "', '"+ unitPrice.Value + "')", connection);
                 try
-                {
-                    if (Cmd.ExecuteNonQuery() == 1)
+                {                        retrieve();
+
                     {
                         
                         ProductName.Text = "";
@@ -5899,6 +6246,7 @@ namespace WindowsFormsApplication1
                         cbcategoryunit.Text = "Select";
                         cbaddunitmeasure.Text = "Select";
                         cbaddunit.Text = "Select";
+                        
                         unitPrice.Value = 0;
 
                         MessageBox.Show("Item successfully saved!", "ADD ITEM SETTINGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -5906,9 +6254,11 @@ namespace WindowsFormsApplication1
                         LVitem.Items.Clear();
                         retrieveItem();
                         LVPOSEARCH.Items.Clear();
+                        cb_suppliername.Items.Clear();
                         //retrieve_LVPOSEARCH();
                         retrievePOSEARCH();
                         LVSearch.Items.Clear();
+                        cb_suppliername.Text = "Select Supplier";
 
                         //getting the data from database
                         cbcatsearch();
@@ -5928,7 +6278,7 @@ namespace WindowsFormsApplication1
 
         void unitcat()
         {
-            Cmd = new MySqlCommand("SELECT * from unitcategory order by ucatNum", connection);
+            Cmd = new MySqlCommand("SELECT * from unit_category order by id", connection);
 
             try
             {
@@ -5940,7 +6290,7 @@ namespace WindowsFormsApplication1
 
                 while (Reader.Read())
                 {
-                    string sid = Reader.GetString("ucatName");
+                    string sid = Reader.GetString("category_name");
 
                     //unit2.Items.Add(sid);
                     cb_set_unit.Items.Add(sid);
@@ -5960,7 +6310,7 @@ namespace WindowsFormsApplication1
 
         void unitFormedicine()
         {
-            Cmd = new MySqlCommand("SELECT * from item_unit order by unit_id", connection);
+            Cmd = new MySqlCommand("SELECT * from item_unit order by id", connection);
 
             try
             {
@@ -6019,9 +6369,7 @@ namespace WindowsFormsApplication1
         {
             tb_setunit.Text = "";
             cb_set_unit.Text = "select";
-            selectUnit();
-
-            
+            selectUnit();            
         }
 
         private void btnsave5_Click_1(object sender, EventArgs e)
@@ -6031,8 +6379,6 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Input first the required field", "DEPARTMENT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 // lblalertprod.Visible = true;
                 //tb_prod.BorderColorIdle = Color.Red;
-
-
             }
             else
             {
@@ -6041,7 +6387,7 @@ namespace WindowsFormsApplication1
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("INSERT into Department (depname)"
+                    Cmd = new MySqlCommand("INSERT into department (dep_name)"
                                             + "values('" + tbdepartment.Text + "')", connection);
                     try
                     {
@@ -6093,7 +6439,7 @@ namespace WindowsFormsApplication1
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("Update Department set depname = '" + tbdepartment.Text + "' where depname = '" + cbdepartment.Text + "'", connection);
+                    Cmd = new MySqlCommand("Update department set dep_name = '" + tbdepartment.Text + "' where dep_name = '" + cbdepartment.Text + "'", connection);
                     try
                     {
                         if (Cmd.ExecuteNonQuery() == 1)
@@ -6129,7 +6475,7 @@ namespace WindowsFormsApplication1
 
         private void btnsavefn_Click_1(object sender, EventArgs e)
         {
-            if (tbfullname.Text == "")
+            if (tbfullname.Text == "" && cb_categorySignature.Text == "Select Category")
             {
                 MessageBox.Show("Input first the required field", "EMPLOYEE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 // lblalertprod.Visible = true;
@@ -6139,13 +6485,13 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                if (MessageBox.Show("Are you sure to Add " + tbfullname.Text + " as new Employee?", "EMPLOYEE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure to Add " + tbfullname.Text + " as new " + cb_categorySignature.Text + " ?", "EMPLOYEE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("INSERT into employee (fullname)"
-                                            + "values('" + tbfullname.Text + "')", connection);
+                    Cmd = new MySqlCommand("INSERT into signature (fullname, category)"
+                                            + "values('" + tbfullname.Text + "','" + cb_categorySignature.Text + "')", connection);
                     try
                     {
                         if (Cmd.ExecuteNonQuery() == 1)
@@ -6159,6 +6505,7 @@ namespace WindowsFormsApplication1
                             cblogreq.Items.Clear();
                             cblogissued.Items.Clear();
                             cblogreceived.Items.Clear();
+                            cb_categorySignature.Items.Clear();
 
                             nameFill();
                             cbfullname.Text = "Select Employee";
@@ -6172,7 +6519,7 @@ namespace WindowsFormsApplication1
                             cblogreq.Text = "Select";
                             cblogissued.Text = "Select";
                             cblogreceived.Text = "Select";
-
+                            cb_categorySignature.Text = "Select Category";
                             MessageBox.Show("Employee " + tbfullname.Text + " is Successfuly Added", "EMPLOYEE", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         }
@@ -6194,22 +6541,21 @@ namespace WindowsFormsApplication1
 
         private void btnupdatefn_Click_1(object sender, EventArgs e)
         {
-            if (tbfullname.Text == "")
+            if (tbfullname.Text == "" && cb_categorySignature.Text == "Select Category")
             {
                 MessageBox.Show("Input first the required field", "EMPLOYEE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 // lblalertprod.Visible = true;
                 //tb_prod.BorderColorIdle = Color.Red;
 
-
             }
             else
             {
-                if (MessageBox.Show("Are you sure, you want to Edit " + cbfullname.Text + " as " + tbfullname.Text + " EMPLOYEE?", "EMPLOYEE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure, you want to Edit " + cbfullname.Text + " as " + tbfullname.Text + " ," + cb_categorySignature.Text + " ?", "EMPLOYEE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     connection.Close();
                     connection.Open();
 
-                    Cmd = new MySqlCommand("Update employee set fullname = '" + tbfullname.Text + "' where fullname = '" + cbfullname.Text + "'", connection);
+                    Cmd = new MySqlCommand("Update signature set fullname = '" + tbfullname.Text + "' , category ='"+ cb_categorySignature.Text + "' where fullname = '" + cbfullname.Text + "'", connection);
                     try
                     {
                         if (Cmd.ExecuteNonQuery() == 1)
@@ -6223,6 +6569,7 @@ namespace WindowsFormsApplication1
                             cblogreq.Items.Clear();
                             cblogissued.Items.Clear();
                             cblogreceived.Items.Clear();
+                            cb_categorySignature.Items.Clear();
 
                             nameFill();
                             cbfullname.Text = "Select Employee";
@@ -6236,6 +6583,7 @@ namespace WindowsFormsApplication1
                             cblogreq.Text = "Select";
                             cblogissued.Text = "Select";
                             cblogreceived.Text = "Select";
+                            cb_categorySignature.Text = "Select Category";
 
                             MessageBox.Show("EMPLOYEE " + tbfullname.Text + " is now save", "EMPLOYEE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             tbfullname.Text = "";
@@ -6258,7 +6606,61 @@ namespace WindowsFormsApplication1
 
         private void cbfullname_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            //nameFill();
+           // tbfullname.Text = "";
+
+
             tbfullname.Text = cbfullname.Text;
+
+           
+                Cmd = new MySqlCommand("SELECT * from signature where fullname ='"+ tbfullname.Text + "' ", connection);
+
+                try
+                {
+                    connection.Close();
+                    connection.Open();
+                    Reader = Cmd.ExecuteReader();
+
+                    while (Reader.Read())
+                    {
+                       // string sid = Reader.GetString("fullname");
+                        string category = Reader.GetString("category");
+
+
+                      //  cbfullname.Items.Add(sid);
+                       // cbrequest.Items.Add(sid);
+
+                        cb_categorySignature.Items.Clear();
+
+                        cb_categorySignature.Text = category.ToString();
+                        //cb_categorySignature.Items.Add(category);
+
+
+                        //cbreceived.Items.Add(sid);
+                        //cbissued.Items.Add(sid);
+                        //cbreqbypo.Items.Add(sid);
+                        //cbapprovedpo.Items.Add(sid);
+                        //cblogreq.Items.Add(sid);
+                        //cblogissued.Items.Add(sid);
+                        //cblogreceived.Items.Add(sid);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                connection.Close();
+
+
+            //cb_categorySignature.Text = 
+            //cb_categorySignature.Items.Clear();
+
+            cb_categorySignature.Items.Add("Approved by");
+            cb_categorySignature.Items.Add("Issued by");
+            cb_categorySignature.Items.Add("Prepared by");
+            cb_categorySignature.Items.Add("Received by");
         }
 
         private void cbdepartment_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -6270,7 +6672,7 @@ namespace WindowsFormsApplication1
 
         private void retrieveItem()
         {
-            Cmd = new MySqlCommand("SELECT * FROM item_product", connection);
+            Cmd = new MySqlCommand("SELECT id, item_name, supplier, category, unit, unit_price FROM item_product", connection);
 
             try
             {
@@ -6282,7 +6684,7 @@ namespace WindowsFormsApplication1
 
                 foreach (DataRow row in dtforitem.Rows)
                 {
-                    itemproduct(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                    itemproduct(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
 
                 }
                 connection.Close();
@@ -6297,9 +6699,9 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void itemproduct(String id, String name, String brand, String unit, String unitPrice)
+        private void itemproduct(String id, String name, String supplier, String brand, String unit, String unitPrice)
         {
-            String[] row = { id, name, brand, unit , unitPrice };
+            String[] row = { id, name, supplier, brand, unit , unitPrice };
 
             ListViewItem item = new ListViewItem(row);
 
@@ -6336,6 +6738,7 @@ namespace WindowsFormsApplication1
 
                     ListViewItem list = LVitem.Items.Add(r["Product_id"].ToString());
                     list.SubItems.Add(r["Product_name"].ToString());
+                    list.SubItems.Add(r["supplier"].ToString());
                     list.SubItems.Add(r["Category"].ToString());
                     list.SubItems.Add(r["Unit_id"].ToString());
                     list.SubItems.Add(r["unitPrice"].ToString());
@@ -6353,16 +6756,33 @@ namespace WindowsFormsApplication1
             connection.Close();
         }
 
-         
 
+      //  string[] resultArray;
         private void LVitem_MouseClick(object sender, MouseEventArgs e)
         {
             tbitemid.Text = LVitem.SelectedItems[0].SubItems[0].Text;
             tbname.Text = LVitem.SelectedItems[0].SubItems[1].Text;
-            cbitemcat.Text = LVitem.SelectedItems[0].SubItems[2].Text;
-            getunitforitem = LVitem.SelectedItems[0].SubItems[3].Text;
-            editUnitPrice.Text = LVitem.SelectedItems[0].SubItems[4].Text;
+            cbSupplier.Text = LVitem.SelectedItems[0].SubItems[2].Text;
+            cbitemcat.Text = LVitem.SelectedItems[0].SubItems[3].Text;
 
+            //start explode
+            string getunitforitem = LVitem.SelectedItems[0].SubItems[4].Text;
+            string[] resultArray = getunitforitem.Split(new string[] { " " }, StringSplitOptions.None);
+
+            comboBox4.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox2.Items.Clear();
+
+            comboBox4.Text = resultArray[0];
+            comboBox3.Text = resultArray[1];
+            comboBox2.Text = resultArray[2];
+            //end explode
+
+            editUnitPrice.Text = LVitem.SelectedItems[0].SubItems[5].Text;
+
+            unitcat();
+            unitFormedicine();
+            unitMeasure();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -6387,7 +6807,7 @@ namespace WindowsFormsApplication1
                 if(MessageBox.Show("Are you sure do you want to update?", "UPDATE ITEM SETTINGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (tbitemid.Text == "" && tbname.Text == "" && cbitemcat.Text == "Select Item Category")
+                    if (tbname.Text == "" && cbitemcat.Text == "Select Item Category")
                     {
                         MessageBox.Show("Pls. Input the required Information.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -6397,9 +6817,9 @@ namespace WindowsFormsApplication1
                         {
                             if (getunitforitem == "")
                             {
-                                getunitforitem = "N/A";
+                                getunitforitem = "N/A N/A N/A";
                             }
-                            getunitforitem = "N/A";
+                            getunitforitem = "N/A N/A N/A";
 
                         }
                         else
@@ -6407,7 +6827,7 @@ namespace WindowsFormsApplication1
                             getunitforitem = comboBox4.Text + " " + comboBox3.Text + " " + comboBox2.Text;
                         }
 
-                        Cmd = new MySqlCommand("UPDATE item_product SET Product_id='" + tbitemid.Text + "', Product_name='" + tbname.Text + "', Category='" + cbitemcat.Text + "', Unit_id='" + getunitforitem + "' , unitPrice = '"+ editUnitPrice.Value + "'  WHERE Product_id = '" + tbitemid.Text + "'  ", connection);
+                        Cmd = new MySqlCommand("UPDATE item_product SET item_name='" + tbname.Text + "', category='" + cbitemcat.Text + "', supplier='" +cbSupplier.Text+ "', unit='" + getunitforitem + "' , unit_price = '"+ editUnitPrice.Text + "'  WHERE id = '" + tbitemid.Text + "'  ", connection);
 
                         connection.Close();
                         connection.Open();
@@ -6528,7 +6948,7 @@ namespace WindowsFormsApplication1
         
         private void retrievePOSEARCH()
         {
-            Cmd = new MySqlCommand("SELECT * FROM item_product ORDER BY Product_name ASC ", connection);
+            Cmd = new MySqlCommand("SELECT * FROM item_product ORDER BY item_name ASC ", connection);
 
             try
             {
@@ -6685,7 +7105,7 @@ namespace WindowsFormsApplication1
                 Cmd.Connection = connection;
 
 
-                Cmd.CommandText = "SELECT * FROM item_product WHERE Category LIKE '%" + cbcategoryitem.Text + "%' ORDER BY Product_name ASC ";
+                Cmd.CommandText = "SELECT * FROM item_product WHERE category LIKE '%" + cbcategoryitem.Text + "%' ORDER BY item_name ASC ";
 
                 Adapter = new MySqlDataAdapter();
 
@@ -6698,11 +7118,12 @@ namespace WindowsFormsApplication1
                 foreach (DataRow r in datasearch.Rows)
                 {
 
-                    ListViewItem list = LVPOSEARCH.Items.Add(r["Product_id"].ToString());
-                    list.SubItems.Add(r["Product_name"].ToString());
-                    list.SubItems.Add(r["Category"].ToString());
-                    list.SubItems.Add(r["Unit_id"].ToString());
-                    list.SubItems.Add(r["unitPrice"].ToString());
+                    ListViewItem list = LVPOSEARCH.Items.Add(r["id"].ToString());
+                    list.SubItems.Add(r["item_name"].ToString());
+                    list.SubItems.Add(r["category"].ToString());
+                   // list.SubItems.Add(r["supplier"].ToString());
+                    list.SubItems.Add(r["unit"].ToString());
+                    list.SubItems.Add(r["unit_price"].ToString());
 
                 }
 
@@ -6750,7 +7171,7 @@ namespace WindowsFormsApplication1
                 Cmd.Connection = connection;
 
 
-                Cmd.CommandText = "SELECT * FROM item_product WHERE Product_name LIKE '%" + tbsearchpoitem.Text + "%' ORDER BY Product_name ASC ";
+                Cmd.CommandText = "SELECT * FROM item_product WHERE item_name LIKE '%" + tbsearchpoitem.Text + "%' ORDER BY id ASC ";
 
                 Adapter = new MySqlDataAdapter();
 
@@ -6763,12 +7184,12 @@ namespace WindowsFormsApplication1
                 foreach (DataRow r in datasearch2.Rows)
                 {
 
-                    ListViewItem list = LVPOSEARCH.Items.Add(r["Product_id"].ToString());
-                    list.SubItems.Add(r["Product_name"].ToString());
-                    list.SubItems.Add(r["Category"].ToString());
-                    list.SubItems.Add(r["Unit_id"].ToString());
-                    list.SubItems.Add(r["unitPrice"].ToString());
-
+                    ListViewItem list = LVPOSEARCH.Items.Add(r["id"].ToString());
+                    list.SubItems.Add(r["item_name"].ToString());
+                    list.SubItems.Add(r["category"].ToString());
+                   // list.SubItems.Add(r["supplier"].ToString());
+                    list.SubItems.Add(r["unit"].ToString());
+                    list.SubItems.Add(r["unit_price"].ToString());
                 }
 
 
@@ -7125,6 +7546,69 @@ namespace WindowsFormsApplication1
         private void pictureBox9_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show("you clicked me!");
+        }
+
+        private void cb_batchno_MouseClick(object sender, MouseEventArgs e)
+        {
+            PMLV.Items.Clear();
+            retrieveInventory();
+        }
+
+        private void cb_expBatch_MouseClick(object sender, MouseEventArgs e)
+        {
+            LVEXP.Items.Clear();
+            generateExpiredMeds();
+        }
+
+        private void cbfullname_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbfullname.Text = "";
+            cb_categorySignature.Items.Clear();
+            cb_categorySignature.Text = "Select Category";
+            cb_categorySignature.Items.Add("Approved by");
+            cb_categorySignature.Items.Add("Issued by");
+            cb_categorySignature.Items.Add("Prepared by");
+            cb_categorySignature.Items.Add("Received by");
+
+            cbfullname.Text = "Select Employee";
+            cbfullname.Items.Clear();
+            nameFill();
+        }
+
+        private void cbdepartment_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbdepartment.Text = "";
+            cbdepartment.Text = "Select Department";
+        }
+
+        private void cbcat_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbcat.Text = "Select Category";
+            tbcat.Text = "";
+        }
+
+        private void cbunitSelector_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbunitSelector.Text = "select";
+            cb_set_unit.Text = "select";
+            tb_setunit.Text = "";
+            cb_set_unit.Items.Clear();
+        }
+
+        private void cb_set_supplier_MouseClick(object sender, MouseEventArgs e)
+        {
+            cb_set_supplier.Text = "Select Supplier";
+            supnametxt.Text = "";
+        }
+
+        private void LVPOSEARCH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_suppliername_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }//end
 

@@ -11,7 +11,7 @@ namespace WindowsFormsApplication1
     public static class Database
     {
         //creating require variable
-        static string database = "mahesecoinventory";
+        static string database = "maheseco_inventory";
         static string server = "127.0.0.1";
         static string port = "3306";
         static string username = "root";

@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
             }
             else if (load.Width == 270)
             {
-                load.BackColor = Color.Lime;
+                ///load.BackColor = Color.Lime;
                // bar.BackColor = Color.Yellow;
                 label1.Text = "preparing Inventory UI...";
             }

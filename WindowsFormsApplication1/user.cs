@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
             User user = null; //not create object
             user = new User();
 
-            string query = "SELECT * FROM log WHERE username= @username AND password= @password";
+            string query = "SELECT * FROM user WHERE username= @username AND password= @password";
 
             try
             {
@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
                     user.username = reader["username"].ToString();//array reader index
                     user.password = reader["password"].ToString();
                     user.position = reader.GetString("position");
-                    user.pos_id = reader.GetString("uid");
+                    user.pos_id = reader.GetString("id");
                 }
                 reader.Close();
 
